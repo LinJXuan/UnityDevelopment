@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RpgScript : MonoBehaviour
 {
@@ -10,20 +11,49 @@ public class RpgScript : MonoBehaviour
     public GameObject enemy;
     public enum State { stop,left,right,skillOne,skillTwo,skillThree,skillFour}
     public State currentState = State.stop;
-    //无限地图
-    public RoadLoop roadloop;
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Airpos")
-        {
-            roadloop.changeroad(other.transform);
 
+    /*
+     * 无限地图
+     */
+    public Transform Player;
+    private Vector3 initPosition;
+    public List<Transform> roadlist = new List<Transform>();
+    public List<Transform> walllist = new List<Transform>();
+    public void infMap()
+    {
+        int lastIndex = roadlist.Count - 1;
+        if (Player.position.x - initPosition.x >= 50f)
+        {
+            roadlist[0].position = roadlist[lastIndex].position + new Vector3(50f, 0, 0);
+            walllist[0].position = walllist[lastIndex].position + new Vector3(50f, 0, 0);
+
+            initPosition = Player.position;
+            Transform t = roadlist[0];
+            roadlist.RemoveAt(0);
+            roadlist.Insert(lastIndex, t);
+            t = walllist[0];
+            walllist.RemoveAt(0);
+            walllist.Insert(lastIndex, t);
+        }
+        else if (Player.position.x-initPosition.x<=-50)
+        {
+            roadlist[lastIndex].position = roadlist[0].position - new Vector3(50f, 0, 0);
+            walllist[lastIndex].position = walllist[0].position - new Vector3(50f, 0, 0);
+
+            initPosition = Player.position;
+            Transform t = roadlist[lastIndex];
+            roadlist.RemoveAt(lastIndex);
+            roadlist.Insert(0, t);
+            t = walllist[0];
+            walllist.RemoveAt(lastIndex);
+            walllist.Insert(0, t);
         }
     }
-    // Start is called before the first frame update
+
     void Start()
     {
-        enemy=GameObject.Find("RPG-enemy");
+        initPosition = Player.position;
+        enemy =GameObject.Find("RPG-enemy");
          enemy.SetActive(false);
         // enemy.SetActive(false);
         Debug.Log("11111");
@@ -33,7 +63,8 @@ public class RpgScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((int)Time.time==3)
+        infMap();
+        if ((int)Time.time==3)
         {
          enemy.SetActive(true);
         }
@@ -135,4 +166,7 @@ public class RpgScript : MonoBehaviour
 
         }
     }
+
+
+
 }
