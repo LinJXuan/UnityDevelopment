@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 public class moveListener : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     private int state;
+    private RpgScript playerState;
+
     public void setState(int i)
     {
         state = i;
@@ -13,18 +15,19 @@ public class moveListener : MonoBehaviour, IPointerUpHandler, IPointerDownHandle
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        GameObject.Find("RPG-Character").GetComponent<RpgScript>().setState(state);
+        print("move state ===>" + state);
+        playerState.setState(state);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        GameObject.Find("RPG-Character").GetComponent<RpgScript>().setState(0);
+        playerState.setState(0);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerState = GameObject.Find("RPG-Character").GetComponent<RpgScript>();
     }
 
     // Update is called once per frame

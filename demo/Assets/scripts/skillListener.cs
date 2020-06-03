@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 public class skillListener : MonoBehaviour, IPointerUpHandler,IPointerClickHandler
 {
     private int state;
+    private RpgScript playerState;
+
     public void setState(int i)
     {
         state = i;
@@ -12,18 +14,18 @@ public class skillListener : MonoBehaviour, IPointerUpHandler,IPointerClickHandl
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        GameObject.Find("RPG-Character").GetComponent<RpgScript>().setState(state);
+        playerState.setState(state);
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        GameObject.Find("RPG-Character").GetComponent<RpgScript>().setState(0);
+        playerState.setState(0);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerState = GameObject.Find("RPG-Character").GetComponent<RpgScript>();
     }
 
     // Update is called once per frame

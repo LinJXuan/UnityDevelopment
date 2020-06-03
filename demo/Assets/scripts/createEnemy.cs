@@ -2,29 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class createEnemy : MonoBehaviour
+public class CreateEnemy : MonoBehaviour
 {
     public float totalTime = 3;
     private float dtTime;
-    public GameObject gobj;
-    private Vector3 position;
+    public GameObject gobjL;
+    public GameObject gobjR;
+    private Vector3 positionL;
+    private Vector3 positionR;
+    private int count = 0;
     // Start is called before the first frame update
     void Start()
     {
         dtTime = totalTime;
-        position = gobj.transform.localPosition;
+        positionR = gobjR.transform.localPosition;
+        positionL = gobjL.transform.localPosition;
     }
 
     // Update is called once per frame
     void Update()
     {
         dtTime -= Time.deltaTime;
-        if (dtTime < 0)
+        if (dtTime < 0&&count<9)
         {
+            count++;
             dtTime = totalTime;
-            var obj = GameObject.Instantiate(gobj);
-            obj.transform.localPosition = position;
-            obj.AddComponent<enemyController>();
+            var objR = GameObject.Instantiate(gobjR);
+            objR.transform.localPosition = positionR;
+            objR.AddComponent<EnemyController>();
+
+            var objL = GameObject.Instantiate(gobjL);
+            gobjL.transform.localPosition = positionL;
+            gobjL.AddComponent<EnemyController>();
         }
     }
 }

@@ -8,7 +8,7 @@ public class RpgScript : MonoBehaviour
     public float speed=1;
     private bool right=true;
     public GameObject enemy;
-    public enum State { stop,left,right,skillOne,skillTwo,skillThree,skillFour}
+    public enum State { dead,stop,left,right,skillOne,skillTwo,skillThree,skillFour}
     public State currentState = State.stop;
     //无限地图
     public RoadLoop roadloop;
@@ -23,10 +23,8 @@ public class RpgScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        enemy=GameObject.Find("RPG-enemy");
-         enemy.SetActive(false);
-        // enemy.SetActive(false);
-        Debug.Log("11111");
+        enemy=GameObject.Find("RPG-enemy R");
+        enemy.SetActive(false);
         anim =GetComponent<Animator>();
     }
 
@@ -35,59 +33,61 @@ public class RpgScript : MonoBehaviour
     {
         if((int)Time.time==3)
         {
-         enemy.SetActive(true);
+            enemy.SetActive(true);
         }
+
+        if(PlayerAttribute.hp == 0)
+        {
+            currentState = State.dead;
+        }
+
+        if(currentState == State.dead)
+        {
+            anim.SetBool("dead", true);
+        }
+
         if(currentState == State.left)
         {
-            // if(right==true){
-            //     transform.Rotate(new Vector3(0,1*Time.deltaTime*300,0));
-            //     if(transform.rotation == Quaternion.Euler(new Vector3(0,180,0))){
-            //           this.right=false;
-            //          anim.SetBool("walk",true);
-            //        transform.Translate( new Vector3(0,0,-1) * speed * Time.deltaTime);  
-            //     }
-            // }
             anim.SetBool("walk",true);
           transform.Translate( new Vector3(0,0,-1) * speed * Time.deltaTime); 
-            
         }
         
         if(currentState ==State.right)
         {
-            // if(right==false){
-            //     transform.Rotate(new Vector3(0,1*Time.deltaTime*100,0));
-            //     if(transform.rotation.y==0){
-            //           this.right=true;
-            //           return ;  
-            //     }
-            // }
             anim.SetBool("walk",true);
             transform.Translate( new Vector3(0,0,1) * speed * Time.deltaTime);
         }
+
         if(currentState == State.stop)
         {
              
             anim.SetBool("walk",false);
         }
-        //if(Input.GetKeyUp(KeyCode.D))
-        //{
-             
-        //    anim.SetBool("walk",false);
-        //}
-        if(currentState == State.skillOne){
+       
+        if(currentState == State.skillOne)
+        {
 
             anim.SetTrigger("Q Trigger");
         }
-        if(currentState ==State.skillTwo){
+
+        if(currentState ==State.skillTwo)
+        {
 
             anim.SetTrigger("W Trigger");
-        }if(currentState == State.skillThree){
+        }
+
+        if (currentState == State.skillThree)
+        {
 
             anim.SetTrigger("E Trigger");
-        }if(currentState == State.skillFour){
+        }
+
+        if (currentState == State.skillFour)
+        {
 
             anim.SetTrigger("R Trigger");
         }
+
         if (currentState != State.left && currentState != State.right)
         {
             currentState = State.stop;
@@ -111,6 +111,9 @@ public class RpgScript : MonoBehaviour
     {
         switch (i)
         {
+            case -3:
+                currentState = State.dead;
+                break;
             case -1:
                 currentState = State.left;
                 break;

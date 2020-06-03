@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
     public GameObject player;
     public float speed = 4;
@@ -16,10 +16,23 @@ public class enemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+    }
+
+    private void FixedUpdate()
+    {
         if (player != null)
         {
             transform.LookAt(player.transform);
             transform.position += transform.forward * speed * Time.deltaTime;
         }
+    }
+    public void setSpeed(float speed)
+    {
+        this.speed = speed;
+    }
+
+    public float getSpeed()
+    {
+        return speed;
     }
 }
