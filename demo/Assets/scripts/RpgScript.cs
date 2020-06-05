@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,7 +13,9 @@ public class RpgScript : MonoBehaviour
     private bool isMoving = false;
     private bool isAlive = true;
     public GameObject enemy;
-
+    //倒计时组件
+    private int countDown = 3;
+    private float intervalTime = 1;
     public enum State { dead,stop,left,right,skillOne,skillTwo,skillThree,skillFour}
     public State currentState = State.stop;
 
@@ -56,7 +59,7 @@ public class RpgScript : MonoBehaviour
 
     void Start()
     {
-        enemy=GameObject.Find("RPG-enemy R");
+        //enemy=GameObject.Find("RPG-enemy R");
         enemy.SetActive(false);
         initPosition = Player.position;
         anim =GetComponent<Animator>();
@@ -66,7 +69,17 @@ public class RpgScript : MonoBehaviour
     void Update()
     {
         infMap();
-        if ((int)Time.time==3)
+        if (countDown > -1)
+        {
+            intervalTime -= Time.deltaTime;
+            if (intervalTime <= 0)
+            {
+                intervalTime += 1;
+                countDown--;
+
+            }
+        }
+        if (countDown == 0)
         {
             enemy.SetActive(true);
         }

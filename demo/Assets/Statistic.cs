@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Statistic : MonoBehaviour
+﻿
+public class Statistic
 {
     private int point = 0;
     // Start is called before the first frame update

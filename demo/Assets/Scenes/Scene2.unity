@@ -2258,7 +2258,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bafe2e5fe9c6e3446a7550350e225a1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
 --- !u!65 &1341912027
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2745,6 +2744,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf35f6061ad6ee469fc64f1fc05504a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalTime: 3
+  gobjR: {fileID: 84093374}
+  enemyPosition: {fileID: 1083582985}
+  enemyCount: 10
 --- !u!4 &1622315661
 Transform:
   m_ObjectHideFlags: 0
@@ -3601,16 +3604,16 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 354517456}
     - target: {fileID: 1976491141597105757, guid: b9e8d9f8420a1244283b093a3c66e6a6,
         type: 3}
       propertyPath: speed
-      value: 10
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1976491141597105757, guid: b9e8d9f8420a1244283b093a3c66e6a6,
         type: 3}
       propertyPath: timeAttack
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1976491141597202573, guid: b9e8d9f8420a1244283b093a3c66e6a6,
         type: 3}

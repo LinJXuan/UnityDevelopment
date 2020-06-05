@@ -9,10 +9,11 @@ public class CheckEnemy : MonoBehaviour
     private int direction;
     private float totalTime = 3f;
     private float dtTime;
+    private Player p;
     // Start is called before the first frame update
     void Start()
     {
-     
+        p = Player.getInstance();
     }
 
     // Update is called once per frame
@@ -33,7 +34,7 @@ public class CheckEnemy : MonoBehaviour
             GameObject.Find("RPG-Character").GetComponent<RpgScript>().setState(direction);
             return;
         }
-        if (other.name != "airpos"&&PlayerAttribute.currentHp>0)
+        if (other.name != "airpos"&&p.getcurrentHp()>0)
         {
             if (dtTime > totalTime)
             {

@@ -9,22 +9,25 @@ public class PlayerHealth : MonoBehaviour
     public int playerDefense;
     public int playerAttackRange;
     public int playerAttack;
+    private Player p;
     private RpgScript player;
 
     private void Awake()
     {
+        p = Player.getInstance();
         player = GameObject.Find("RPG-Character").GetComponent<RpgScript>();
 
-        playerHp = PlayerAttribute.currentHp;
-        playerShield = PlayerAttribute.shield;
-        playerDefense = PlayerAttribute.defense;
-        playerAttack = PlayerAttribute.attack;
-        playerAttackRange = PlayerAttribute.attackRange;
+        playerHp = p.getcurrentHp();
+        playerShield = p.getShield();
+        playerDefense = p.getDefense();
+        playerAttack = p.getAttack();
+        playerAttackRange = p.getRange();
     }
 
     public void TakeDamage(int damage)
     {
         playerHp -= damage;
+        //p.setcurrentHp(playerHp);
         if (playerHp <= 0)
         {
             playerHp = 0;
