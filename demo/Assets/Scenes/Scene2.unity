@@ -3472,13 +3472,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf35f6061ad6ee469fc64f1fc05504a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-=======
   totalTime: 3
   gobjR: {fileID: 5368187356509725271, guid: d0046207d5d2d5f4285799abc5efa240, type: 3}
   enemyPosition: {fileID: 1083582985}
   enemyCount: 2
->>>>>>> a94d4471b62e08487ef23479e72239444d3acbd4
 --- !u!4 &1622315661
 Transform:
   m_ObjectHideFlags: 0
