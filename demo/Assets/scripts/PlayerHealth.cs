@@ -9,11 +9,11 @@ public class PlayerHealth : MonoBehaviour
     public int playerDefense;
     public int playerAttackRange;
     public int playerAttack;
-    private RpgScript playerState;
+    private RpgScript player;
 
     private void Awake()
     {
-        playerState = GameObject.Find("RPG-Character").GetComponent<RpgScript>();
+        player = GameObject.Find("RPG-Character").GetComponent<RpgScript>();
 
         playerHp = PlayerAttribute.currentHp;
         playerShield = PlayerAttribute.shield;
@@ -25,15 +25,12 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         playerHp -= damage;
-        if (playerHp > 0)
+        if (playerHp <= 0)
         {
-            PlayerAttribute.currentHp = playerHp;
-        }
-        else
-        {
-            PlayerAttribute.currentHp = 0;
             playerHp = 0;
-            playerState.setState(-3);
+            player.setState(-3);
+            player.playerIsAlive(false);
+            return;
         }
         print("playerHp ===>" + playerHp);
     }

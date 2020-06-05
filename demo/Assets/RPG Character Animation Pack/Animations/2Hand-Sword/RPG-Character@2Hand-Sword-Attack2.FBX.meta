@@ -302,8 +302,15 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
-      - time: 1
-        functionName: AttackTwoFinshCallBack
+      - time: 0.9211956
+        functionName: AnimatorEventFinishCallBack
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: AnimatorEventBeginCallBack
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

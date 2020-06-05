@@ -7,7 +7,11 @@ public class RpgScript : MonoBehaviour
     private Animator anim;
     public float speed=1;
     private bool right=true;
+    private bool isPlaying=false;
+    private bool isMoving = false;
+    private bool isAlive = true;
     public GameObject enemy;
+
     public enum State { dead,stop,left,right,skillOne,skillTwo,skillThree,skillFour}
     public State currentState = State.stop;
     //无限地图
@@ -36,17 +40,18 @@ public class RpgScript : MonoBehaviour
             enemy.SetActive(true);
         }
 
-        if(PlayerAttribute.hp == 0)
-        {
-            currentState = State.dead;
-        }
-
         if(currentState == State.dead)
         {
             anim.SetBool("dead", true);
         }
 
-        if(currentState == State.left)
+        if (!isAlive)
+        {
+            currentState = State.dead;
+            return;
+        }
+
+        if (currentState == State.left)
         {
             anim.SetBool("walk",true);
           transform.Translate( new Vector3(0,0,-1) * speed * Time.deltaTime); 
@@ -98,17 +103,30 @@ public class RpgScript : MonoBehaviour
      {
 
      } 
-     public void FootL()
-     {
+    public void FootL()
+    {
 
-     } 
-     public void Hit()
-     {
+    } 
+    public void Hit()
+    {
 
-     }
+    }
 
     public void setState(int i)
     {
+        if(i == -1 || i == -2)
+        {
+            if (isPlaying)
+            {
+                //直接返回
+                return;
+            }
+            else
+            {
+                //不做处理，让switch去设置移动
+            }
+        }
+
         switch (i)
         {
             case -3:
@@ -138,4 +156,25 @@ public class RpgScript : MonoBehaviour
 
         }
     }
+
+    public void playerIsAlive(bool alive)
+    {
+        isAlive = alive;
+    }
+
+    void AnimatorEventFinishCallBack()
+    {
+        isPlaying = false;
+    }
+
+    void AnimatorEventBeginCallBack()
+    {
+        isPlaying = true;
+    }
+
+    void DeadFinshCallBack()
+    {
+        isPlaying = false;
+    }
+
 }

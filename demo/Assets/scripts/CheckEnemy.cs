@@ -5,6 +5,10 @@ using UnityEngine;
 public class CheckEnemy : MonoBehaviour
 {
 
+    private bool isMoving = false;
+    private int direction;
+    private float totalTime = 3f;
+    private float dtTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +18,7 @@ public class CheckEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        dtTime += Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,19 +28,31 @@ public class CheckEnemy : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.name != "airpos"&&PlayerAttribute.currentHp!=0)
+        if (isMoving)
         {
-            //print(other.name + "在检测范围内");
-            GameObject.Find("RPG-Character").GetComponent<RpgScript>().setState(1);
+            GameObject.Find("RPG-Character").GetComponent<RpgScript>().setState(direction);
+            return;
+        }
+        if (other.name != "airpos"&&PlayerAttribute.currentHp>0)
+        {
+            print(other.name);
+            if (dtTime > totalTime)
+            {
+                GameObject.Find("RPG-Character").GetComponent<RpgScript>().setState(1);
+                dtTime = 0;
+            }
+            
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.name != "airpos")
-        {
-            //print(other.name + "退出检测范围");
-            GameObject.Find("RPG-Character").GetComponent<RpgScript>().setState(0);
-        }
+
+    }
+
+    public void IsMoving(bool move,int i)
+    {
+        isMoving = move;
+        direction = i;
     }
 }
