@@ -30,7 +30,7 @@ public class ToStatistics : MonoBehaviour
         GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
         count = gos.Length;
         if (count > 0) { State = true; }
-        if (State && count >= 3)
+        if (State && count == 0)
         {
             countDown.SetActive(true);
             if (down > -1)
