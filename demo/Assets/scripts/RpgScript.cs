@@ -8,17 +8,22 @@ public class RpgScript : MonoBehaviour
 {
     private Animator anim;
     public float speed=1;
-    private bool right=true;
+    private bool isRight = true;
+    private bool isLeft = false;
     private bool isPlaying=false;
     private bool isMoving = false;
     private bool isAlive = true;
+    public int attackRange = 4;
+    public int attackDamage = 10;
     public GameObject enemy;
     //倒计时组件
     private int countDown = 3;
     private float intervalTime = 1;
+    //使用状态控制人物动作
     public enum State { dead,stop,left,right,skillOne,skillTwo,skillThree,skillFour}
     public State currentState = State.stop;
 
+    private int enemyLayer;
     /*
      * 无限地图
      */
@@ -59,10 +64,10 @@ public class RpgScript : MonoBehaviour
 
     void Start()
     {
-        //enemy=GameObject.Find("RPG-enemy R");
         enemy.SetActive(false);
         initPosition = Player.position;
         anim =GetComponent<Animator>();
+        enemyLayer = LayerMask.GetMask("Enemy");
     }
 
     // Update is called once per frame
@@ -79,6 +84,7 @@ public class RpgScript : MonoBehaviour
 
             }
         }
+
         if (countDown == 0)
         {
             enemy.SetActive(true);
@@ -97,12 +103,30 @@ public class RpgScript : MonoBehaviour
 
         if (currentState == State.left)
         {
+            if (!isLeft)
+            {
+                Quaternion playerRotation = transform.localRotation;
+                playerRotation.y = -playerRotation.y;
+                transform.rotation = playerRotation;
+                isLeft = true;
+                isRight = false;
+                print("转向====> " + transform.rotation);
+            }
             anim.SetBool("walk",true);
-          transform.Translate( new Vector3(0,0,-1) * speed * Time.deltaTime); 
+            transform.Translate( new Vector3(0,0,1) * speed * Time.deltaTime); 
         }
         
         if(currentState ==State.right)
         {
+            if (!isRight)
+            {
+                Quaternion playerRotation = transform.localRotation;
+                playerRotation.y = -playerRotation.y;
+                transform.rotation = playerRotation;
+                isRight = true;
+                isLeft = false;
+                print("转向====> " + transform.rotation);
+            }
             anim.SetBool("walk",true);
             transform.Translate( new Vector3(0,0,1) * speed * Time.deltaTime);
         }
@@ -151,10 +175,6 @@ public class RpgScript : MonoBehaviour
     {
 
     } 
-    public void Hit()
-    {
-
-    }
 
     public void setState(int i)
     {
@@ -216,6 +236,17 @@ public class RpgScript : MonoBehaviour
         isPlaying = true;
     }
 
+    void Hit()
+    {
+        Ray attackRay = new Ray();
+        attackRay.origin = transform.position;
+        attackRay.direction = transform.forward;
+        if (Physics.Raycast(attackRay, out RaycastHit attackHit, attackRange, enemyLayer))
+        {
+            EnemyHealth enemyHealth = attackHit.collider.gameObject.GetComponent<EnemyHealth>();
+            enemyHealth.TakeDamage(attackDamage);
+        }
+    }
     void DeadFinshCallBack()
     {
         isPlaying = false;

@@ -65,9 +65,7 @@
   <ItemGroup>
     <Compile Include="Assets\BackToHome.cs" />
     <Compile Include="Assets\CameraFollow.cs" />
-    <Compile Include="Assets\CemeraFollow.cs" />
-    <Compile Include="Assets\Hide.cs" />
-    <Compile Include="Assets\RoadLoop.cs" />
+    <Compile Include="Assets\OffShow.cs" />
     <Compile Include="Assets\RPG_BOX_Free\Scripts\Managers\BarManager.cs" />
     <Compile Include="Assets\RPG_BOX_Free\Scripts\Managers\DatabaseManager.cs" />
     <Compile Include="Assets\RPG_BOX_Free\Scripts\Managers\EquipmentManager.cs" />
@@ -88,6 +86,7 @@
     <Compile Include="Assets\scripts\CreateEnemy.cs" />
     <Compile Include="Assets\scripts\Enemy.cs" />
     <Compile Include="Assets\scripts\EnemyController.cs" />
+    <Compile Include="Assets\scripts\EnemyHealth.cs" />
     <Compile Include="Assets\scripts\MoveLeft.cs" />
     <Compile Include="Assets\scripts\MoveRight.cs" />
     <Compile Include="Assets\scripts\Player.cs" />
@@ -99,9 +98,10 @@
     <Compile Include="Assets\Statistic.cs" />
     <Compile Include="Assets\SwitchScene1.cs" />
     <Compile Include="Assets\SwitchScene2.cs" />
-    <Compile Include="Assets\SwitchToScene1.cs" />
     <Compile Include="Assets\SwitchToScene2.cs" />
+    <Compile Include="Assets\ToLevel1Only.cs" />
     <Compile Include="Assets\ToLevel2.cs" />
+    <Compile Include="Assets\ToMenu.cs" />
     <Compile Include="Assets\ToStatistics.cs" />
     <Reference Include="Unity.DocZh.Editor">
       <HintPath>E:/UnityGit/demo/Library/ScriptAssemblies/Unity.DocZh.Editor.dll</HintPath>

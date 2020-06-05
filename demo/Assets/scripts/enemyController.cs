@@ -36,7 +36,6 @@ public class EnemyController : MonoBehaviour
             if (time >= timeAttack)
             {
                 float dx = Mathf.Abs(player.transform.localPosition.x - transform.localPosition.x);
-                print("dx ====>" + dx);
                 if (dx < attackRange)
                 {
                     Attack();
