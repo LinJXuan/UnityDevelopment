@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 using UnityEngine.UI;
 
 public class RpgScript : MonoBehaviour
@@ -31,6 +32,11 @@ public class RpgScript : MonoBehaviour
     private Vector3 initPosition;
     public List<Transform> roadlist = new List<Transform>();
     public List<Transform> walllist = new List<Transform>();
+    private float barUpLength = 3f;
+    public Slider healthSlider ;
+    public Slider shieldSlider;
+    public static GameObject flaptext;
+    public Text flapWord;
     public void infMap()
     {
         int lastIndex = roadlist.Count - 1;
@@ -68,6 +74,8 @@ public class RpgScript : MonoBehaviour
         initPosition = Player.position;
         anim =GetComponent<Animator>();
         enemyLayer = LayerMask.GetMask("Enemy");
+        flaptext=GameObject.Find("flapWord");
+        flaptext.SetActive(false);
     }
 
     // Update is called once per frame
@@ -141,29 +149,55 @@ public class RpgScript : MonoBehaviour
         {
 
             anim.SetTrigger("Q Trigger");
+            flaptext.SetActive(true);     //显示伤害
+            FlyTo(flapWord);
         }
 
         if(currentState ==State.skillTwo)
         {
 
             anim.SetTrigger("W Trigger");
+            flaptext.SetActive(true);     //显示伤害
+            FlyTo(flapWord);
         }
 
         if (currentState == State.skillThree)
         {
 
             anim.SetTrigger("E Trigger");
+            flaptext.SetActive(true);     //显示伤害
+            FlyTo(flapWord);
         }
 
         if (currentState == State.skillFour)
         {
 
             anim.SetTrigger("R Trigger");
+            flaptext.SetActive(true);     //显示伤害
+            FlyTo(flapWord);
         }
 
         if (currentState != State.left && currentState != State.right)
         {
             currentState = State.stop;
+        }
+        Vector3 worldPos = new Vector3(transform.position.x, transform.position.y + barUpLength , transform.position.z);
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);
+        //血条位置
+        healthSlider.transform.position = new Vector3(screenPos.x, screenPos.y, screenPos.z);
+        //护盾位置
+        shieldSlider.transform.position = new Vector3(screenPos.x, screenPos.y-9.7693f, screenPos.z);
+        //伤害飘字的位置
+        flapWord.transform.position=new Vector3(screenPos.x+300f, screenPos.y+30f, screenPos.z);
+        //受到伤害（目前为按键盘D受到10点伤害）
+        if(Input.GetKeyDown(KeyCode.D)){
+            if(shieldSlider.value>=10)
+            {
+            shieldSlider.value -=10;
+            }else{
+             healthSlider.value -=10;
+            }
+            
         }
         
     }
@@ -251,4 +285,22 @@ public class RpgScript : MonoBehaviour
     {
         isPlaying = false;
     }
+     //伤害飘字函数
+    public static void FlyTo(Graphic graphic)
+{
+	RectTransform rt = graphic.rectTransform;
+	Color c = graphic.color;
+	c.a = 0;
+	graphic.color = c; 
+	Sequence mySequence = DOTween.Sequence();
+	Tweener move1 = rt.DOMoveY(rt.position.y + 50, 0.5f);
+	Tweener move2 = rt.DOMoveY(rt.position.y + 100, 0.5f);
+	Tweener alpha1 = graphic.DOColor(new Color(c.r, c.g, c.b, 1), 0.5f);
+	Tweener alpha2 = graphic.DOColor(new Color(c.r, c.g, c.b, 0), 0.5f);
+	mySequence.Append(move1);
+	mySequence.Join(alpha1);
+	// mySequence.AppendInterval(1);
+	mySequence.Append(move2);
+	mySequence.Join(alpha2); 
+}
 }
