@@ -14,7 +14,7 @@ public class ShowOff : MonoBehaviour
         s = Statistic.getInstance();
         text = GameObject.Find("End").GetComponent<Text>();
         point = s.getPoint();
-        text.text = "游戏结束\n你获得的分数是：" + point + "\n请点击返回按钮返回主菜单\n或点击下一关前往下一个关卡";
+        text.text = "游戏结束\n你获得的分数是：" + point + "\n请点击返回按钮返回主菜单";
     }
 
     // Update is called once per frame
