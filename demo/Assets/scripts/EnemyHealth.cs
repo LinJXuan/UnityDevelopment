@@ -12,11 +12,12 @@ public class EnemyHealth : MonoBehaviour
     private Enemy enemy;
     private EnemyController targetEnemy;
     private bool isDead=false;
-
+    //添加积分
+    private Statistic s;
     private void Awake()
     {
         enemy = new Enemy();
-
+        s = Statistic.getInstance();
         //enemyHp = enemy.getHp();
         //enemyShield = enemy.getShield();
         //enemyDefense = enemy.getDefense();
@@ -43,6 +44,7 @@ public class EnemyHealth : MonoBehaviour
     private void Death()
     {
         isDead = true;
+        s.setPoint(10);
         Destroy(gameObject);
     }
 }

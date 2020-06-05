@@ -612,13 +612,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 297621603}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43e69fc39d9c2084a8225c887dd73a96, type: 3}
+  m_Script: {fileID: 11500000, guid: 160f83feb40c0e2479d263e33fa6d394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btnObj: {fileID: 297621603}
+  start: {fileID: 615981940}
   map: {fileID: 113193617}
-  btnStart: {fileID: 615981940}
-  btnLogin: {fileID: 297621603}
+  login: {fileID: 297621603}
 --- !u!1 &452729493
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,7 +703,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452729493}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 568, y: 0.00001, z: 0}
+  m_LocalPosition: {x: -1686, y: 0.00001, z: 0}
   m_LocalScale: {x: 3000, y: 1, z: 1000}
   m_Children: []
   m_Father: {fileID: 0}
@@ -721,7 +720,7 @@ GameObject:
   - component: {fileID: 542682150}
   - component: {fileID: 542682151}
   m_Layer: 5
-  m_Name: node (1)
+  m_Name: map2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -983,7 +982,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690296886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: -2254, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1213,7 +1212,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 853067888}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 568, y: 0, z: -0.0000001}
+  m_LocalPosition: {x: -1686, y: 0, z: -0.0000001}
   m_LocalScale: {x: 3000, y: 1000, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1341,7 +1340,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 913941418}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f71df8f9c949f3248b910ee8acf9e763, type: 3}
   m_Name: 
@@ -1563,7 +1562,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5730\u56FE3(\u672A\u5B8C\u6210\uFF09"
+  m_Text: "\u5730\u56FE3(\u5F00\u53D1\u4E2D)"
 --- !u!222 &1096551718
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1670,7 +1669,7 @@ GameObject:
   - component: {fileID: 1250739537}
   - component: {fileID: 1250739538}
   m_Layer: 5
-  m_Name: node (2)
+  m_Name: map3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1730,7 +1729,7 @@ GameObject:
   - component: {fileID: 1379951287}
   - component: {fileID: 1379951288}
   m_Layer: 5
-  m_Name: node
+  m_Name: map1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2488,7 +2487,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5730\u56FE2"
+  m_Text: "\u5730\u56FE2(\u5F00\u53D1\u4E2D)"
 --- !u!222 &1930474054
 CanvasRenderer:
   m_ObjectHideFlags: 0

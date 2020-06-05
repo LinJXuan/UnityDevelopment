@@ -668,6 +668,14 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 120
       objectReference: {fileID: 0}
+    - target: {fileID: 5400000, guid: b1cc94d26cd016d479aa5b522d88da0a, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400000, guid: b1cc94d26cd016d479aa5b522d88da0a, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 13681452, guid: b1cc94d26cd016d479aa5b522d88da0a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b1cc94d26cd016d479aa5b522d88da0a, type: 3}
@@ -1550,7 +1558,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 100}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &788688930
 MonoBehaviour:
@@ -1636,13 +1644,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 788688928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43e69fc39d9c2084a8225c887dd73a96, type: 3}
+  m_Script: {fileID: 11500000, guid: d9468acef64a0a249b2aa41c6682035d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btnObj: {fileID: 788688928}
-  map: {fileID: 325409193}
-  btnStart: {fileID: 68836270}
-  btnLogin: {fileID: 788688928}
 --- !u!1 &833388417
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,7 +2107,6 @@ GameObject:
   - component: {fileID: 1329039989}
   - component: {fileID: 1329039988}
   - component: {fileID: 1329039987}
-  - component: {fileID: 1329039986}
   m_Layer: 0
   m_Name: wallR
   m_TagString: Untagged
@@ -2125,18 +2128,6 @@ Transform:
   m_Father: {fileID: 1819030972}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1329039986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1329039984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bafe2e5fe9c6e3446a7550350e225a1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1329039987
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2207,7 +2198,6 @@ GameObject:
   - component: {fileID: 1341912029}
   - component: {fileID: 1341912028}
   - component: {fileID: 1341912027}
-  - component: {fileID: 1341912026}
   m_Layer: 0
   m_Name: wallL
   m_TagString: Untagged
@@ -2229,18 +2219,6 @@ Transform:
   m_Father: {fileID: 1819030972}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1341912026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1341912024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bafe2e5fe9c6e3446a7550350e225a1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1341912027
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2311,7 +2289,6 @@ GameObject:
   - component: {fileID: 1398241721}
   - component: {fileID: 1398241720}
   - component: {fileID: 1398241719}
-  - component: {fileID: 1398241718}
   m_Layer: 0
   m_Name: wall
   m_TagString: Untagged
@@ -2333,18 +2310,6 @@ Transform:
   m_Father: {fileID: 1819030972}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1398241718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1398241716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bafe2e5fe9c6e3446a7550350e225a1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1398241719
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2730,7 +2695,7 @@ MonoBehaviour:
   totalTime: 3
   gobjR: {fileID: 5368187356509725271, guid: d0046207d5d2d5f4285799abc5efa240, type: 3}
   enemyPosition: {fileID: 1083582985}
-  enemyCount: 10
+  enemyCount: 2
 --- !u!4 &1622315661
 Transform:
   m_ObjectHideFlags: 0
@@ -2756,8 +2721,8 @@ GameObject:
   - component: {fileID: 1678725505}
   - component: {fileID: 1678725504}
   - component: {fileID: 1678725503}
-  - component: {fileID: 1678725506}
   - component: {fileID: 1678725508}
+  - component: {fileID: 1678725506}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2838,7 +2803,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1678725502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5906f46dfd386ec4da14de3f60543756, type: 3}
+  m_Script: {fileID: 11500000, guid: f9bd6d351b55d5b4493404908c029e13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 354517466}
@@ -3388,7 +3353,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u6E38\u620F\u7ED3\u675F"
+  m_Text: "\u8FD4\u56DE\u4E3B\u83DC\u5355"
 --- !u!222 &2015877397
 CanvasRenderer:
   m_ObjectHideFlags: 0
