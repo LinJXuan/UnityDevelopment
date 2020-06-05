@@ -84,9 +84,14 @@
     <Compile Include="Assets\RPG_BOX_Free\Scripts\ScriptablObjects\LootTable.cs" />
     <Compile Include="Assets\Scenes\switch_scene.cs" />
     <Compile Include="Assets\scripts\changeWeapon.cs" />
+    <Compile Include="Assets\scripts\CheckEnemy.cs" />
     <Compile Include="Assets\scripts\createEnemy.cs" />
+    <Compile Include="Assets\scripts\Enemy.cs" />
     <Compile Include="Assets\scripts\enemyController.cs" />
-    <Compile Include="Assets\scripts\moveListener.cs" />
+    <Compile Include="Assets\scripts\MoveLeft.cs" />
+    <Compile Include="Assets\scripts\MoveRight.cs" />
+    <Compile Include="Assets\scripts\PlayerAttribute.cs" />
+    <Compile Include="Assets\scripts\PlayerHealth.cs" />
     <Compile Include="Assets\scripts\RpgScript.cs" />
     <Compile Include="Assets\scripts\skillListener.cs" />
     <Compile Include="Assets\ShowOff.cs" />
