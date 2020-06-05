@@ -35,7 +35,6 @@ public class CheckEnemy : MonoBehaviour
         }
         if (other.name != "airpos"&&PlayerAttribute.currentHp>0)
         {
-            print(other.name);
             if (dtTime > totalTime)
             {
                 GameObject.Find("RPG-Character").GetComponent<RpgScript>().setState(1);

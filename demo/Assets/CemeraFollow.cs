@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class CemeraFollow : MonoBehaviour
 {
     public Transform playerTransform; // 移动的物体
