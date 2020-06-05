@@ -35,6 +35,6 @@ public class PlayerHealth : MonoBehaviour
             player.playerIsAlive(false);
             return;
         }
-        print("playerHp ===>" + playerHp);
+        //print("playerHp ===>" + playerHp);
     }
 }
