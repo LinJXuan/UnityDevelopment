@@ -747,6 +747,8 @@ MonoBehaviour:
   start: {fileID: 615981940}
   map: {fileID: 113193617}
   login: {fileID: 297621603}
+  bag: {fileID: 274104532}
+  attribute: {fileID: 1740369852}
 --- !u!1 &452729493
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,8 +876,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 455, y: -180}
-  m_SizeDelta: {x: 910, y: 120}
+  m_AnchoredPosition: {x: 700, y: -180}
+  m_SizeDelta: {x: 1400, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &542682151
 MonoBehaviour:
@@ -1900,8 +1902,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 455, y: -300}
-  m_SizeDelta: {x: 910, y: 120}
+  m_AnchoredPosition: {x: 700, y: -300}
+  m_SizeDelta: {x: 1400, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1250739538
 MonoBehaviour:
@@ -2037,8 +2039,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 455, y: -60}
-  m_SizeDelta: {x: 910, y: 120}
+  m_AnchoredPosition: {x: 700, y: -60}
+  m_SizeDelta: {x: 1400, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1379951287
 MonoBehaviour:
