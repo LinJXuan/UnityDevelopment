@@ -39,6 +39,7 @@ public class CreateEnemy : MonoBehaviour
             Instantiate(gobjR, positionR, rotationR);
             Instantiate(gobjR, positionL, rotationL);
             print("======= create enemy ======");
+            print("positionL=======" + positionL.y);
         }
     }
 }
