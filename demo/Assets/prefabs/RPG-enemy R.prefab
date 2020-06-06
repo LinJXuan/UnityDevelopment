@@ -1917,3 +1917,4 @@ MonoBehaviour:
   enemyDefense: 0
   enemyAttackRange: 0
   enemyAttack: 0
+  enemyBlood: {fileID: 0}

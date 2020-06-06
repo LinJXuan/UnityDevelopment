@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -14,10 +15,12 @@ public class EnemyHealth : MonoBehaviour
     private bool isDead=false;
     //添加积分
     private Statistic s;
+    public Slider enemyBlood;
     private void Awake()
     {
         enemy = new Enemy();
         s = Statistic.getInstance();
+        enemyBlood.value=enemyHp;
         //enemyHp = enemy.getHp();
         //enemyShield = enemy.getShield();
         //enemyDefense = enemy.getDefense();
@@ -44,7 +47,14 @@ public class EnemyHealth : MonoBehaviour
     private void Death()
     {
         isDead = true;
-        s.setPoint(10);
-        Destroy(gameObject);
+        s.setPoint(10); 
+        Destroy(gameObject); 
+    }
+    void Update(){
+        Vector3 worldPos = new Vector3(transform.position.x, transform.position.y + 3f , transform.position.z);
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);
+        //血条位置
+        enemyBlood.transform.position = new Vector3(screenPos.x, screenPos.y, screenPos.z);
+        enemyBlood.value=enemyHp;
     }
 }
