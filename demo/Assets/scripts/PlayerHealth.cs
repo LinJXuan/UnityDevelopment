@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
     {
         p = Player.getInstance();
         player = GameObject.Find("RPG-Character").GetComponent<RpgScript>();
-
+        p.reloadcurrentHp();
         playerHp = p.getcurrentHp();
         playerShield = p.getShield();
         playerDefense = p.getDefense();
@@ -27,10 +27,11 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         playerHp -= damage;
-        //p.setcurrentHp(playerHp);
+        
         if (playerHp <= 0)
         {
             playerHp = 0;
+            p.setcurrentHp(playerHp);
             player.setState(-3);
             player.playerIsAlive(false);
             return;

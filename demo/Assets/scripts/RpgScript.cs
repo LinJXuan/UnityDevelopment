@@ -76,11 +76,15 @@ public class RpgScript : MonoBehaviour
         enemyLayer = LayerMask.GetMask("Enemy");
         flaptext=GameObject.Find("flapWord");
         flaptext.SetActive(false);
+        healthSlider.value=GetComponent<PlayerHealth>().playerHp;
+        shieldSlider.value=GetComponent<PlayerHealth>().playerShield;
     }
 
     // Update is called once per frame
     void Update()
     {
+        healthSlider.value=GetComponent<PlayerHealth>().playerHp;
+        shieldSlider.value=GetComponent<PlayerHealth>().playerShield;
         infMap();
         if (countDown > -1)
         {
@@ -188,17 +192,7 @@ public class RpgScript : MonoBehaviour
         //护盾位置
         shieldSlider.transform.position = new Vector3(screenPos.x, screenPos.y-9.7693f, screenPos.z);
         //伤害飘字的位置
-        flapWord.transform.position=new Vector3(screenPos.x+300f, screenPos.y+30f, screenPos.z);
-        //受到伤害（目前为按键盘D受到10点伤害）
-        if(Input.GetKeyDown(KeyCode.D)){
-            if(shieldSlider.value>=10)
-            {
-            shieldSlider.value -=10;
-            }else{
-             healthSlider.value -=10;
-            }
-            
-        }
+        flapWord.transform.position=new Vector3(screenPos.x+200f, screenPos.y+30f, screenPos.z);
         
     }
     public void FootR()
