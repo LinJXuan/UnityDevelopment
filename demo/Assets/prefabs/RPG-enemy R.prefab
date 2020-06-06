@@ -813,8 +813,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 538783f75beb6a0499ba8bf0a1d10b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  speed: 0
+  player: {fileID: 100004, guid: b1cc94d26cd016d479aa5b522d88da0a, type: 3}
+  speed: 10
   attackRange: 2
   timeAttack: 5
   attachDamage: 2
