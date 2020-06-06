@@ -3473,9 +3473,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalTime: 3
-  gobjR: {fileID: 5368187356509725271, guid: d0046207d5d2d5f4285799abc5efa240, type: 3}
+  gobjR: {fileID: 1976491142213441936}
   enemyPosition: {fileID: 1083582985}
-  enemyCount: 5
+  enemyCount: 10
 --- !u!4 &1622315661
 Transform:
   m_ObjectHideFlags: 0

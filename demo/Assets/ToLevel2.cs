@@ -13,10 +13,12 @@ public class ToLevel2 : MonoBehaviour
     private Statistic s;
     public GameObject countDown;
     public Text text;
+    private Player p;
     // Start is called before the first frame update
     void Start()
     {
         s = Statistic.getInstance();
+        p = Player.getInstance();
         text = GameObject.Find("Canvas/countDown").GetComponent<Text>();
         countDown.SetActive(false);
 
@@ -30,24 +32,43 @@ public class ToLevel2 : MonoBehaviour
         GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
         count = gos.Length;
         if (count > 0) { State = true; }
-        if (State && count == 0)
+        if (State)
         {
-            countDown.SetActive(true);
-            if (down > -1)
+            if (count == 0)
             {
-                intervalTime -= Time.deltaTime;
-                if (intervalTime <= 0)
+                countDown.SetActive(true);
+                if (down > -1)
                 {
-                    intervalTime += 1;
-                    down--;
-                    text.text = "恭喜你完成本关挑战\n" + down + "秒后跳转到下一关";
+                    intervalTime -= Time.deltaTime;
+                    if (intervalTime <= 0)
+                    {
+                        intervalTime += 1;
+                        down--;
+                        text.text = "恭喜你完成本关挑战\n" + down + "秒后跳转到下一关";
+                    }
                 }
-            }
-            //CountDown();
-            if (down == 0)
+                if (down == 0)
+                {
+                  
+                    SceneManager.LoadScene("Scene3");
+                }
+            }else if (p.getcurrentHp() == 0)
             {
-                s.setPoint(count);
-                SceneManager.LoadScene("Scene3");
+                countDown.SetActive(true);
+                if (down > -1)
+                {
+                    intervalTime -= Time.deltaTime;
+                    if (intervalTime <= 0)
+                    {
+                        intervalTime += 1;
+                        down--;
+                        text.text = "你被击败了！\n" + down + "秒后跳转到结算界面";
+                    }
+                }
+                if (down == 0)
+                {
+                    SceneManager.LoadScene("Statistics");
+                }
             }
         }
     }
