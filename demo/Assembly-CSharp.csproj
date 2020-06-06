@@ -90,7 +90,7 @@
     <Compile Include="Assets\Scenes\switch_scene.cs" />
     <Compile Include="Assets\scripts\changeWeapon.cs" />
     <Compile Include="Assets\scripts\CheckEnemy.cs" />
-    <Compile Include="Assets\scripts\createEnemy.cs" />
+    <Compile Include="Assets\scripts\CreateEnemy.cs" />
     <Compile Include="Assets\scripts\Enemy.cs" />
     <Compile Include="Assets\scripts\EnemyController.cs" />
     <Compile Include="Assets\scripts\EnemyHealth.cs" />
