@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TheBag.unity
     guid: 3c7a687e9c9f74245b557480c4566d6f
+  - enabled: 1
+    path: Assets/Scenes/Attribute.unity
+    guid: f2ab015e87864a5459f7c9d2956c2813
+  - enabled: 1
+    path: Assets/Scenes/MyBag.unity
+    guid: 46353066a50e96540886878989bded60
   m_configObjects: {}
