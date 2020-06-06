@@ -147,7 +147,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 150, y: 90}
-  m_SizeDelta: {x: 60, y: 40}
+  m_SizeDelta: {x: 100, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5284774
 MonoBehaviour:
@@ -180,7 +180,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u653B\u51FB\uFF1A"
+  m_Text: "\u751F\u547D\u503C\uFF1A"
 --- !u!222 &5284775
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -269,7 +269,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1997165541}
-        m_MethodName: hit_test
+        m_MethodName: plusHp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -705,9 +705,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 404635533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b98735edd67a18469846036aff8a0cb, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b9cd5e003a569d4b88f4063ddd3d5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHp: 0
+  playerDefense: 0
+  playerAttack: 0
 --- !u!1 &415139369
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +894,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 150, y: -30}
-  m_SizeDelta: {x: 60, y: 40}
+  m_SizeDelta: {x: 100, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &462998450
 MonoBehaviour:
@@ -924,7 +927,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u751F\u547D\uFF1A"
+  m_Text: "\u653B\u51FB\uFF1A"
 --- !u!222 &462998451
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1209,7 +1212,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 150, y: 30}
-  m_SizeDelta: {x: 60, y: 40}
+  m_SizeDelta: {x: 100, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &831405269
 MonoBehaviour:
@@ -1574,7 +1577,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1023865504}
-        m_MethodName: hit_test
+        m_MethodName: plusDefense
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1706,9 +1709,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1023865500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bff2c6257afe728468a397cc209236ab, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b9cd5e003a569d4b88f4063ddd3d5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHp: 0
+  playerDefense: 20
+  playerAttack: 0
 --- !u!1 &1062608769
 GameObject:
   m_ObjectHideFlags: 0
@@ -1796,9 +1802,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1062608769}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb74cb6ea092104795e302f2021f17f, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b9cd5e003a569d4b88f4063ddd3d5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHp: 0
+  playerDefense: 0
+  playerAttack: 0
 --- !u!1 &1129552777
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,7 +1843,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 150, y: -90}
-  m_SizeDelta: {x: 60, y: 40}
+  m_SizeDelta: {x: 100, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1129552779
 MonoBehaviour:
@@ -1867,7 +1876,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "AA\uFF1A"
+  m_Text: "\u6682\u5B9A\uFF1A"
 --- !u!222 &1129552780
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1962,7 +1971,7 @@ Transform:
   m_GameObject: {fileID: 1241961738}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 500}
-  m_LocalScale: {x: 1300, y: 590, z: 1}
+  m_LocalScale: {x: 1320, y: 590, z: 1}
   m_Children:
   - {fileID: 531359063}
   m_Father: {fileID: 0}
@@ -2406,7 +2415,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 404635537}
-        m_MethodName: hit_test
+        m_MethodName: plusAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2530,7 +2539,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1062608773}
+      - m_Target: {fileID: 0}
         m_MethodName: hit_test
         m_Mode: 1
         m_Arguments:
@@ -2796,6 +2805,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b9cd5e003a569d4b88f4063ddd3d5de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHp: 0
+  playerDefense: 0
+  playerAttack: 0
 --- !u!1 &2136243019
 GameObject:
   m_ObjectHideFlags: 0

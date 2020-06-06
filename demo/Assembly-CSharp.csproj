@@ -89,10 +89,7 @@
      <Compile Include="Assets\scripts\Player.cs" />
      <Compile Include="Assets\scripts\PlayerAttribute.cs" />
      <Compile Include="Assets\scripts\PlayerHealth.cs" />
-     <Compile Include="Assets\scripts\Plus1.cs" />
-     <Compile Include="Assets\scripts\Plus2.cs" />
-     <Compile Include="Assets\scripts\Plus3.cs" />
-     <Compile Include="Assets\scripts\Plus4.cs" />
+     <Compile Include="Assets\scripts\PlusAttribute.cs" />
      <Compile Include="Assets\scripts\RpgScript.cs" />
      <Compile Include="Assets\scripts\skillListener.cs" />
      <Compile Include="Assets\scripts\SwitchToAttribute.cs" />
