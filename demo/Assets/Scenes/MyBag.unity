@@ -312,7 +312,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 382318173}
-        m_MethodName: click
+        m_MethodName: click1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -366,11 +366,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 382318168}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b6fd2837a959714c90ffd1402fd43bf, type: 3}
+  m_Script: {fileID: 11500000, guid: e204e0cc8bbee9648b2f0c83de1879ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTiming: 0
-  countDown: 0
+  isTiming1: 0
+  isTiming2: 0
+  isTiming3: 0
+  isTiming4: 0
+  isTiming5: 0
+  isTiming6: 0
+  countDown1: 0
+  countDown2: 0
+  countDown3: 0
+  countDown4: 0
+  countDown5: 0
+  countDown6: 0
   butt: {fileID: 0}
   image: {fileID: 0}
   consume: {fileID: 0}
@@ -1268,8 +1278,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 915718102}
-        m_MethodName: click
+      - m_Target: {fileID: 382318173}
+        m_MethodName: click3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1944,8 +1954,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1366149449}
-        m_MethodName: click
+      - m_Target: {fileID: 382318173}
+        m_MethodName: click2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2519,8 +2529,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1538522548}
-        m_MethodName: click
+      - m_Target: {fileID: 382318173}
+        m_MethodName: click5
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2924,8 +2934,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1919901241}
-        m_MethodName: click
+      - m_Target: {fileID: 382318173}
+        m_MethodName: click6
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3321,8 +3331,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2114852628}
-        m_MethodName: click
+      - m_Target: {fileID: 382318173}
+        m_MethodName: click4
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

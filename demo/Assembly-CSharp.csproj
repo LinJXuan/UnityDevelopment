@@ -80,12 +80,7 @@
      <Compile Include="Assets\scripts\CameraShake.cs" />
      <Compile Include="Assets\scripts\changeWeapon.cs" />
      <Compile Include="Assets\scripts\CheckEnemy.cs" />
-     <Compile Include="Assets\scripts\Consume1.cs" />
-     <Compile Include="Assets\scripts\Consume2.cs" />
-     <Compile Include="Assets\scripts\Consume3.cs" />
-     <Compile Include="Assets\scripts\Consume4.cs" />
-     <Compile Include="Assets\scripts\Consume5.cs" />
-     <Compile Include="Assets\scripts\Consume6.cs" />
+     <Compile Include="Assets\scripts\Consume.cs" />
      <Compile Include="Assets\scripts\createEnemy.cs" />
      <Compile Include="Assets\scripts\Enemy.cs" />
      <Compile Include="Assets\scripts\enemyController.cs" />
