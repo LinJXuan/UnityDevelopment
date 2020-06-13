@@ -29,7 +29,7 @@ public class ToLevel2 : MonoBehaviour
     {
         // todo 检测敌人数量或者角色血量判断弹出text的内容以及跳转的目标
         //搜索当前敌人数量
-        GameObject[] gos = GameObject.FindGameObjectsWithTag("Enemy");
+        GameObject[] gos = GameObject.FindGameObjectsWithTag("Boss");
         count = gos.Length;
         if (count > 0) { State = true; }
         if (State)

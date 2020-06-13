@@ -54,7 +54,6 @@ public class CameraShake : MonoBehaviour
 
     private void Enable()
 	{
-        print("这里");
 		isshakeCamera = true;
 		selfCamera = gameObject.GetComponent<Camera>();
 		shakeTime = setShakeTime;

@@ -17,9 +17,11 @@ public class CreateEnemy : MonoBehaviour
     private int count = 0;
     public bool isCreate=false;
 
-    public enum dis{first,second,third,fourth};
+    public enum dis{first,second,third,fourth,fifth,last};
     private dis level0=dis.first;
     private SetCreateEnemy set;
+    private int Ncount=1;
+    private bool newLevel=true;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,10 +50,10 @@ public class CreateEnemy : MonoBehaviour
         //     print("======= create enemy ======");
         //     print("positionL=======" + positionL.y);
         // }
-        dtTime -= Time.deltaTime;
-        if(isCreate&&count<enemyCount&&dtTime < 0){
+        //dtTime -= Time.deltaTime;
+        if(isCreate&&count<enemyCount/*&&dtTime < 0*/){
             count++;
-            dtTime = totalTime;
+            //dtTime = totalTime;
             //positionL = positionR;
            // positionL.x = -positionR.x;
            // rotationL = rotationR;
@@ -62,13 +64,11 @@ public class CreateEnemy : MonoBehaviour
             print("positionL=======" + positionL.y);
         }
 
-        if(count == enemyCount){
+        if(newLevel&&count == enemyCount){
             isCreate=false;
             int mile=0;
+            level0++;
             switch(level0){
-                case dis.first:
-                mile=20;
-                break;
                 case dis.second:
                 mile=45;
                 break;
@@ -79,9 +79,49 @@ public class CreateEnemy : MonoBehaviour
                 mile=90;
                 break;
             }
-            enemyPosition.transform.position+=new Vector3(1f*mile,0,0);
+            if(level0==dis.fifth){
+                newLevel=false;
+                level0=dis.first;
+            }
+            enemyPosition.transform.position=new Vector3(1f*mile,enemyPosition.transform.position.y,enemyPosition.transform.position.z);
             count=0;
             set.closeTo15=true;
+            positionR = enemyPosition.transform.localPosition;
+            rotationR = enemyPosition.transform.localRotation;
+            
+        }
+
+        if(!newLevel&&count == enemyCount){
+            isCreate=false;
+            int mile=0;
+            switch(level0){
+                case dis.first:
+                mile=15;
+                break;
+                case dis.second:
+                mile=30;
+                break;
+                case dis.third:
+                mile=50;
+                break;
+                case dis.fourth:
+                mile=70;
+                break;
+                case dis.fifth:
+                mile=90;
+                break;
+            }
+            mile+=Ncount*100;
+            enemyPosition.transform.position=new Vector3(1f*mile,enemyPosition.transform.position.y,enemyPosition.transform.position.z);
+            count=0;
+            set.closeTo15=true;
+            positionR = enemyPosition.transform.localPosition;
+            rotationR = enemyPosition.transform.localRotation;
+            level0++;
+            if(level0==dis.last){
+                Ncount++;
+                level0=dis.first;
+            }
         }
     }
 }
