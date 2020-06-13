@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class RpgScript : MonoBehaviour
 {
     private Animator anim;
-    public float speed=1;
+    public float speed=5;
     private bool isRight = true;
     private bool isLeft = false;
     private bool isPlaying=false;

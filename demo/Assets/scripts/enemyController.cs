@@ -12,11 +12,13 @@ public class EnemyController : MonoBehaviour
     private Rigidbody rbody;
     private float time;
     private PlayerHealth playerHealth;
+    public bool isCreate=false;
     // Start is called before the first frame update
     void Start()
     {
         rbody = GetComponent<Rigidbody>();
         playerHealth = GameObject.Find("RPG-Character").GetComponent<PlayerHealth>();
+        player = GameObject.Find("RPG-Character");
     }
 
     // Update is called once per frame
@@ -31,10 +33,11 @@ public class EnemyController : MonoBehaviour
         {
             transform.LookAt(player.transform);
             transform.position += transform.forward * speed * Time.deltaTime;
-            
+            //transform.Translate( new Vector3(0,0,1) * speed * Time.deltaTime); 
             
             if (time >= timeAttack)
             {
+               
                 float dx = Mathf.Abs(player.transform.localPosition.x - transform.localPosition.x);
                 if (dx < attackRange)
                 {
