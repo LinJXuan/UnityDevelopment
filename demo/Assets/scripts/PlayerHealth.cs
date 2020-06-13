@@ -5,9 +5,8 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     public int playerHp;
-    public int playerShield;
     public int playerDefense;
-    public int playerAttackRange;
+    //public int playerAttackRange;
     public int playerAttack;
     private Player p;
     private RpgScript player;
@@ -18,10 +17,9 @@ public class PlayerHealth : MonoBehaviour
         player = GameObject.Find("RPG-Character").GetComponent<RpgScript>();
         p.reloadcurrentHp();
         playerHp = p.getcurrentHp();
-        playerShield = p.getShield();
         playerDefense = p.getDefense();
         playerAttack = p.getAttack();
-        playerAttackRange = p.getRange();
+        //playerAttackRange = p.getRange();
     }
 
     public void TakeDamage(int damage)

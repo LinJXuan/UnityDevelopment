@@ -42,14 +42,14 @@ public class RpgScript : MonoBehaviour
         flaptext=GameObject.Find("flapWord");
         flaptext.SetActive(false);
         healthSlider.value=GetComponent<PlayerHealth>().playerHp;
-        shieldSlider.value=GetComponent<PlayerHealth>().playerShield;
+        //shieldSlider.value=GetComponent<PlayerHealth>().playerShield;
     }
 
     // Update is called once per frame
     void Update()
     {
         healthSlider.value=GetComponent<PlayerHealth>().playerHp;
-        shieldSlider.value=GetComponent<PlayerHealth>().playerShield;
+        //shieldSlider.value=GetComponent<PlayerHealth>().playerShield;
  
         if (countDown > -1)
         {

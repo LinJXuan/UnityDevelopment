@@ -47,6 +47,7 @@ public class EnemyHealth : MonoBehaviour
     private void Death()
     {
         isDead = true;
+        //设置获得积分
         s.setPoint(10); 
         Destroy(gameObject); 
     }

@@ -2,14 +2,25 @@
 
 public class Player : PlayerAttribute
 {
-    private static Player instance = new Player(100,5,3,10,10);
+    private int levelPoint;
 
-    public Player(int hp, int attack, int range, int shield, int defense) : base(hp, attack, range, shield, defense)
+    private static Player instance = new Player(300,100,15,10,0);
+
+    public Player(int hp, int energy,int attack, int defense,int levelPoint) : base(hp,energy,attack, defense)
     {
+        this.levelPoint=levelPoint;
     }
 
     public static Player getInstance()
     {
         return instance;
+    }
+
+    public void setlevelPoint(int n){
+        this.levelPoint=n;
+    }
+
+    public int getlevelPoint(){
+        return this.levelPoint;
     }
 }
