@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
     public float speed = 4;
     public float attackRange = 2;
     public float timeAttack = 5f;
-    public int attachDamage = 2;
+    public int attachDamage = 30;
     private Rigidbody rbody;
     private float time;
     private PlayerHealth playerHealth;

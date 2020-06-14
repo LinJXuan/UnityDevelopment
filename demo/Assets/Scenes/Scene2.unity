@@ -7337,6 +7337,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf35f6061ad6ee469fc64f1fc05504a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalTime: 1
+  Normal: {fileID: 120771076428507026, guid: d0046207d5d2d5f4285799abc5efa240, type: 3}
+  Expert: {fileID: 1681503175267001474, guid: 30cdf69f4b735514b99b7e3fbbdac17c, type: 3}
+  Boss: {fileID: 8011108773537355961, guid: a4b1a30352e8c9d4f8ba59df8d39ef15, type: 3}
+  enemyPosition: {fileID: 1083582985}
+  isCreate: 0
 --- !u!4 &1622315661
 Transform:
   m_ObjectHideFlags: 0
@@ -10581,7 +10587,7 @@ PrefabInstance:
     - target: {fileID: 1525026676808764070, guid: 0d0ded4cbb4440b4397681138c8dcdf8,
         type: 3}
       propertyPath: attackDamage
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 1525026676808764070, guid: 0d0ded4cbb4440b4397681138c8dcdf8,
         type: 3}

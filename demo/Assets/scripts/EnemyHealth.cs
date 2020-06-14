@@ -26,6 +26,7 @@ public class EnemyHealth : MonoBehaviour
         //enemyDefense = enemy.getDefense();
         //enemyAttack = enemy.getAttack();
         //enemyAttackRange = enemy.getRange();
+        enemyDefense = Random.Range(10, 20);
     }
 
     public void TakeDamage(int damage)
@@ -34,7 +35,8 @@ public class EnemyHealth : MonoBehaviour
         {
             return;
         }
-        enemyHp -= damage;
+        //根据怪物防御力 计算不同的伤害
+        enemyHp -= (damage - enemyDefense);
         //p.setcurrentHp(playerHp);
         if (enemyHp <= 0)
         {
