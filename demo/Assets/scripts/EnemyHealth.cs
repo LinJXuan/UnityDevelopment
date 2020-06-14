@@ -27,6 +27,7 @@ public class EnemyHealth : MonoBehaviour
         //enemyAttack = enemy.getAttack();
         //enemyAttackRange = enemy.getRange();
         enemyDefense = Random.Range(10, 20);
+        enemyBlood.maxValue = enemyHp;
     }
 
     public void TakeDamage(int damage)

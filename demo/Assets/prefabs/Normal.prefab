@@ -2032,11 +2032,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 538783f75beb6a0499ba8bf0a1d10b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1525026676808862745, guid: 0d0ded4cbb4440b4397681138c8dcdf8, type: 3}
   speed: 4
-  attackRange: 2
+  attackRange: 1
   timeAttack: 5
-  attachDamage: 30
+  attachDamage: 10
   isCreate: 0
 --- !u!136 &120771076428507036
 CapsuleCollider:
@@ -2064,7 +2064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e2e5f1284040249836c97416da2330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHp: 100
+  enemyHp: 50
   enemyShield: 0
   enemyDefense: 0
   enemyAttackRange: 0
