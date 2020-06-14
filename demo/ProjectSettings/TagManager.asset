@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - AirposR
   - AirposL
+  - Boss
   layers:
   - Default
   - TransparentFX
