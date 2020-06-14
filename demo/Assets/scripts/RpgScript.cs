@@ -16,10 +16,6 @@ public class RpgScript : MonoBehaviour
     private bool isAlive = true;
     public int attackRange = 4;
     public int attackDamage = 10;
-    public GameObject enemy;
-    //倒计时组件
-    private int countDown = 3;
-    private float intervalTime = 1;
     //使用状态控制人物动作
     public enum State { dead,stop,left,right,skillOne,skillTwo,skillThree,skillFour}
     public State currentState = State.stop;
@@ -35,7 +31,6 @@ public class RpgScript : MonoBehaviour
 
     void Start()
     {
-        enemy.SetActive(false);
         
         anim =GetComponent<Animator>();
         enemyLayer = LayerMask.GetMask("Enemy");
@@ -51,21 +46,7 @@ public class RpgScript : MonoBehaviour
         healthSlider.value=GetComponent<PlayerHealth>().playerHp;
         //shieldSlider.value=GetComponent<PlayerHealth>().playerShield;
  
-        if (countDown > -1)
-        {
-            intervalTime -= Time.deltaTime;
-            if (intervalTime <= 0)
-            {
-                intervalTime += 1;
-                countDown--;
 
-            }
-        }
-
-        if (countDown == 0)
-        {
-            enemy.SetActive(true);
-        }
 
         if(currentState == State.dead)
         {
