@@ -639,10 +639,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1525026676808862745, guid: 0d0ded4cbb4440b4397681138c8dcdf8, type: 3}
-  speed: 2
-  attackRange: 2
-  timeAttack: 5
-  attachDamage: 2
+  speed: 4
+  attackRange: 4
+  timeAttack: 3
+  attachDamage: 40
   isCreate: 0
 --- !u!136 &8011108773537355959
 CapsuleCollider:
@@ -670,7 +670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e2e5f1284040249836c97416da2330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHp: 100
+  enemyHp: 600
   enemyShield: 0
   enemyDefense: 0
   enemyAttackRange: 0

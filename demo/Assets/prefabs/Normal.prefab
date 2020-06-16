@@ -1962,7 +1962,7 @@ GameObject:
   - component: {fileID: 120771076428507036}
   - component: {fileID: 120771076428507037}
   m_Layer: 9
-  m_Name: RPG-enemy R
+  m_Name: Normal
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2033,10 +2033,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1525026676808862745, guid: 0d0ded4cbb4440b4397681138c8dcdf8, type: 3}
-  speed: 2
-  attackRange: 2
+  speed: 4
+  attackRange: 1
   timeAttack: 5
-  attachDamage: 2
+  attachDamage: 10
+  isCreate: 0
 --- !u!136 &120771076428507036
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2063,7 +2064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e2e5f1284040249836c97416da2330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHp: 100
+  enemyHp: 50
   enemyShield: 0
   enemyDefense: 0
   enemyAttackRange: 0

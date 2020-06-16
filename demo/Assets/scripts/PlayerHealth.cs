@@ -19,13 +19,15 @@ public class PlayerHealth : MonoBehaviour
         playerHp = p.getcurrentHp();
         playerDefense = p.getDefense();
         playerAttack = p.getAttack();
+        player.setMaxHpUi(p.getHp());
         //playerAttackRange = p.getRange();
     }
 
     public void TakeDamage(int damage)
     {
-        playerHp -= damage;
-        
+        //计算最终伤害
+        playerHp -= (damage - playerDefense);
+
         if (playerHp <= 0)
         {
             playerHp = 0;
@@ -34,6 +36,6 @@ public class PlayerHealth : MonoBehaviour
             player.playerIsAlive(false);
             return;
         }
-        //print("playerHp ===>" + playerHp);
+        print("playerHp ===>" + playerHp);
     }
 }
