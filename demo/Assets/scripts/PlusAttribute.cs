@@ -5,11 +5,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlusAttribute : MonoBehaviour {
-    private Player p;
-    private static int playerHp;
-    private static int playerDefense;
-    private static int playerAttack;
-    private static int playerLevelPoint;
+    public static Player p;
+    public static int playerHp;
+    public static int playerDefense;
+    public static int playerAttack;
+    public static int playerLevelPoint;
 
     void Start () {
         p = Player.getInstance ();
@@ -17,7 +17,6 @@ public class PlusAttribute : MonoBehaviour {
         playerDefense = p.getDefense ();
         playerAttack = p.getAttack ();
         playerLevelPoint = p.getlevelPoint ();
-        playerLevelPoint = 5;
         GameObject.Find ("Canvas/Number1").GetComponent<Text> ().text = playerHp.ToString ();
         GameObject.Find ("Canvas/Number2").GetComponent<Text> ().text = playerDefense.ToString ();
         GameObject.Find ("Canvas/Number3").GetComponent<Text> ().text = playerAttack.ToString ();
@@ -55,5 +54,11 @@ public class PlusAttribute : MonoBehaviour {
             string str3 = playerAttack.ToString ();
             GameObject.Find ("Canvas/Number3").GetComponent<Text> ().text = str3;
         }
+    }
+    public static void setAll () {
+        p.setHp (playerHp);
+        p.setDefense (playerDefense);
+        p.setAttack (playerAttack);
+        p.setlevelPoint (playerLevelPoint);
     }
 }
