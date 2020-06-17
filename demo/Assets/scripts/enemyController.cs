@@ -22,6 +22,9 @@ public class EnemyController : MonoBehaviour
     public Slider enemyBlood;
     //积分
     private Statistic s;
+
+    private bool look=false;
+    private Vector3 position;
     void Start()
     {
         s = Statistic.getInstance();
@@ -34,25 +37,27 @@ public class EnemyController : MonoBehaviour
             attackRange=normal.getRange();
             attack=normal.getAttack();
             Hp=normal.getHp();
-            speed=1;
+            speed=normal.getSpeed();
             break;
             case 'E':
             expert=ExpertEnemy.getInstance();
             attackRange=expert.getRange();
             attack=expert.getAttack();
             Hp=expert.getHp();
-            speed=2;
+            speed=normal.getSpeed();
             break;
             case 'B':
             boss=BossEnemy.getInstance();
             attackRange=boss.getRange();
             attack=boss.getAttack();
             Hp=boss.getHp();
-            speed=1;
+            speed=normal.getSpeed();
             break;
         }
         enemyBlood.value=Hp;
         enemyBlood.maxValue = Hp;
+        transform.LookAt(player.transform);
+        position=transform.position;
     }
 
     // Update is called once per frame
@@ -69,17 +74,14 @@ public class EnemyController : MonoBehaviour
     {
         time += Time.deltaTime;
         if (player != null)
-        {
-            transform.LookAt(player.transform);
-            transform.position += transform.forward * speed * Time.deltaTime;
-            //transform.Translate( new Vector3(0,0,1) * speed * Time.deltaTime); 
-            
+        {                   
             if (time >= timeAttack)
             {
                
                 float dx = Mathf.Abs(player.transform.localPosition.x - transform.localPosition.x);
-                if (dx < attackRange)
+                if (dx <= attackRange)
                 {
+                    look=true;
                     Attack();
                 }
             }
@@ -100,6 +102,9 @@ public class EnemyController : MonoBehaviour
         }
        
         Hp -= damage;
+        if(transform.name[0]=='B'){
+            boss.setcurrentHp(Hp);
+        }
         
         if (Hp <= 0)
         {
