@@ -7353,9 +7353,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalTime: 1
-  Normal: {fileID: 120771076428507026, guid: d0046207d5d2d5f4285799abc5efa240, type: 3}
-  Expert: {fileID: 1681503175267001474, guid: 30cdf69f4b735514b99b7e3fbbdac17c, type: 3}
-  Boss: {fileID: 8011108773537355961, guid: a4b1a30352e8c9d4f8ba59df8d39ef15, type: 3}
+  Normal: {fileID: 8571159428271213722, guid: d0046207d5d2d5f4285799abc5efa240, type: 3}
+  Expert: {fileID: 4545426396565805325, guid: 30cdf69f4b735514b99b7e3fbbdac17c, type: 3}
+  Boss: {fileID: 7719534466176139818, guid: a4b1a30352e8c9d4f8ba59df8d39ef15, type: 3}
   enemyPosition: {fileID: 1083582985}
   isCreate: 0
 --- !u!4 &1622315661

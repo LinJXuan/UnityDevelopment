@@ -16,17 +16,35 @@ public class EnemyHealth : MonoBehaviour
     //添加积分
     private Statistic s;
     public Slider enemyBlood;
+    private NormalEnemy normal;
+    private ExpertEnemy expert;
+    private BossEnemy boss;
     private void Awake()
     {
         enemy = new Enemy();
         s = Statistic.getInstance();
+        switch(transform.name[0]){
+            case 'N':
+            normal=NormalEnemy.getInstance();
+            enemyHp=normal.getHp();
+            break;
+            case 'E':
+            expert=ExpertEnemy.getInstance();
+            enemyHp=expert.getHp();
+            break;  
+            case 'B':
+            boss=BossEnemy.getInstance();
+            enemyHp=boss.getHp();
+            break;
+        }
+        
         enemyBlood.value=enemyHp;
         //enemyHp = enemy.getHp();
         //enemyShield = enemy.getShield();
         //enemyDefense = enemy.getDefense();
         //enemyAttack = enemy.getAttack();
         //enemyAttackRange = enemy.getRange();
-        enemyDefense = Random.Range(10, 20);
+        //enemyDefense = Random.Range(10, 20);
         enemyBlood.maxValue = enemyHp;
     }
 
@@ -36,9 +54,9 @@ public class EnemyHealth : MonoBehaviour
         {
             return;
         }
-        //根据怪物防御力 计算不同的伤害
-        enemyHp -= (damage - enemyDefense);
-        //p.setcurrentHp(playerHp);
+       
+        enemyHp -= damage;
+        
         if (enemyHp <= 0)
         {
             Death();

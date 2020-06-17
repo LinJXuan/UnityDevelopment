@@ -4,7 +4,7 @@ public class PlayerAttribute
     private int Hp;
     private int currentHp;
     private int Attack;
-    //private int Range;
+    private int Range;
     //private int Shield;
     private int Defense;
     private int energy;
@@ -16,9 +16,16 @@ public class PlayerAttribute
         this.currentHp = hp;
         this.energy=energy;
         this.Attack = attack;
-        //this.Range = range;
+        this.Range = 0;
         //this.Shield = shield;
         this.Defense = defense;
+    }
+    public PlayerAttribute(int hp,int attack,int range)
+    {
+        this.Hp = hp;
+        this.currentHp = hp;
+        this.Attack = attack;
+        this.Range=range;
     }
     public int getHp()
     {
@@ -32,10 +39,10 @@ public class PlayerAttribute
     {
         return this.Attack;
     }
-    // public int getRange()
-    // {
-    //     return this.Range;
-    // }
+    public int getRange()
+    {
+        return this.Range;
+    }
     // public int getShield()
     // {
     //     return this.Shield;
@@ -60,9 +67,9 @@ public class PlayerAttribute
     public void setAttack(int attack){
         this.Attack=attack;
     }
-    // public void setRange(int range){
-    //     this.Range=range;
-    // }
+    public void setRange(int range){
+        this.Range=range;
+    }
     // public void setShield(int shield){
     //     this.Shield=shield;
     // }

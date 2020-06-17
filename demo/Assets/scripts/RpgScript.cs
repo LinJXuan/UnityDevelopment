@@ -28,10 +28,11 @@ public class RpgScript : MonoBehaviour
     public static GameObject flaptext;
     public Text flapWord;
 
+    private Player player;
 
     void Start()
     {
-        
+        player=Player.getInstance();
         anim =GetComponent<Animator>();
         enemyLayer = LayerMask.GetMask("Enemy");
         flaptext=GameObject.Find("flapWord");
@@ -45,7 +46,7 @@ public class RpgScript : MonoBehaviour
     {
         healthSlider.value=GetComponent<PlayerHealth>().playerHp;
         //shieldSlider.value=GetComponent<PlayerHealth>().playerShield;
- 
+        attackDamage=player.getAttack();
 
 
         if(currentState == State.dead)
@@ -217,8 +218,8 @@ public class RpgScript : MonoBehaviour
         attackRay.direction = transform.forward;
         if (Physics.Raycast(attackRay, out RaycastHit attackHit, attackRange, enemyLayer))
         {
-            EnemyHealth enemyHealth = attackHit.collider.gameObject.GetComponent<EnemyHealth>();
-            enemyHealth.TakeDamage(attackDamage);
+            EnemyController EnemyController = attackHit.collider.gameObject.GetComponent<EnemyController>();
+            EnemyController.TakeDamage(attackDamage);
         }
     }
     void DeadFinshCallBack()
