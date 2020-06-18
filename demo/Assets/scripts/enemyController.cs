@@ -139,7 +139,7 @@ public class EnemyController : MonoBehaviour {
         AddlevelPoint ();
         p.setlevelPoint (levelPoint); //写入升级点数
         //设置获得积分
-        s.setPoint (10);
+        s.setPoint (s.getPoint()+10);
         Destroy (gameObject);
     }
 

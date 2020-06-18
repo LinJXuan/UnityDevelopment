@@ -23,7 +23,9 @@ public class CreateEnemy : MonoBehaviour
     public enum dis{first,second,third,fourth,fifth,last};
     private dis level0=dis.first;
     private SetCreateEnemy set;
-    private int Ncount=1;
+    private Statistic s;
+    private int Level;
+    private int Ncount;
     private bool newLevel=true;
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,9 @@ public class CreateEnemy : MonoBehaviour
         //dtTime = totalTime;
         positionR = enemyPosition.transform.localPosition;
         rotationR = enemyPosition.transform.localRotation;
+        s=Statistic.getInstance();
+        Level=s.getLevel();
+        Ncount=1;
     }
 
     // Update is called once per frame
@@ -39,47 +44,32 @@ public class CreateEnemy : MonoBehaviour
     {
         totalCount=enemyCount[0]+enemyCount[1]+enemyCount[2];
 
-        // dtTime -= Time.deltaTime;
-        // if (dtTime < 0&&count< enemyCount)
-        // {
-        //     count++;
-        //     dtTime = totalTime;
-
-        //     positionL = positionR;
-        //     positionL.x = -positionR.x;
-        //     rotationL = rotationR;
-        //     rotationL.y = -rotationR.y;
-        //     Instantiate(gobjR, positionR, rotationR);
-        //     //Instantiate(gobjR, positionL, rotationL);
-        //     print("======= create enemy ======");
-        //     print("positionL=======" + positionL.y);
-        // }
-        //dtTime -= Time.deltaTime;
-        if(isCreate&&count<totalCount/*&&dtTime < 0*/){
+        if(isCreate&&count<totalCount){
             
             EnemyCreateControl(ref count);
             
             print("======= create enemy ======");
             print("positionL=======" + positionL.y);
         }
-
+        //第一关的新手关
+        if(Level==1){
         if(newLevel&&count == totalCount){
             isCreate=false;
             int mile=0;
             level0++;
             switch(level0){
                 case dis.second:
-                mile=45;              
+                mile=-55;              
                 break;
 
                 case dis.third:
                 enemyCount[0]=0;
                 enemyCount[1]=1;
-                mile=70;
+                mile=-30;
                 break;
 
                 case dis.fourth:
-                mile=90;
+                mile=-10;
                 break;
             }
             if(level0==dis.fifth){
@@ -93,6 +83,7 @@ public class CreateEnemy : MonoBehaviour
             positionR = enemyPosition.transform.localPosition;
             rotationR = enemyPosition.transform.localRotation;
             
+            }
         }
 
         if(!newLevel&&count == totalCount){
@@ -212,7 +203,7 @@ public class CreateEnemy : MonoBehaviour
                 break;
             }
 
-            mile+=Ncount*100;
+            mile+=(Ncount-1)*100;
             enemyPosition.transform.position=new Vector3(1f*mile,enemyPosition.transform.position.y,enemyPosition.transform.position.z);
             count=0;
             set.closeTo15=true;
@@ -244,6 +235,24 @@ public class CreateEnemy : MonoBehaviour
             GameObject enemy=Instantiate(Boss, positionR, rotationR);
             enemy.SetActive(true);
             count++;
+        }
+    }
+
+    private void setNumberOfEnemy(int level,int Ncount,dis dis){
+        if(level==1){
+
+        }
+        if(level==2){
+
+        }
+        if(level==3){
+
+        }
+        if(level==4){
+
+        }
+        if(level==5){
+
         }
     }
 }

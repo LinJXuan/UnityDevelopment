@@ -16,7 +16,7 @@ public class PlusAttribute : MonoBehaviour {
         playerDefense = p.getDefense ();
         playerAttack = p.getAttack ();
         playerlevelPoint = p.getlevelPoint ();
-        p.setlevelPoint(10);
+        //p.setlevelPoint(10);
         GameObject.Find ("Canvas/Number1").GetComponent<Text> ().text = playerHp.ToString ();
         GameObject.Find ("Canvas/Number2").GetComponent<Text> ().text = playerDefense.ToString ();
         GameObject.Find ("Canvas/Number3").GetComponent<Text> ().text = playerAttack.ToString ();
