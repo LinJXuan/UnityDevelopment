@@ -10,7 +10,7 @@ public class ShowBag : MonoBehaviour {
     public static GameObject object3;
     public static GameObject object4;
     void Start () {
-        object1 = GameObject.Find ("Canvas");
+        object1 = GameObject.Find ("Canvas1");
         object2 = GameObject.Find ("Bag/Canvas");
         object3 = GameObject.Find ("Pause/Canvas");
         object4 = GameObject.Find ("Attribute/Canvas");

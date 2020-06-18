@@ -108,7 +108,7 @@ public class Consume : MonoBehaviour {
     public void Detection () {
         if (isTiming1) //如果 IsTiming 为 true 
         {
-            if ((Time.time - countDown1) > 2) //如果 两次点击时间间隔大于2秒
+            if ((Time.time - countDown1) > 1) //如果 两次点击时间间隔大于1秒
             {
                 countDown1 = 0; //倒计时时间归零
                 isTiming1 = false; //关闭倒计时
@@ -116,7 +116,7 @@ public class Consume : MonoBehaviour {
         }
         if (isTiming2) //如果 IsTiming 为 true 
         {
-            if ((Time.time - countDown2) > 2) //如果 两次点击时间间隔大于2秒
+            if ((Time.time - countDown2) > 1) //如果 两次点击时间间隔大于1秒
             {
                 countDown2 = 0; //倒计时时间归零
                 isTiming2 = false; //关闭倒计时
@@ -124,7 +124,7 @@ public class Consume : MonoBehaviour {
         }
         if (isTiming3) //如果 IsTiming 为 true 
         {
-            if ((Time.time - countDown3) > 2) //如果 两次点击时间间隔大于2秒
+            if ((Time.time - countDown3) > 1) //如果 两次点击时间间隔大于1秒
             {
                 countDown3 = 0; //倒计时时间归零
                 isTiming3 = false; //关闭倒计时
@@ -132,7 +132,7 @@ public class Consume : MonoBehaviour {
         }
         if (isTiming4) //如果 IsTiming 为 true 
         {
-            if ((Time.time - countDown4) > 2) //如果 两次点击时间间隔大于2秒
+            if ((Time.time - countDown4) > 1) //如果 两次点击时间间隔大于1秒
             {
                 countDown4 = 0; //倒计时时间归零
                 isTiming4 = false; //关闭倒计时
@@ -140,7 +140,7 @@ public class Consume : MonoBehaviour {
         }
         if (isTiming5) //如果 IsTiming 为 true 
         {
-            if ((Time.time - countDown5) > 2) //如果 两次点击时间间隔大于2秒
+            if ((Time.time - countDown5) > 1) //如果 两次点击时间间隔大于1秒
             {
                 countDown5 = 0; //倒计时时间归零
                 isTiming5 = false; //关闭倒计时
@@ -148,7 +148,7 @@ public class Consume : MonoBehaviour {
         }
         if (isTiming6) //如果 IsTiming 为 true 
         {
-            if ((Time.time - countDown6) > 2) //如果 两次点击时间间隔大于2秒
+            if ((Time.time - countDown6) > 1) //如果 两次点击时间间隔大于1秒
             {
                 countDown6 = 0; //倒计时时间归零
                 isTiming6 = false; //关闭倒计时

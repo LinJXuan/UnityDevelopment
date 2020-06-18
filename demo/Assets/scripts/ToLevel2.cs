@@ -19,7 +19,7 @@ public class ToLevel2 : MonoBehaviour
     {
         s = Statistic.getInstance();
         p = Player.getInstance();
-        text = GameObject.Find("Canvas/countDown").GetComponent<Text>();
+        text = GameObject.Find("Canvas1/countDown").GetComponent<Text>();
         countDown.SetActive(false);
 
     }
