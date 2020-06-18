@@ -7343,6 +7343,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf35f6061ad6ee469fc64f1fc05504a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalTime: 1
+  Normal: {fileID: 8954881206591198043, guid: d0046207d5d2d5f4285799abc5efa240, type: 3}
+  Expert: {fileID: 4545426396565805325, guid: 30cdf69f4b735514b99b7e3fbbdac17c, type: 3}
+  Boss: {fileID: 7719534466176139818, guid: a4b1a30352e8c9d4f8ba59df8d39ef15, type: 3}
+  enemyPosition: {fileID: 1083582985}
+  isCreate: 0
 --- !u!4 &1622315661
 Transform:
   m_ObjectHideFlags: 0
@@ -8328,7 +8334,7 @@ Transform:
   - {fileID: 2061690019}
   - {fileID: 1457849192}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1846313966
 GameObject:
@@ -10486,6 +10492,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1525026676390717498, guid: 0d0ded4cbb4440b4397681138c8dcdf8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525026676390717499, guid: 0d0ded4cbb4440b4397681138c8dcdf8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525026676629799225, guid: 0d0ded4cbb4440b4397681138c8dcdf8,
+        type: 3}
+      propertyPath: m_Name
+      value: healthSlider
+      objectReference: {fileID: 0}
     - target: {fileID: 1525026676808372281, guid: 0d0ded4cbb4440b4397681138c8dcdf8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10524,7 +10545,7 @@ PrefabInstance:
     - target: {fileID: 1525026676808372281, guid: 0d0ded4cbb4440b4397681138c8dcdf8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1525026676808372281, guid: 0d0ded4cbb4440b4397681138c8dcdf8,
         type: 3}
@@ -10550,7 +10571,8 @@ PrefabInstance:
         type: 3}
       propertyPath: enemy
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8954881206591198043, guid: d0046207d5d2d5f4285799abc5efa240,
+        type: 3}
     - target: {fileID: 1525026676808764070, guid: 0d0ded4cbb4440b4397681138c8dcdf8,
         type: 3}
       propertyPath: roadlist.Array.data[0]
@@ -10584,7 +10606,7 @@ PrefabInstance:
     - target: {fileID: 1525026676808764070, guid: 0d0ded4cbb4440b4397681138c8dcdf8,
         type: 3}
       propertyPath: attackDamage
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1525026676808764070, guid: 0d0ded4cbb4440b4397681138c8dcdf8,
         type: 3}
@@ -10605,6 +10627,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525026677538518070, guid: 0d0ded4cbb4440b4397681138c8dcdf8,
+        type: 3}
+      propertyPath: m_Name
+      value: shieldSlider
       objectReference: {fileID: 0}
     - target: {fileID: 1525026677546114196, guid: 0d0ded4cbb4440b4397681138c8dcdf8,
         type: 3}

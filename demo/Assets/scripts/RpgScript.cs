@@ -1,8 +1,7 @@
-
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 using UnityEngine.UI;
 
 public class RpgScript : MonoBehaviour
@@ -16,6 +15,10 @@ public class RpgScript : MonoBehaviour
     private bool isAlive = true;
     public int attackRange = 4;
     public int attackDamage = 10;
+    public GameObject enemy;
+    //倒计时组件
+    private int countDown = 3;
+    private float intervalTime = 1;
     //使用状态控制人物动作
     public enum State { dead,stop,left,right,skillOne,skillTwo,skillThree,skillFour}
     public State currentState = State.stop;
@@ -25,17 +28,15 @@ public class RpgScript : MonoBehaviour
     private float barUpLength = 3f;
     public Slider healthSlider ; 
     public Slider shieldSlider;
-    public static GameObject flaptext;
-    public Text flapWord;
+
 
 
     void Start()
     {
-        player=Player.getInstance();
+        enemy.SetActive(false);
+        
         anim =GetComponent<Animator>();
         enemyLayer = LayerMask.GetMask("Enemy");
-        flaptext=GameObject.Find("flapWord");
-        flaptext.SetActive(false);
         healthSlider.value=GetComponent<PlayerHealth>().playerHp;
         //shieldSlider.value=GetComponent<PlayerHealth>().playerShield;
     }
@@ -45,8 +46,22 @@ public class RpgScript : MonoBehaviour
     {
         healthSlider.value=GetComponent<PlayerHealth>().playerHp;
         //shieldSlider.value=GetComponent<PlayerHealth>().playerShield;
-        attackDamage=player.getAttack();
+ 
+        if (countDown > -1)
+        {
+            intervalTime -= Time.deltaTime;
+            if (intervalTime <= 0)
+            {
+                intervalTime += 1;
+                countDown--;
 
+            }
+        }
+
+        if (countDown == 0)
+        {
+            enemy.SetActive(true);
+        }
 
         if(currentState == State.dead)
         {
@@ -99,32 +114,27 @@ public class RpgScript : MonoBehaviour
         {
 
             anim.SetTrigger("Q Trigger");
-            flaptext.SetActive(true);     //显示伤害
-            FlyTo(flapWord);
+         
         }
 
         if(currentState ==State.skillTwo)
         {
 
             anim.SetTrigger("W Trigger");
-            flaptext.SetActive(true);     //显示伤害
-            FlyTo(flapWord);
+           
         }
 
         if (currentState == State.skillThree)
         {
 
             anim.SetTrigger("E Trigger");
-            flaptext.SetActive(true);     //显示伤害
-            FlyTo(flapWord);
         }
 
         if (currentState == State.skillFour)
         {
 
             anim.SetTrigger("R Trigger");
-            flaptext.SetActive(true);     //显示伤害
-            FlyTo(flapWord);
+          
         }
 
         if (currentState != State.left && currentState != State.right)
@@ -137,8 +147,7 @@ public class RpgScript : MonoBehaviour
         healthSlider.transform.position = new Vector3(screenPos.x, screenPos.y, screenPos.z);
         //护盾位置
         shieldSlider.transform.position = new Vector3(screenPos.x, screenPos.y-9.7693f, screenPos.z);
-        //伤害飘字的位置
-        flapWord.transform.position=new Vector3(screenPos.x+200f, screenPos.y+30f, screenPos.z);
+      
         
     }
     public void FootR()
@@ -226,26 +235,8 @@ public class RpgScript : MonoBehaviour
         isPlaying = false;
     }
      //伤害飘字函数
-    public static void FlyTo(Graphic graphic)
-    {
-	    RectTransform rt = graphic.rectTransform;
-	    Color c = graphic.color;
-	    c.a = 0;
-	    graphic.color = c; 
-	    Sequence mySequence = DOTween.Sequence();
-	    Tweener move1 = rt.DOMoveY(rt.position.y + 50, 0.5f);
-	    Tweener move2 = rt.DOMoveY(rt.position.y + 100, 0.5f);
-	    Tweener alpha1 = graphic.DOColor(new Color(c.r, c.g, c.b, 1), 0.5f);
-	    Tweener alpha2 = graphic.DOColor(new Color(c.r, c.g, c.b, 0), 0.5f);
-	    mySequence.Append(move1);
-	    mySequence.Join(alpha1);
-	    // mySequence.AppendInterval(1);
-	    mySequence.Append(move2);
-	    mySequence.Join(alpha2); 
-    }
-
-    public void setMaxHpUi(int maxHp)
-    {
-        healthSlider.maxValue = maxHp;
-    }
+public void setMaxHpUi(int maxHp)
+{
+    healthSlider.maxValue=maxHp;
+}
 }
