@@ -5,32 +5,36 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlusAttribute : MonoBehaviour {
-    public static Player p;
-    public static int playerHp;
-    public static int playerDefense;
-    public static int playerAttack;
-    public static int playerLevelPoint;
-
+    private Player p;
+    public int playerHp;
+    public int playerDefense;
+    public int playerAttack;
+    public int playerlevelPoint;
     void Start () {
         p = Player.getInstance ();
         playerHp = p.getHp ();
         playerDefense = p.getDefense ();
         playerAttack = p.getAttack ();
-        playerLevelPoint = p.getlevelPoint ();
+        playerlevelPoint = p.getlevelPoint ();
+        p.setlevelPoint(10);
         GameObject.Find ("Canvas/Number1").GetComponent<Text> ().text = playerHp.ToString ();
         GameObject.Find ("Canvas/Number2").GetComponent<Text> ().text = playerDefense.ToString ();
         GameObject.Find ("Canvas/Number3").GetComponent<Text> ().text = playerAttack.ToString ();
-        GameObject.Find ("Canvas/Number4").GetComponent<Text> ().text = playerLevelPoint.ToString ();
+        GameObject.Find ("Canvas/Number4").GetComponent<Text> ().text = playerlevelPoint.ToString ();
     }
-    public void reduceLevelPoint () {
-        playerLevelPoint -= 1;
-        p.setlevelPoint (playerLevelPoint);
-        string str4 = playerLevelPoint.ToString ();
-        GameObject.Find ("Canvas/Number4").GetComponent<Text> ().text = str4;
+    void Update() {
+        playerHp = p.getHp ();
+        playerDefense = p.getDefense ();
+        playerAttack = p.getAttack ();
+        playerlevelPoint = p.getlevelPoint ();
+        GameObject.Find ("Canvas/Number1").GetComponent<Text> ().text = playerHp.ToString ();
+        GameObject.Find ("Canvas/Number2").GetComponent<Text> ().text = playerDefense.ToString ();
+        GameObject.Find ("Canvas/Number3").GetComponent<Text> ().text = playerAttack.ToString ();
+        GameObject.Find ("Canvas/Number4").GetComponent<Text> ().text = playerlevelPoint.ToString ();
     }
     public void plusHp () {
-        if (playerLevelPoint > 0) {
-            reduceLevelPoint ();
+        if (playerlevelPoint > 0) {
+            reducelevelPoint ();
             playerHp += 20;
             p.setHp (playerHp);
             string str1 = playerHp.ToString ();
@@ -38,8 +42,8 @@ public class PlusAttribute : MonoBehaviour {
         }
     }
     public void plusDefense () {
-        if (playerLevelPoint > 0) {
-            reduceLevelPoint ();
+        if (playerlevelPoint > 0) {
+            reducelevelPoint ();
             playerDefense += 3;
             p.setDefense (playerDefense);
             string str2 = playerDefense.ToString ();
@@ -47,18 +51,18 @@ public class PlusAttribute : MonoBehaviour {
         }
     }
     public void plusAttack () {
-        if (playerLevelPoint > 0) {
-            reduceLevelPoint ();
+        if (playerlevelPoint > 0) {
+            reducelevelPoint ();
             playerAttack += 3;
             p.setAttack (playerAttack);
             string str3 = playerAttack.ToString ();
             GameObject.Find ("Canvas/Number3").GetComponent<Text> ().text = str3;
         }
     }
-    public static void setAll () {
-        p.setHp (playerHp);
-        p.setDefense (playerDefense);
-        p.setAttack (playerAttack);
-        p.setlevelPoint (playerLevelPoint);
+    public void reducelevelPoint () {
+        playerlevelPoint -= 1;
+        p.setlevelPoint (playerlevelPoint);
+        string str4 = playerlevelPoint.ToString ();
+        GameObject.Find ("Canvas/Number4").GetComponent<Text> ().text = str4;
     }
 }
