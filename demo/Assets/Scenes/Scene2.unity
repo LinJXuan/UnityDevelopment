@@ -6765,9 +6765,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalTime: 1
-  Normal: {fileID: 8571159428271213722, guid: d0046207d5d2d5f4285799abc5efa240, type: 3}
-  Expert: {fileID: 4545426396565805325, guid: 30cdf69f4b735514b99b7e3fbbdac17c, type: 3}
-  Boss: {fileID: 7719534466176139818, guid: a4b1a30352e8c9d4f8ba59df8d39ef15, type: 3}
+  Normal: {fileID: 3696847622712001379, guid: d0046207d5d2d5f4285799abc5efa240, type: 3}
+  Expert: {fileID: 8935199746425188621, guid: 30cdf69f4b735514b99b7e3fbbdac17c, type: 3}
+  Boss: {fileID: 938157108887629389, guid: a4b1a30352e8c9d4f8ba59df8d39ef15, type: 3}
   enemyPosition: {fileID: 1083582985}
   isCreate: 0
 --- !u!4 &1622315661
@@ -7541,7 +7541,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: -90}
+  m_AnchoredPosition: {x: -100, y: -90}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1802884781
@@ -9705,6 +9705,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1525026676390717497, guid: 0d0ded4cbb4440b4397681138c8dcdf8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1525026676390717497, guid: 0d0ded4cbb4440b4397681138c8dcdf8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -14
+      objectReference: {fileID: 0}
     - target: {fileID: 1525026676808372281, guid: 0d0ded4cbb4440b4397681138c8dcdf8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9803,7 +9813,7 @@ PrefabInstance:
     - target: {fileID: 1525026676808764070, guid: 0d0ded4cbb4440b4397681138c8dcdf8,
         type: 3}
       propertyPath: attackDamage
-      value: 50
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1525026676808764070, guid: 0d0ded4cbb4440b4397681138c8dcdf8,
         type: 3}

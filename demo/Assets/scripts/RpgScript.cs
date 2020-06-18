@@ -12,7 +12,6 @@ public class RpgScript : MonoBehaviour
     private bool isRight = true;
     private bool isLeft = false;
     private bool isPlaying=false;
-    private bool isMoving = false;
     private bool isAlive = true;
     public int attackRange = 4;
     public int attackDamage = 10;
@@ -25,18 +24,22 @@ public class RpgScript : MonoBehaviour
     private float barUpLength = 3f;
     public Slider healthSlider ; 
     public Slider shieldSlider;
-    public static GameObject flaptext;
-    public Text flapWord;
 
     private Player player;
-
+    //突刺攻击有关
+    private ArrayList enemys = new ArrayList();
+    private float spurLength = 5;
+    //投掷距离
+    private float throwLength = 10;
+    //投掷范围
+    private float throwRange = 3;
+    //圣光范围
+    private float lightRange = 3;
     void Start()
     {
         player=Player.getInstance();
         anim =GetComponent<Animator>();
         enemyLayer = LayerMask.GetMask("Enemy");
-        flaptext=GameObject.Find("flapWord");
-        flaptext.SetActive(false);
         healthSlider.value=GetComponent<PlayerHealth>().playerHp;
         //shieldSlider.value=GetComponent<PlayerHealth>().playerShield;
     }
@@ -100,32 +103,27 @@ public class RpgScript : MonoBehaviour
         {
 
             anim.SetTrigger("Q Trigger");
-            flaptext.SetActive(true);     //显示伤害
-            FlyTo(flapWord);
         }
 
         if(currentState ==State.skillTwo)
         {
 
             anim.SetTrigger("W Trigger");
-            flaptext.SetActive(true);     //显示伤害
-            FlyTo(flapWord);
+            holyLightSkill();
         }
 
         if (currentState == State.skillThree)
         {
 
             anim.SetTrigger("E Trigger");
-            flaptext.SetActive(true);     //显示伤害
-            FlyTo(flapWord);
+            throwSkill();
         }
 
         if (currentState == State.skillFour)
         {
 
             anim.SetTrigger("R Trigger");
-            flaptext.SetActive(true);     //显示伤害
-            FlyTo(flapWord);
+            spurSkill();
         }
 
         if (currentState != State.left && currentState != State.right)
@@ -138,8 +136,6 @@ public class RpgScript : MonoBehaviour
         healthSlider.transform.position = new Vector3(screenPos.x, screenPos.y, screenPos.z);
         //护盾位置
         shieldSlider.transform.position = new Vector3(screenPos.x, screenPos.y-9.7693f, screenPos.z);
-        //伤害飘字的位置
-        flapWord.transform.position=new Vector3(screenPos.x+200f, screenPos.y+30f, screenPos.z);
         
     }
     public void FootR()
@@ -226,27 +222,92 @@ public class RpgScript : MonoBehaviour
     {
         isPlaying = false;
     }
-     //伤害飘字函数
-    public static void FlyTo(Graphic graphic)
-    {
-	    RectTransform rt = graphic.rectTransform;
-	    Color c = graphic.color;
-	    c.a = 0;
-	    graphic.color = c; 
-	    Sequence mySequence = DOTween.Sequence();
-	    Tweener move1 = rt.DOMoveY(rt.position.y + 50, 0.5f);
-	    Tweener move2 = rt.DOMoveY(rt.position.y + 100, 0.5f);
-	    Tweener alpha1 = graphic.DOColor(new Color(c.r, c.g, c.b, 1), 0.5f);
-	    Tweener alpha2 = graphic.DOColor(new Color(c.r, c.g, c.b, 0), 0.5f);
-	    mySequence.Append(move1);
-	    mySequence.Join(alpha1);
-	    // mySequence.AppendInterval(1);
-	    mySequence.Append(move2);
-	    mySequence.Join(alpha2); 
-    }
 
     public void setMaxHpUi(int maxHp)
     {
         healthSlider.maxValue = maxHp;
+    }
+
+    public void spurSkill()
+    {
+        print("=====突刺=====");
+        Vector3 spurAttack = gameObject.transform.localPosition;
+        Vector3 finalPosition = gameObject.transform.localPosition;
+        if (isRight)
+        {
+            spurAttack.x += spurLength/2;
+            finalPosition.x += spurLength;  
+        }
+        else
+        {
+            spurAttack.x -= spurLength/2;
+            finalPosition.x -= spurLength;
+        }
+        Collider[] colliders = Physics.OverlapSphere(spurAttack, spurLength/2);
+        if (colliders.Length == 0)
+        {
+            return;
+        }
+        for(int i = 0; i < colliders.Length; i++)
+        {
+            print(colliders[i].gameObject.name);
+            EnemyController controller = colliders[i].gameObject.GetComponent<EnemyController>();
+            if (controller != null)
+            {
+                //攻击伤害为150%
+                controller.TakeDamage(attackDamage+attackDamage/2);
+            }
+        }
+        gameObject.transform.localPosition = finalPosition;
+    }
+
+    public void throwSkill()
+    {
+        print("=====投掷=====");
+        Vector3 throwAttack = gameObject.transform.localPosition;
+        if (isRight)
+        {
+            throwAttack.x += throwLength;
+        }
+        else
+        {
+            throwAttack.x -= throwLength;
+        }
+        Collider[] colliders = Physics.OverlapSphere(throwAttack, throwRange);
+        if (colliders.Length == 0)
+        {
+            return;
+        }
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            print(colliders[i].gameObject.name);
+            EnemyController controller = colliders[i].gameObject.GetComponent<EnemyController>();
+            if (controller != null)
+            {
+                //攻击伤害为2000%
+                controller.TakeDamage(attackDamage*2);
+            }
+        }
+    }
+
+    public void holyLightSkill()
+    {
+        print("=====圣光=====");
+        Vector3 holyLightAttack = gameObject.transform.localPosition;
+        Collider[] colliders = Physics.OverlapSphere(holyLightAttack, lightRange);
+        if (colliders.Length == 0)
+        {
+            return;
+        }
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            print(colliders[i].gameObject.name);
+            EnemyController controller = colliders[i].gameObject.GetComponent<EnemyController>();
+            if (controller != null)
+            {
+                //攻击伤害为300%
+                controller.TakeDamage(attackDamage * 3);
+            }
+        }
     }
 }

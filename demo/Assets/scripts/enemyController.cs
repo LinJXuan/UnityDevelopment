@@ -1,11 +1,13 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 public class EnemyController : MonoBehaviour {
     //属性
-    public GameObject player;
+    private GameObject player;
     public float speed;
     public float attackRange;
     public float timeAttack = 5f;
@@ -27,6 +29,11 @@ public class EnemyController : MonoBehaviour {
 
     private bool look = false;
     private Vector3 position;
+
+    //飘血
+    public static GameObject flaptext;
+    public Text flapWord;
+
     void Start () {
         p = Player.getInstance ();
         levelPoint = p.getlevelPoint (); //获取当前升级点数
@@ -61,6 +68,10 @@ public class EnemyController : MonoBehaviour {
         enemyBlood.maxValue = Hp;
         transform.LookAt (player.transform);
         position = transform.position;
+
+        //飘血
+        flaptext = GameObject.Find("flapWord");
+        flaptext.SetActive(false);
     }
 
     // Update is called once per frame
@@ -70,6 +81,9 @@ public class EnemyController : MonoBehaviour {
         //血条位置
         enemyBlood.transform.position = new Vector3 (screenPos.x, screenPos.y, screenPos.z);
         enemyBlood.value = Hp;
+        //伤害飘字的位置
+        //有问题
+        flapWord.transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + 50f, transform.localPosition.z);
     }
 
     private void FixedUpdate () {
@@ -97,6 +111,12 @@ public class EnemyController : MonoBehaviour {
         }
 
         Hp -= damage;
+        if (flaptext != null)
+        {
+            flaptext.SetActive(true);     //显示伤害
+            FlyTo(flapWord);
+        }
+
         if (transform.name[0] == 'B') {
             boss.setcurrentHp (Hp);
         }
@@ -143,4 +163,22 @@ public class EnemyController : MonoBehaviour {
         Destroy (gameObject);
     }
 
+    //伤害飘字函数
+    public static void FlyTo(Graphic graphic)
+    {
+        RectTransform rt = graphic.rectTransform;
+        Color c = graphic.color;
+        c.a = 0;
+        graphic.color = c;
+        Sequence mySequence = DOTween.Sequence();
+        Tweener move1 = rt.DOMoveY(rt.position.y + 50, 0.5f);
+        Tweener move2 = rt.DOMoveY(rt.position.y + 100, 0.5f);
+        Tweener alpha1 = graphic.DOColor(new Color(c.r, c.g, c.b, 1), 0.5f);
+        Tweener alpha2 = graphic.DOColor(new Color(c.r, c.g, c.b, 0), 0.5f);
+        mySequence.Append(move1);
+        mySequence.Join(alpha1);
+        // mySequence.AppendInterval(1);
+        mySequence.Append(move2);
+        mySequence.Join(alpha2);
+    }
 }
