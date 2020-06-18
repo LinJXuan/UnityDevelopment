@@ -1,4 +1,4 @@
-﻿
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,7 +28,6 @@ public class RpgScript : MonoBehaviour
     public static GameObject flaptext;
     public Text flapWord;
 
-    private Player player;
 
     void Start()
     {
