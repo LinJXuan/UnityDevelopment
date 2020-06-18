@@ -44,14 +44,14 @@ public class EnemyController : MonoBehaviour
             attackRange=expert.getRange();
             attack=expert.getAttack();
             Hp=expert.getHp();
-            speed=normal.getSpeed();
+            speed=expert.getSpeed();
             break;
             case 'B':
             boss=BossEnemy.getInstance();
             attackRange=boss.getRange();
             attack=boss.getAttack();
             Hp=boss.getHp();
-            speed=normal.getSpeed();
+            speed=boss.getSpeed();
             break;
         }
         enemyBlood.value=Hp;
