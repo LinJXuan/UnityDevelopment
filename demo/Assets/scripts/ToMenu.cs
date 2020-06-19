@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class ToMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     void Start()
     {
         this.GetComponent<Button>().onClick.AddListener(OnClick);
@@ -14,9 +14,5 @@ public class ToMenu : MonoBehaviour
     {
         SceneManager.LoadScene("scene1");
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

@@ -684,7 +684,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8954881206297627699}
   m_Layer: 9
-  m_Name: B_R_Finger31
+  m_Name: B_L_Finger02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1090,7 +1090,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 538783f75beb6a0499ba8bf0a1d10b13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   speed: 0
   attackRange: 0
   timeAttack: 5
@@ -1127,7 +1126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36fe59d3b72bec344951c44734afe5af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1525026676808862745, guid: 0d0ded4cbb4440b4397681138c8dcdf8, type: 3}
 --- !u!1 &8954881206631337722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1808,7 +1807,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8954881207445345325}
   m_Layer: 9
-  m_Name: B_L_Forearm
+  m_Name: B_R_Finger02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

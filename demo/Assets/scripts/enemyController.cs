@@ -1,18 +1,20 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
-using DG.Tweening;
 using UnityEngine.UI;
 public class EnemyController : MonoBehaviour {
     //属性
-    public GameObject player;
+    private GameObject player;
     public float speed;
     public float attackRange;
     public float timeAttack = 5f;
     private int Hp;
     public int attack;
     private bool isDead = false;
+    public Player p; //
     public int levelPoint; //升级点数
 
     private Rigidbody rbody;
@@ -33,9 +35,12 @@ public class EnemyController : MonoBehaviour {
 
     private bool look = false;
     private Vector3 position;
+
     void Start () {
         flaptext=GameObject.Find("FlapWord");
         flaptext.SetActive(false);
+        p = Player.getInstance ();
+        levelPoint = p.getlevelPoint (); //获取当前升级点数
         s = Statistic.getInstance ();
         rbody = GetComponent<Rigidbody> ();
         playerHealth = GameObject.Find ("RPG-Character").GetComponent<PlayerHealth> ();
@@ -53,14 +58,14 @@ public class EnemyController : MonoBehaviour {
                 attackRange = expert.getRange ();
                 attack = expert.getAttack ();
                 Hp = expert.getHp ();
-                speed = normal.getSpeed ();
+                speed = expert.getSpeed ();
                 break;
             case 'B':
                 boss = BossEnemy.getInstance ();
                 attackRange = boss.getRange ();
                 attack = boss.getAttack ();
                 Hp = boss.getHp ();
-                speed = normal.getSpeed ();
+                speed = boss.getSpeed ();
                 break;
         }
         enemyBlood.value = Hp;
@@ -118,33 +123,38 @@ public class EnemyController : MonoBehaviour {
         print ("enemyHp ===>" + Hp);
     }
 
-    public void AddlevelPoint () { //掉落升级点数
+    private void AddlevelPoint () {
         //随机数
         float temp = Time.time;
         temp *= 1000;
-        int tim = (int)temp;
+        int tim = (int) temp;
         int rand = tim % 100;
 
-        if (player.transform.name == "normal") {
-            if (rand < 30) {//随机数小于30时掉落，即概率为30%
-                PlusAttribute.playerLevelPoint += 1;
+        levelPoint = p.getlevelPoint ();
+        if (transform.name[0] == 'N') {
+            if (rand < 30) {
+                levelPoint += 1;
+                print ("升级点数+1");
             }
         }
-        if(player.transform.name == "expert"){
-            if(rand < 50){
-                PlusAttribute.playerLevelPoint += 1;
+        else if (transform.name[0] == 'E') {
+            if (rand < 50) {
+                levelPoint += 1;
+                print ("升级点数+1");
             }
         }
-        if(player.transform.name == "boss"){
-            PlusAttribute.playerLevelPoint += 1;
+        else if (transform.name[0] == 'B') {
+            levelPoint += 1;
+            print ("升级点数+1");
+
         }
     }
     private void Death () {
         isDead = true;
-        AddlevelPoint();//掉落升级点数
-        // PlusAttribute.setAll();//系统会报错先暂时注释写入属性
+        AddlevelPoint ();
+        p.setlevelPoint (levelPoint); //写入升级点数
         //设置获得积分
-        s.setPoint (10);
+        s.setPoint (s.getPoint()+10);
         Destroy (gameObject);
         //武器掉落
         float temp = Time.time;
@@ -185,5 +195,4 @@ public class EnemyController : MonoBehaviour {
 	mySequence.Append(move2);
 	mySequence.Join(alpha2); 
 }
-
 }

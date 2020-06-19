@@ -47,7 +47,9 @@ public class ToStatistics : MonoBehaviour
                         text.text = "恭喜你通关了！\n" + down + "秒后跳转到结算界面";
                     }
                 }
-            }else if (p.getcurrentHp() == 0)
+            }
+        }
+        if (p.getcurrentHp() == 0)
             {
                 countDown.SetActive(true);
                 if (down > -1)
@@ -61,11 +63,10 @@ public class ToStatistics : MonoBehaviour
                     }
                 }
             }
-            if (down == 0)
+        if (down == 0)
             {
                 SceneManager.LoadScene("Statistics");
             }
-        }
     }
 
 }
