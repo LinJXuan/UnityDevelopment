@@ -6755,7 +6755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Normal: {fileID: 2844188409416659780, guid: d0046207d5d2d5f4285799abc5efa240, type: 3}
   Expert: {fileID: 4950149333899362167, guid: 30cdf69f4b735514b99b7e3fbbdac17c, type: 3}
-  Boss: {fileID: 5741294841868309947, guid: 4dd0b2c10f671ee40aaa9a0c46ac04b4, type: 3}
+  Boss: {fileID: 2805871041578783967, guid: 4dd0b2c10f671ee40aaa9a0c46ac04b4, type: 3}
   enemyPosition: {fileID: 1083582985}
   isCreate: 0
 --- !u!4 &1622315661
