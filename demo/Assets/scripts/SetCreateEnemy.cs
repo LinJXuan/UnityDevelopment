@@ -19,7 +19,7 @@ public class SetCreateEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-   
+
         if(enemy.position.x-transform.position.x<=15f&&closeTo15){
             create.isCreate=true;
             closeTo15=false;

@@ -24,17 +24,21 @@ public class EnemyController : MonoBehaviour {
     private ExpertEnemy expert;
     private BossEnemy boss;
     public Slider enemyBlood;
+    public static GameObject flaptext;
+    public Text flapword;
+    public  GameObject weaponSword;
+    public  GameObject weaponMetal;
+    public  GameObject weaponSpear;
+
     //积分
     private Statistic s;
 
     private bool look = false;
     private Vector3 position;
 
-    //飘血
-    public static GameObject flaptext;
-    public Text flapWord;
-
     void Start () {
+        flaptext=GameObject.Find("FlapWord");
+        flaptext.SetActive(false);
         p = Player.getInstance ();
         levelPoint = p.getlevelPoint (); //获取当前升级点数
         s = Statistic.getInstance ();
@@ -68,10 +72,6 @@ public class EnemyController : MonoBehaviour {
         enemyBlood.maxValue = Hp;
         transform.LookAt (player.transform);
         position = transform.position;
-
-        //飘血
-        flaptext = GameObject.Find("flapWord");
-        flaptext.SetActive(false);
     }
 
     // Update is called once per frame
@@ -82,8 +82,7 @@ public class EnemyController : MonoBehaviour {
         enemyBlood.transform.position = new Vector3 (screenPos.x, screenPos.y, screenPos.z);
         enemyBlood.value = Hp;
         //伤害飘字的位置
-        //有问题
-        flapWord.transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + 50f, transform.localPosition.z);
+        flapword.transform.position=new Vector3(screenPos.x, screenPos.y+80f, screenPos.z);
     }
 
     private void FixedUpdate () {
@@ -104,19 +103,15 @@ public class EnemyController : MonoBehaviour {
         time = 0;
         playerHealth.TakeDamage (attack);
     }
-
+    
     public void TakeDamage (int damage) {
         if (isDead) {
             return;
         }
-
         Hp -= damage;
-        if (flaptext != null)
-        {
-            flaptext.SetActive(true);     //显示伤害
-            FlyTo(flapWord);
-        }
-
+        flapword.text="-"+damage;
+         flaptext.SetActive(true);     //显示伤害
+         FlyTo(flapword);
         if (transform.name[0] == 'B') {
             boss.setcurrentHp (Hp);
         }
@@ -161,24 +156,43 @@ public class EnemyController : MonoBehaviour {
         //设置获得积分
         s.setPoint (s.getPoint()+10);
         Destroy (gameObject);
-    }
+        //武器掉落
+        float temp = Time.time;
+        temp *= 1000;
+        int tim = (int)temp;
+        int rand = tim % 100;
+        if(rand<30) //随机数小于30时掉落，即概率为30% 掉落武器1
+        {
+        weaponSword=GameObject.Instantiate(weaponSword,new Vector3 (transform.position.x, transform.position.y+1f, transform.position.z),Quaternion.identity) as GameObject;
+        }else{
+            if(rand>=30&&rand<60)//掉落武器2
+            {
+                weaponMetal=GameObject.Instantiate(weaponMetal,new Vector3 (transform.position.x, transform.position.y+1f, transform.position.z),Quaternion.identity) as GameObject;
+            }
+            else{
+                if(rand>=60){ //掉落武器3
 
-    //伤害飘字函数
-    public static void FlyTo(Graphic graphic)
-    {
-        RectTransform rt = graphic.rectTransform;
-        Color c = graphic.color;
-        c.a = 0;
-        graphic.color = c;
-        Sequence mySequence = DOTween.Sequence();
-        Tweener move1 = rt.DOMoveY(rt.position.y + 50, 0.5f);
-        Tweener move2 = rt.DOMoveY(rt.position.y + 100, 0.5f);
-        Tweener alpha1 = graphic.DOColor(new Color(c.r, c.g, c.b, 1), 0.5f);
-        Tweener alpha2 = graphic.DOColor(new Color(c.r, c.g, c.b, 0), 0.5f);
-        mySequence.Append(move1);
-        mySequence.Join(alpha1);
-        // mySequence.AppendInterval(1);
-        mySequence.Append(move2);
-        mySequence.Join(alpha2);
+                    weaponSpear=GameObject.Instantiate(weaponSpear,new Vector3 (transform.position.x, transform.position.y+1f, transform.position.z),Quaternion.identity) as GameObject;
+                }
+            }
+        }
     }
+     //伤害飘字函数
+    public static void FlyTo(Graphic graphic)
+{
+	RectTransform rt = graphic.rectTransform;
+	Color c = graphic.color;
+	c.a = 0;
+	graphic.color = c; 
+	Sequence mySequence = DOTween.Sequence();
+	Tweener move1 = rt.DOMoveY(rt.position.y + 50, 0.5f);
+	Tweener move2 = rt.DOMoveY(rt.position.y + 100, 0.5f);
+	Tweener alpha1 = graphic.DOColor(new Color(c.r, c.g, c.b, 1), 0.5f);
+	Tweener alpha2 = graphic.DOColor(new Color(c.r, c.g, c.b, 0), 0.5f);
+	mySequence.Append(move1);
+	mySequence.Join(alpha1);
+	// mySequence.AppendInterval(1);
+	mySequence.Append(move2);
+	mySequence.Join(alpha2); 
+}
 }

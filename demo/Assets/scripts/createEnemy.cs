@@ -44,7 +44,7 @@ public class CreateEnemy : MonoBehaviour
     {
         totalCount=enemyCount[0]+enemyCount[1]+enemyCount[2];
 
-        if(isCreate&&count<totalCount){
+        if(isCreate&&count<totalCount){      
             
             EnemyCreateControl(ref count);
             
@@ -256,3 +256,4 @@ public class CreateEnemy : MonoBehaviour
         }
     }
 }
+ 

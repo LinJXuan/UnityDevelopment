@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using DG.Tweening;
 using UnityEngine.UI;
 
 public class RpgScript : MonoBehaviour
@@ -14,7 +13,10 @@ public class RpgScript : MonoBehaviour
     private bool isPlaying=false;
     private bool isAlive = true;
     public int attackRange = 4;
-    public int attackDamage = 10;
+    public int attackDamage;
+    //倒计时组件
+    private int countDown = 3;
+    private float intervalTime = 1;
     //使用状态控制人物动作
     public enum State { dead,stop,left,right,skillOne,skillTwo,skillThree,skillFour}
     public State currentState = State.stop;
@@ -38,6 +40,7 @@ public class RpgScript : MonoBehaviour
     void Start()
     {
         player=Player.getInstance();
+        attackDamage=player.getAttack();
         anim =GetComponent<Animator>();
         enemyLayer = LayerMask.GetMask("Enemy");
         healthSlider.value=GetComponent<PlayerHealth>().playerHp;
@@ -49,9 +52,7 @@ public class RpgScript : MonoBehaviour
     {
         healthSlider.value=GetComponent<PlayerHealth>().playerHp;
         //shieldSlider.value=GetComponent<PlayerHealth>().playerShield;
-        attackDamage=player.getAttack();
-
-
+        
         if(currentState == State.dead)
         {
             anim.SetBool("dead", true);
@@ -307,7 +308,7 @@ public class RpgScript : MonoBehaviour
             {
                 //攻击伤害为300%
                 controller.TakeDamage(attackDamage * 3);
-            }
+            }  
         }
     }
 }
