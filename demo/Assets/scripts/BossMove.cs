@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossMove : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class BossMove : MonoBehaviour
     private double Hp;
     private double anger;
     private double power;
+    public Slider angerValue;
     void Start()
     {
         player = GameObject.Find("RPG-Character");
@@ -30,6 +32,11 @@ public class BossMove : MonoBehaviour
 
     void Update()
     {
+        Vector3 worldPos = new Vector3 (transform.position.x, transform.position.y + 3f, transform.position.z);
+        Vector3 screenPos = Camera.main.WorldToScreenPoint (worldPos);
+        //怒气条位置
+        angerValue.transform.position = new Vector3 (screenPos.x, screenPos.y-3f, screenPos.z);
+        angerValue.value=(float)anger;
         float dx = Mathf.Abs(player.transform.localPosition.x - transform.localPosition.x);
             if (dx <= attackRange)
             {
