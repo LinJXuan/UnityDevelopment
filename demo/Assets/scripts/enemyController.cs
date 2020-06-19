@@ -36,6 +36,7 @@ public class EnemyController : MonoBehaviour {
     private bool look = false;
     private Vector3 position;
 
+
     void Start () {
         flaptext=GameObject.Find("FlapWord");
         flaptext.SetActive(false);
@@ -63,8 +64,8 @@ public class EnemyController : MonoBehaviour {
             case 'B':
                 boss = BossEnemy.getInstance ();
                 attackRange = boss.getRange ();
-                attack = boss.getAttack ();
-                Hp = boss.getHp ();
+                attack = p.getAttack ()*3;
+                Hp =p.getHp()*10;
                 speed = boss.getSpeed ();
                 break;
         }

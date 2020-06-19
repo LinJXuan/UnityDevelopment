@@ -510,7 +510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142250047}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: -105, y: 0, z: 2}
+  m_LocalPosition: {x: -10, y: 0, z: 2}
   m_LocalScale: {x: 50, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 1819030972}
@@ -5339,7 +5339,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1398241716}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 145, y: 0, z: 2}
+  m_LocalPosition: {x: 240, y: 0, z: 2}
   m_LocalScale: {x: 500, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 1819030972}
@@ -6278,7 +6278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523422661}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 145, y: 0, z: 0}
+  m_LocalPosition: {x: 240, y: 0, z: 0}
   m_LocalScale: {x: 500, y: 1, z: 20}
   m_Children: []
   m_Father: {fileID: 748280154}
@@ -6753,7 +6753,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf35f6061ad6ee469fc64f1fc05504a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTime: 1
   Normal: {fileID: 2844188409416659780, guid: d0046207d5d2d5f4285799abc5efa240, type: 3}
   Expert: {fileID: 4950149333899362167, guid: 30cdf69f4b735514b99b7e3fbbdac17c, type: 3}
   Boss: {fileID: 5741294841868309947, guid: 4dd0b2c10f671ee40aaa9a0c46ac04b4, type: 3}
@@ -6972,7 +6971,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678725502}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -100.55, y: 3.01, z: -8}
+  m_LocalPosition: {x: -5, y: 3.01, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9722,7 +9721,7 @@ PrefabInstance:
     - target: {fileID: 7744676724975332989, guid: 0d0ded4cbb4440b4397681138c8dcdf8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -100
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 7744676724975332989, guid: 0d0ded4cbb4440b4397681138c8dcdf8,
         type: 3}
