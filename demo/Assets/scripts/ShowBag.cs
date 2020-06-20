@@ -29,23 +29,27 @@ public class ShowBag : MonoBehaviour {
         object2.SetActive (true);
         object3.SetActive (false);
         object4.SetActive (false);
+        Time.timeScale = 0;
     }
     public void pause () {
         object1.SetActive (false);
         object2.SetActive (false);
         object3.SetActive (true);
         object4.SetActive (false);
+        Time.timeScale = 0;
     }
     public void close () {
         object1.SetActive (true);
         object2.SetActive (false);
         object3.SetActive (false);
         object4.SetActive (false);
+        Time.timeScale = 1;
     }
     public void attribute () {
         object1.SetActive (false);
         object2.SetActive (false);
         object3.SetActive (false);
         object4.SetActive (true);
+        Time.timeScale = 0;
     }
 }
