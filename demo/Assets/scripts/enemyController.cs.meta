@@ -3,7 +3,13 @@ guid: 538783f75beb6a0499ba8bf0a1d10b13
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - enemyBlood: {instanceID: 0}
+  - flapword: {instanceID: 0}
+  - weaponSword: {instanceID: 0}
+  - weaponMetal: {fileID: 1716457021179320110, guid: 3107927a8bd8ebb45ae1321061ed3db1,
+      type: 3}
+  - weaponSpear: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

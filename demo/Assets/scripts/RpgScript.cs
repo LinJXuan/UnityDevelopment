@@ -234,16 +234,8 @@ public class RpgScript : MonoBehaviour
         print("=====突刺=====");
         Vector3 spurAttack = gameObject.transform.localPosition;
         Vector3 finalPosition = gameObject.transform.localPosition;
-        if (isRight)
-        {
-            spurAttack.x += spurLength/2;
-            finalPosition.x += spurLength;  
-        }
-        else
-        {
-            spurAttack.x -= spurLength/2;
-            finalPosition.x -= spurLength;
-        }
+        spurAttack.x += transform.forward.x * spurLength / 2;
+        finalPosition.x += transform.forward.x * spurLength;
         Collider[] colliders = Physics.OverlapSphere(spurAttack, spurLength/2);
         if (colliders.Length == 0)
         {
@@ -266,14 +258,7 @@ public class RpgScript : MonoBehaviour
     {
         print("=====投掷=====");
         Vector3 throwAttack = gameObject.transform.localPosition;
-        if (isRight)
-        {
-            throwAttack.x += throwLength;
-        }
-        else
-        {
-            throwAttack.x -= throwLength;
-        }
+        throwAttack.x += transform.forward.x * spurLength / 2;
         Collider[] colliders = Physics.OverlapSphere(throwAttack, throwRange);
         if (colliders.Length == 0)
         {

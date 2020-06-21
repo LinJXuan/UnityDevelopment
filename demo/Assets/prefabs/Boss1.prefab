@@ -1642,11 +1642,15 @@ MonoBehaviour:
   timeAttack: 5
   attack: 0
   levelPoint: 0
-  enemyBlood: {fileID: 736937390327004819}
-  flapword: {fileID: 8782957938894610172}
-  weaponSword: {fileID: 0}
-  weaponMetal: {fileID: 0}
-  weaponSpear: {fileID: 0}
+  enemyBlood: {fileID: 2937011341056622239, guid: a0e5f9ca61e68dd48967201e8407b92c,
+    type: 3}
+  flapword: {fileID: 979976936972997218, guid: 8b006ccac2aad27418aa059162d94e9a, type: 3}
+  weaponSword: {fileID: 3060054759263014699, guid: e7c162a963631314998e2bd4e3755837,
+    type: 3}
+  weaponMetal: {fileID: 1716457021179320110, guid: 3107927a8bd8ebb45ae1321061ed3db1,
+    type: 3}
+  weaponSpear: {fileID: 8732859850663117934, guid: ae3411e6723eaa242b2ad91faad28410,
+    type: 3}
 --- !u!114 &2522642432626137498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1659,7 +1663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763e8450f3514314e9becde176dff602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 7744676724975574615, guid: 0d0ded4cbb4440b4397681138c8dcdf8, type: 3}
   angerValue: {fileID: 1719750144234776314}
 --- !u!1 &2819076978746388316
 GameObject:
