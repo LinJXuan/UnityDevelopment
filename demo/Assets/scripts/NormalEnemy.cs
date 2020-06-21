@@ -6,12 +6,13 @@ public class NormalEnemy : PlayerAttribute
 {
     private int speed;
 
-    private static NormalEnemy instance=new NormalEnemy(50,10,1,1);
+    private static NormalEnemy instance=new NormalEnemy();
 
     public NormalEnemy(int hp,int attack,int range,int speed) : base(hp,attack,range)
     {
         this.speed=speed;
     }
+    public NormalEnemy(){}
 
     public static NormalEnemy getInstance(){
         return instance;
