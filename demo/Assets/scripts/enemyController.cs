@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour {
     private ExpertEnemy expert;
     private BossEnemy boss;
     public Slider enemyBlood;
-    public static GameObject flaptext;
+    public GameObject flaptext;
     public Text flapword;
     public  GameObject weaponSword;
     public  GameObject weaponMetal;
@@ -34,7 +34,6 @@ public class EnemyController : MonoBehaviour {
     private Statistic s;
 
     private bool look = false;
-    private Vector3 position;
 
 
     void Start () {
@@ -71,8 +70,6 @@ public class EnemyController : MonoBehaviour {
         }
         enemyBlood.value = Hp;
         enemyBlood.maxValue = Hp;
-        transform.LookAt (player.transform);
-        position = transform.position;
     }
 
     // Update is called once per frame
@@ -87,10 +84,12 @@ public class EnemyController : MonoBehaviour {
     }
 
     private void FixedUpdate () {
+        //追踪玩家
+        transform.LookAt(player.transform);
+
         time += Time.deltaTime;
         if (player != null) {
             if (time >= timeAttack) {
-
                 float dx = Mathf.Abs (player.transform.localPosition.x - transform.localPosition.x);
                 if (dx <= attackRange) {
                     look = true;
