@@ -72,7 +72,7 @@ public class RpgScript : MonoBehaviour
                 isRight = false;
                 print("转向====> " + transform.rotation);
             }
-            anim.SetBool("walk",true);
+            anim.SetBool("Walk",true);
             transform.Translate( new Vector3(0,0,1) * speed * Time.deltaTime); 
         }
         
@@ -87,14 +87,14 @@ public class RpgScript : MonoBehaviour
                 isLeft = false;
                 print("转向====> " + transform.rotation);
             }
-            anim.SetBool("walk",true);
+            anim.SetBool("Walk",true);
             transform.Translate( new Vector3(0,0,1) * speed * Time.deltaTime);
         }
 
         if(currentState == State.stop)
         {
              
-            anim.SetBool("walk",false);
+            anim.SetBool("Walk",false);
         }
        
         if(currentState == State.skillOne)

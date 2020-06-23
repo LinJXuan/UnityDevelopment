@@ -34,6 +34,11 @@ public class BossMove : MonoBehaviour
     private int bombRange = 10;
     private int bombDamage = 10;
     public Slider angerValue;
+    public Animator Boos1Anim;
+    public Animator Boos2Anim;
+    public Animator Boos3Anim;
+    public Animator Boos4Anim;
+
     void Start()
     {
         player = GameObject.Find("RPG-Character");
@@ -53,7 +58,7 @@ public class BossMove : MonoBehaviour
         Vector3 worldPos = new Vector3 (transform.position.x, transform.position.y + 3f, transform.position.z);
         Vector3 screenPos = Camera.main.WorldToScreenPoint (worldPos);
         //怒气条位置
-        // angerValue.transform.position = new Vector3 (screenPos.x, screenPos.y-3f, screenPos.z);
+        angerValue.transform.position = new Vector3 (screenPos.x, screenPos.y-3f, screenPos.z);
         angerValue.value=(float)anger;
         float dx = Mathf.Abs(player.transform.localPosition.x - transform.localPosition.x);
             if (dx <= attackRange)
@@ -91,6 +96,11 @@ public class BossMove : MonoBehaviour
                 //TODO 怒意值满值，发动技能
                 //技能逻辑
             }
+            //怪物动画接口  boss1 2 3 4分别为Boss1/2/3/4Anim.Set...
+            // Boss1Anim.SetBool("Die", true);     是否播放死亡动画
+            // Boss1Anim.SetBool("Walk", true);    是否行走，动画器在行走时攻击或者受到攻击后默认回到待定状态，Walk为false
+            // Boss1Anim.SetTrigger("Attack");     发起一次攻击
+            // Boss1Anim.SetTrigger("Gethit");     受到一次攻击
     }
 
     //灼烧
