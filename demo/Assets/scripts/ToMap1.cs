@@ -1,23 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class ToLevel1Only: MonoBehaviour {
+public class ToMap1: MonoBehaviour {
 
-	// Use this for initialization
+    private Statistic statistic;
+    
 	void Start () {
+        statistic=Statistic.getInstance();
         this.GetComponent<Button>().onClick.AddListener(OnClick);
     }
 
     void OnClick()
     {
+        statistic.setMap(1);
         SceneManager.LoadScene("Scene2");//level1为我们要切换到的场景
     }
 
-    // Update is called once per frame
-    void Update () {
 
-    }
 }

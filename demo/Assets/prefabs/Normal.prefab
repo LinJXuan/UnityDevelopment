@@ -20782,9 +20782,10 @@ MonoBehaviour:
   timeAttack: 5
   attack: 0
   levelPoint: 0
-  enemyBlood: {fileID: 8203014452669778668}
+  enemyBlood: {fileID: 2937011341056622239, guid: a0e5f9ca61e68dd48967201e8407b92c,
+    type: 3}
   flaptext: {fileID: 0}
-  flapword: {fileID: 8203014452731573035}
+  flapword: {fileID: 979976936972997218, guid: 8b006ccac2aad27418aa059162d94e9a, type: 3}
   weaponSword: {fileID: 3060054759263014699, guid: e7c162a963631314998e2bd4e3755837,
     type: 3}
   weaponMetal: {fileID: 1716457021179320110, guid: 3107927a8bd8ebb45ae1321061ed3db1,

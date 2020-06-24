@@ -12,11 +12,11 @@ public class EnemyController : MonoBehaviour {
     public float speed;
     public float attackRange;
     public float timeAttack = 5f;
-    private int Hp;
+    public int Hp;
     public int attack;
     private bool isDead = false;
-    public Player p; //
-    public int levelPoint; //升级点数
+    private Player p; //
+    private int levelPoint; //升级点数
 
     private Rigidbody rbody;
     private float time;
@@ -51,8 +51,7 @@ public class EnemyController : MonoBehaviour {
             case 'N':
                 normal = NormalEnemy.getInstance ();
                 attackRange = normal.getRange ();
-                //attack = normal.getAttack ();
-                attack = 30;
+                attack = normal.getAttack ();
                 Hp = normal.getHp ();
                 speed = normal.getSpeed ();
                 break;
