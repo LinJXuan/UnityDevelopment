@@ -50,6 +50,8 @@ public class BossMove : MonoBehaviour
         Hp=boss.getHp();
         anger=boss.getHp()*0.3;
         power=Hp-boss.getcurrentHp();
+        angerValue.maxValue=(float)anger;
+        angerValue.value=(float)power;
     }
 
 
@@ -60,8 +62,8 @@ public class BossMove : MonoBehaviour
         Vector3 worldPos = new Vector3 (transform.position.x, transform.position.y + 3f, transform.position.z);
         Vector3 screenPos = Camera.main.WorldToScreenPoint (worldPos);
         //怒气条位置
-        angerValue.transform.position = new Vector3 (screenPos.x, screenPos.y-3f, screenPos.z);
-        angerValue.value=(float)anger;
+        angerValue.transform.position = new Vector3 (screenPos.x, screenPos.y-5f, screenPos.z);
+        angerValue.value=(float)power;
         float dx = Mathf.Abs(player.transform.localPosition.x - transform.localPosition.x);
             if (dx <= attackRange)
             {
