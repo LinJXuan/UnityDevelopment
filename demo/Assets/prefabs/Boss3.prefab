@@ -1980,11 +1980,9 @@ MonoBehaviour:
   levelPoint: 0
   enemyBlood: {fileID: 4443643356207132673}
   flapword: {fileID: 3257735880050040969}
-  weaponSword: {fileID: 3060054759263014699, guid: e7c162a963631314998e2bd4e3755837,
+  weaponAex: {fileID: 7832471200335851596, guid: a4ffdb32191b8f748b3acf9fd3c1849b,
     type: 3}
-  weaponMetal: {fileID: 1716457021179320110, guid: 3107927a8bd8ebb45ae1321061ed3db1,
-    type: 3}
-  weaponSpear: {fileID: 8732859850663117934, guid: ae3411e6723eaa242b2ad91faad28410,
+  weaponHammer: {fileID: 6347780320993312644, guid: 99ecbe38dc0f136419f5330aaeea5d8b,
     type: 3}
 --- !u!114 &3408355005851499703
 MonoBehaviour:

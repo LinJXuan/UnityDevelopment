@@ -23,7 +23,12 @@ public class RpgScript : MonoBehaviour
     private float barUpLength = 3f;
     public Slider healthSlider ; 
     public Slider shieldSlider;
-
+    public GameObject weaponAex;
+    public GameObject weaponSword;
+    public GameObject weaponHammer;
+    public Vector3 enemyDeathPosition;
+    public bool dropWeaponAex=false;
+    public bool dropWeaponHammer=false;
     private Player player;
     //突刺攻击有关
     private ArrayList enemys = new ArrayList();
@@ -36,6 +41,7 @@ public class RpgScript : MonoBehaviour
     private float lightRange = 3;
     void Start()
     {
+        switchWeapon(true,false,false);
         player=Player.getInstance();
         attackDamage=player.getAttack();
         anim =GetComponent<Animator>();
@@ -134,7 +140,33 @@ public class RpgScript : MonoBehaviour
         healthSlider.transform.position = new Vector3(screenPos.x, screenPos.y, screenPos.z);
         //护盾位置
         shieldSlider.transform.position = new Vector3(screenPos.x, screenPos.y-9.7693f, screenPos.z);
-        
+        //拾取并切换武器
+        if((int)transform.position.x==(int)enemyDeathPosition.x)
+        { 
+    
+        if(dropWeaponAex)   
+          {
+             
+           switchWeapon(false,false,true); //切换成斧头
+           
+           dropWeaponAex=false;
+        }
+        if(dropWeaponHammer)  
+        {   
+            switchWeapon(false,true,false); //切换成大锤
+            dropWeaponHammer=false;
+        }
+
+        }
+    
+    }
+    public void switchWeapon(bool Sword,bool Hammer,bool Aex)
+    {
+        print("切换武器");
+       weaponAex.SetActive(Aex);
+       weaponHammer.SetActive(Hammer);
+       weaponSword.SetActive(Sword);
+
     }
     public void FootR()
      {
