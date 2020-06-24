@@ -67,6 +67,14 @@
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
+    <Compile Include="Assets\LowPoly Fantasy Monsters Pack Ver1.0_Demo\Environment\Scripts\Move.cs" />
+    <Compile Include="Assets\LowPoly Fantasy Monsters Pack Ver1.0_Demo\Environment\Scripts\PointLight.cs" />
+    <Compile Include="Assets\ModularRPGHeroesPolyArt\TPController\Scripts\AnimatorMatcher.cs" />
+    <Compile Include="Assets\ModularRPGHeroesPolyArt\TPController\Scripts\BoolOperator1.cs" />
+    <Compile Include="Assets\ModularRPGHeroesPolyArt\TPController\Scripts\BoolOperator2.cs" />
+    <Compile Include="Assets\ModularRPGHeroesPolyArt\TPController\Scripts\CameraManager.cs" />
+    <Compile Include="Assets\ModularRPGHeroesPolyArt\TPController\Scripts\ControlManager.cs" />
+    <Compile Include="Assets\ModularRPGHeroesPolyArt\TPController\Scripts\ResetTimer.cs" />
     <Compile Include="Assets\RPG_BOX_Free\Scripts\Managers\BarManager.cs" />
     <Compile Include="Assets\RPG_BOX_Free\Scripts\Managers\DatabaseManager.cs" />
     <Compile Include="Assets\RPG_BOX_Free\Scripts\Managers\EquipmentManager.cs" />
@@ -131,6 +139,8 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\LowPoly Fantasy Monsters Pack Ver1.0_Demo\READ ME FIRST!!!\character setup guide link.txt" />
+    <None Include="Assets\ModularRPGHeroesPolyArt\Shader\PolyArtMaskTint.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
@@ -144,6 +154,7 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\LowPoly Fantasy Monsters Pack Ver1.0_Demo\READ ME FIRST!!!\read me.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="Unity.DocZh.Editor">

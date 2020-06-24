@@ -53,7 +53,7 @@ public class BossMove : MonoBehaviour
         Vector3 worldPos = new Vector3 (transform.position.x, transform.position.y + 3f, transform.position.z);
         Vector3 screenPos = Camera.main.WorldToScreenPoint (worldPos);
         //怒气条位置
-        angerValue.transform.position = new Vector3 (screenPos.x, screenPos.y-3f, screenPos.z);
+        // angerValue.transform.position = new Vector3 (screenPos.x, screenPos.y-3f, screenPos.z);
         angerValue.value=(float)anger;
         float dx = Mathf.Abs(player.transform.localPosition.x - transform.localPosition.x);
             if (dx <= attackRange)
