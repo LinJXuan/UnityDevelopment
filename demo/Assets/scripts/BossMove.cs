@@ -34,6 +34,11 @@ public class BossMove : MonoBehaviour
     private int bombRange = 10;
     private int bombDamage = 10;
     public Slider angerValue;
+    public Animator Boos1Anim;
+    public Animator Boos2Anim;
+    public Animator Boos3Anim;
+    public Animator Boos4Anim;
+
     void Start()
     {
         player = GameObject.Find("RPG-Character");
@@ -50,10 +55,12 @@ public class BossMove : MonoBehaviour
 
     void Update()
     {
+        Vector3 enemyPosition = transform.position;
+        enemyPosition.y = player.transform.position.y;
         Vector3 worldPos = new Vector3 (transform.position.x, transform.position.y + 3f, transform.position.z);
         Vector3 screenPos = Camera.main.WorldToScreenPoint (worldPos);
         //怒气条位置
-        // angerValue.transform.position = new Vector3 (screenPos.x, screenPos.y-3f, screenPos.z);
+        angerValue.transform.position = new Vector3 (screenPos.x, screenPos.y-3f, screenPos.z);
         angerValue.value=(float)anger;
         float dx = Mathf.Abs(player.transform.localPosition.x - transform.localPosition.x);
             if (dx <= attackRange)
@@ -76,12 +83,9 @@ public class BossMove : MonoBehaviour
             }
             //巡逻
             if(Mathf.Abs(transform.position.x-position.x)>=20){
-                
-
-                Quaternion playerRotation = transform.localRotation;
-                playerRotation.y = -playerRotation.y;
-                transform.rotation = playerRotation;
-
+                Quaternion rotation = transform.localRotation;
+                rotation.y = -rotation.y;
+                transform.rotation = rotation;
                 position=transform.position;
             }
             power=Hp-boss.getcurrentHp();
@@ -90,7 +94,36 @@ public class BossMove : MonoBehaviour
                 Hp=boss.getcurrentHp();
                 //TODO 怒意值满值，发动技能
                 //技能逻辑
+                switch (transform.name[4])
+                {
+                    case '1':
+                        Boos1Anim.SetTrigger("Attack");
+                        burnSkill();
+                        break;
+                    case '2':
+                        Boos2Anim.SetTrigger("Attack");
+                        waterPoloSkill();
+                        break;
+                    case '3':
+                        Boos3Anim.SetTrigger("Attack");
+                        hollowSkill();
+                        break;
+                    case '4':
+                        Boos4Anim.SetTrigger("Attack");
+                        venomSkill();
+                        break;
+                    case '5':
+                        //Boos5Anim.SetTrigger("Attack");
+                        poisonFireSkill();
+                        break;
+
+                }
             }
+        //怪物动画接口  boss1 2 3 4分别为Boss1/2/3/4Anim.Set...
+        // Boss1Anim.SetBool("Die", true);     是否播放死亡动画
+        // Boss1Anim.SetBool("Walk", true);    是否行走，动画器在行走时攻击或者受到攻击后默认回到待定状态，Walk为false
+        // Boss1Anim.SetTrigger("Attack");     发起一次攻击
+        // Boss1Anim.SetTrigger("Gethit");     受到一次攻击
     }
 
     //灼烧
@@ -149,10 +182,10 @@ public class BossMove : MonoBehaviour
         for (int i = 0; i < colliders.Length; i++)
         {
             print(colliders[i].gameObject.name);
-            EnemyController controller = colliders[i].gameObject.GetComponent<EnemyController>();
-            if (controller != null)
+            PlayerHealth playerHealth = colliders[i].gameObject.GetComponent<PlayerHealth>();
+            if (playerHealth != null)
             {
-                controller.TakeDamage(damage);
+                playerHealth.TakeDamage(damage);
             }
         }
     }

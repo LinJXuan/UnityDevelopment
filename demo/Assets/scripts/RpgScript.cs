@@ -72,7 +72,7 @@ public class RpgScript : MonoBehaviour
                 isRight = false;
                 print("转向====> " + transform.rotation);
             }
-            anim.SetBool("walk",true);
+            anim.SetBool("Walk",true);
             transform.Translate( new Vector3(0,0,1) * speed * Time.deltaTime); 
         }
         
@@ -87,19 +87,18 @@ public class RpgScript : MonoBehaviour
                 isLeft = false;
                 print("转向====> " + transform.rotation);
             }
-            anim.SetBool("walk",true);
+            anim.SetBool("Walk",true);
             transform.Translate( new Vector3(0,0,1) * speed * Time.deltaTime);
         }
 
         if(currentState == State.stop)
         {
              
-            anim.SetBool("walk",false);
+            anim.SetBool("Walk",false);
         }
        
         if(currentState == State.skillOne)
         {
-
             anim.SetTrigger("Q Trigger");
         }
 
@@ -107,21 +106,18 @@ public class RpgScript : MonoBehaviour
         {
 
             anim.SetTrigger("W Trigger");
-            holyLightSkill();
         }
 
         if (currentState == State.skillThree)
         {
 
             anim.SetTrigger("E Trigger");
-            throwSkill();
         }
 
         if (currentState == State.skillFour)
         {
 
             anim.SetTrigger("R Trigger");
-            spurSkill();
         }
 
         if (currentState != State.left && currentState != State.right)
@@ -197,15 +193,36 @@ public class RpgScript : MonoBehaviour
 
     void AnimatorEventFinishCallBack()
     {
+        print("finish");
         isPlaying = false;
     }
 
     void AnimatorEventBeginCallBack()
     {
+        print("begin");
         isPlaying = true;
     }
 
-    void Hit()
+    void QHit()
+    {
+        Hit();
+    }
+
+    void WHit()
+    {
+        throwSkill();
+    }
+
+    void EHit()
+    {
+        holyLightSkill();
+    }
+
+    void RHit()
+    {
+        spurSkill();
+    }
+    public void Hit()
     {
         Ray attackRay = new Ray();
         attackRay.origin = transform.position;
@@ -232,7 +249,7 @@ public class RpgScript : MonoBehaviour
         Vector3 spurAttack = gameObject.transform.localPosition;
         Vector3 finalPosition = gameObject.transform.localPosition;
         spurAttack.x += transform.forward.x * spurLength / 2;
-        finalPosition.x += transform.forward.x * spurLength;
+        finalPosition.x += transform.forward.x * 50;
         Collider[] colliders = Physics.OverlapSphere(spurAttack, spurLength/2);
         if (colliders.Length == 0)
         {

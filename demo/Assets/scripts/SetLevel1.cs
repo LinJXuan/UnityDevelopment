@@ -23,15 +23,15 @@ public class SetLevel1 : MonoBehaviour
         normal.setAttack(10);
         normal.setHp(50);
         normal.setSpeed(1);
-        normal.setRange(1);
+        normal.setRange(3);
 
         expert.setAttack(15);
         expert.setHp(83);
         expert.setSpeed(2);
-        expert.setRange(3);
+        expert.setRange(4);
 
         boss.setSpeed(4);
-        boss.setRange(3);
+        boss.setRange(5);
     }
 
     

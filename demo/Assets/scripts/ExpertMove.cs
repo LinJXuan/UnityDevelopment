@@ -5,6 +5,7 @@ using UnityEngine;
 public class ExpertMove : MonoBehaviour
 {
     private bool look=false;
+    private Animator anim;
     private Vector3 position;
     public GameObject player;
     private int speed;
@@ -15,6 +16,7 @@ public class ExpertMove : MonoBehaviour
     private float time=5;
     void Start()
     {
+         anim =GetComponent<Animator>();
         player = GameObject.Find("RPG-Character");
         expert=ExpertEnemy.getInstance();
         transform.LookAt(player.transform);
@@ -64,6 +66,11 @@ public class ExpertMove : MonoBehaviour
                     time=5;
                 }                
             }
+            //怪物动画接口
+            // anim.SetBool("Die", true);     是否播放死亡动画
+            // anim.SetBool("Walk", true);    是否行走，动画器在行走时攻击或者受到攻击后默认回到待定状态，Walk为false
+            // anim.SetTrigger("Attack");     发起一次攻击
+            // anim.SetTrigger("Gethit");     受到一次攻击
 
     }
 }
