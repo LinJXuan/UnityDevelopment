@@ -57,7 +57,7 @@ public class ShowBag : MonoBehaviour {
         }
     }
     public void pause () {
-        object1.SetActive (false);
+        object1.SetActive (true);
         object2.SetActive (false);
         object3.SetActive (true);
         object4.SetActive (false);

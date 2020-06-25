@@ -15,7 +15,7 @@ public class ShowOff : MonoBehaviour
         text = GameObject.Find("End").GetComponent<Text>();
         point = s.getPoint();
         text.text = "恭喜通过地图"+s.getMap()+"\n你获得的分数是：" + point + "\n请点击返回按钮返回主菜单";
-        
+        s.setSuccess(s.getMap());//解锁地图
     }
 
 }
