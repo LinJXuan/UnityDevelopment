@@ -48,6 +48,8 @@ public class ToStatistics : MonoBehaviour
                     }
                 }
             }
+            if(s.getMap()<4)
+            s.setSuccess(s.getMap());
         }
         if (p.getcurrentHp() == 0)
             {

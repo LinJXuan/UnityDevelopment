@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SetCreateEnemy : MonoBehaviour
 {
-    //private Vector3 position;
+
     public Transform enemy;
     private CreateEnemy create;
     public bool closeTo15=true;
-    // Start is called before the first frame update
+
     void Start()
     {
         //position=transform.position;
@@ -16,7 +16,7 @@ public class SetCreateEnemy : MonoBehaviour
 
     }
 
-    // Update is called once per frame
+
     void Update()
     {
 

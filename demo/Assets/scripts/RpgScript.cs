@@ -26,6 +26,9 @@ public class RpgScript : MonoBehaviour
     public GameObject weaponAex;
     public GameObject weaponSword;
     public GameObject weaponHammer;
+    private GameObject btnSWeapon;
+    private  int[] weapon = new int[3] {1,0,0};
+    private int weaponState=0;
     public Vector3 enemyDeathPosition;
     public bool dropWeaponAex=false;
     public bool dropWeaponHammer=false;
@@ -42,6 +45,8 @@ public class RpgScript : MonoBehaviour
     void Start()
     {
         switchWeapon(true,false,false);
+        btnSWeapon=GameObject.Find("switchWeapon");
+        btnSWeapon.GetComponent<Button>().onClick.AddListener(clickSWeapon);
         player=Player.getInstance();
         attackDamage=player.getAttack();
         anim =GetComponent<Animator>();
@@ -49,7 +54,7 @@ public class RpgScript : MonoBehaviour
         healthSlider.value=GetComponent<PlayerHealth>().playerHp;
         //shieldSlider.value=GetComponent<PlayerHealth>().playerShield;
     }
-
+  
     // Update is called once per frame
     void Update()
     {
@@ -142,15 +147,17 @@ public class RpgScript : MonoBehaviour
     
         if(dropWeaponAex)   
           {
-             
+            weapon[2]=1;
            switchWeapon(false,false,true); //切换成斧头
+           weaponState=2;
            
            dropWeaponAex=false;
         }
         if(dropWeaponHammer)  
-        {   
+        {   weapon[1]=1;
             switchWeapon(false,true,false); //切换成大锤
             dropWeaponHammer=false;
+            weaponState=1;
         }
 
         }
@@ -216,6 +223,56 @@ public class RpgScript : MonoBehaviour
                 break;
 
         }
+    }
+    void clickSWeapon(){
+      if(weapon[1]==1&&weapon[2]==0){
+          switch(weaponState)
+          {
+            case 0 :
+            switchWeapon(false,true,false);
+            weaponState=1;
+              break;
+            case 1:
+            switchWeapon(true,false,false);
+            weaponState=0;
+            break;
+          }
+
+      }
+      if(weapon[1]==0&&weapon[2]==1){
+          switch(weaponState)
+          {
+            case 0 :
+            switchWeapon(false,false,true);
+            weaponState=2;
+              break;
+            case 2:
+            switchWeapon(true,false,false);
+            weaponState=0;
+            break;
+          }
+
+      }
+      if(weapon[1]==1&&weapon[2]==1){
+          switch(weaponState)
+          {
+            case 0 :
+            switchWeapon(false,true,false);
+            weaponState=1;
+              break;
+            case 1:
+            switchWeapon(false,false,true);
+            weaponState=2;
+            break;
+            case 2:
+            switchWeapon(true,false,false);
+            weaponState=0;
+            break;
+          }
+
+      }
+
+
     }
 
     public void playerIsAlive(bool alive)

@@ -3891,7 +3891,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 10
+  m_Radius: 6
   m_Center: {x: 0, y: 10, z: -1.2071486}
 --- !u!54 &7361923948458641501
 Rigidbody:
@@ -3924,6 +3924,7 @@ MonoBehaviour:
   speed: 0
   attackRange: 0
   timeAttack: 5
+  Hp: 0
   attack: 0
   levelPoint: 0
   enemyBlood: {fileID: 2937011341056622239, guid: a0e5f9ca61e68dd48967201e8407b92c,

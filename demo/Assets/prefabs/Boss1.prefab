@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 7121545332785295226}
   m_Layer: 9
   m_Name: Boss1
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -626,7 +626,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909651286494024868}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 650.21136, y: 201.39821, z: -579.149}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -638,7 +638,7 @@ Transform:
   - {fileID: 4069768082894748159}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!95 &8143424506304277185
 Animator:
   serializedVersion: 3
@@ -689,9 +689,13 @@ MonoBehaviour:
   speed: 0
   attackRange: 0
   timeAttack: 5
+  Hp: 0
   attack: 0
-  levelPoint: 0
   enemyBlood: {fileID: 2937011341056622239, guid: a0e5f9ca61e68dd48967201e8407b92c,
+    type: 3}
+  flaptext: {fileID: 0}
+  flapword: {fileID: 979976936972997218, guid: 8b006ccac2aad27418aa059162d94e9a, type: 3}
+  weaponSword: {fileID: 3060054759263014699, guid: e7c162a963631314998e2bd4e3755837,
     type: 3}
   flaptext: {fileID: 0}
   flapword: {fileID: 979976936972997218, guid: 8b006ccac2aad27418aa059162d94e9a, type: 3}
@@ -733,7 +737,7 @@ CapsuleCollider:
   m_Radius: 0.6883299
   m_Height: 2.4163284
   m_Direction: 1
-  m_Center: {x: 0.028773487, y: 0.7081642, z: 0}
+  m_Center: {x: 0.028773487, y: 1, z: 0}
 --- !u!1 &910844801878688560
 GameObject:
   m_ObjectHideFlags: 0

@@ -3918,7 +3918,7 @@ GameObject:
   - component: {fileID: 2658264807718973770}
   m_Layer: 10
   m_Name: Boss2
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4043,8 +4043,10 @@ MonoBehaviour:
   timeAttack: 5
   attack: 0
   levelPoint: 0
-  enemyBlood: {fileID: 2658264808748105214}
-  flaptext: {fileID: 0}
+  enemyBlood: {fileID: 2937011341056622239, guid: a0e5f9ca61e68dd48967201e8407b92c,
+    type: 3}
+  flaptext: {fileID: 7914651403079151968, guid: 8b006ccac2aad27418aa059162d94e9a,
+    type: 3}
   flapword: {fileID: 2658264807330621876}
   weaponAex: {fileID: 7832471200335851596, guid: a4ffdb32191b8f748b3acf9fd3c1849b,
     type: 3}

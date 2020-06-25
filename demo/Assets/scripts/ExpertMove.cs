@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExpertMove : MonoBehaviour
 {
-    private bool look=false;
+    private bool look;
     private Animator anim;
     private Vector3 position;
     public GameObject player;
@@ -16,7 +16,8 @@ public class ExpertMove : MonoBehaviour
     private float time=5;
     void Start()
     {
-         anim =GetComponent<Animator>();
+        look=false;
+        anim =GetComponent<Animator>();
         player = GameObject.Find("RPG-Character");
         expert=ExpertEnemy.getInstance();
         transform.LookAt(player.transform);

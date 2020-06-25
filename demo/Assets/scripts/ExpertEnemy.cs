@@ -6,13 +6,13 @@ public class ExpertEnemy : PlayerAttribute
 {
     private int speed;
 
-    private static ExpertEnemy instance=new ExpertEnemy(80,15,3,2);
+    private static ExpertEnemy instance=new ExpertEnemy();
 
     public ExpertEnemy(int hp,int attack,int range,int speed) : base(hp,attack,range)
     {
         this.speed=speed;
     }
-
+    public ExpertEnemy(){}
     public static ExpertEnemy getInstance(){
         return instance;
     }

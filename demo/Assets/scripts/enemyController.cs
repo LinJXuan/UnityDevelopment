@@ -12,12 +12,12 @@ public class EnemyController : MonoBehaviour {
     public float speed;
     public float attackRange;
     public float timeAttack = 5f;
-    private int Hp;
+    public int Hp;
     public int attack;
     private bool isDead = false;
-    public Player p; //
-    public int levelPoint; //升级点数
-  
+    private Player p; 
+    private int levelPoint; //升级点数
+
     private Rigidbody rbody;
     private float time;
     private PlayerHealth playerHealth;
@@ -35,7 +35,7 @@ public class EnemyController : MonoBehaviour {
 
     private bool look = false;
 
-
+    private BossMove bossmove;
     void Start () {
         anim = GetComponent<Animator>();
         flaptext =GameObject.Find("FlapWord");
@@ -50,8 +50,7 @@ public class EnemyController : MonoBehaviour {
             case 'N':
                 normal = NormalEnemy.getInstance ();
                 attackRange = normal.getRange ();
-                //attack = normal.getAttack ();
-                attack = 30;
+                attack = normal.getAttack ();
                 Hp = normal.getHp ();
                 speed = normal.getSpeed ();
                 break;
@@ -67,6 +66,7 @@ public class EnemyController : MonoBehaviour {
                 attackRange = boss.getRange ();
                 attack = boss.getAttack ();
                 Hp = boss.getHp();
+                boss.setcurrentHp(Hp);
                 speed = boss.getSpeed ();
                 break;
         }
@@ -121,6 +121,9 @@ public class EnemyController : MonoBehaviour {
         }
         anim.SetTrigger("Gethit");
         Hp -= damage;
+        if(transform.name[0]=='B'){
+            boss.setcurrentHp(Hp);
+        }
         flapword.text="-"+damage;
         if (flaptext != null)
         {
