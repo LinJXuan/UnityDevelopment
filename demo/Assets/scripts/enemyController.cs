@@ -69,6 +69,7 @@ public class EnemyController : MonoBehaviour {
                 speed = boss.getSpeed ();
                 break;
         }
+        //enemyBlood=this.gameObject;
         enemyBlood.value = Hp;
         enemyBlood.maxValue = Hp;
     }
