@@ -80,14 +80,14 @@ public class CreateEnemy : MonoBehaviour
 
     private void EnemyCreateControl(){
         for(int i=0;i<enemyCount[0];i++){
-            //GameObject enemy=Instantiate(Normal, positionR, rotationR);
-            //enemy.SetActive(true);
+            GameObject enemy=Instantiate(Normal, positionR, rotationR);
+            enemy.SetActive(true);
             
         }
 
         for(int i=0;i<enemyCount[1];i++){
-            //GameObject enemy=Instantiate(Expert, positionR+new Vector3(5,0,0), rotationR);
-            //enemy.SetActive(true);
+            GameObject enemy=Instantiate(Expert, positionR+new Vector3(5,0,0), rotationR);
+            enemy.SetActive(true);
             
         }
 
