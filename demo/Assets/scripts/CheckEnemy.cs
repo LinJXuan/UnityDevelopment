@@ -7,7 +7,7 @@ public class CheckEnemy : MonoBehaviour
 
     private bool isMoving = false;
     private int direction;
-    private float totalTime = 3f;
+    private float totalTime = 5f;
     private float dtTime;
     private Player p;
     public int attackRange = 4;
@@ -32,6 +32,12 @@ public class CheckEnemy : MonoBehaviour
         direction = i;
     }
 
+    //当RpgScript人物有动作时，就重置时间
+    //实现无动作totalTime后会进行自动攻击
+    public void resetdTime()
+    {
+        dtTime = 0;
+    }
     public void IsAttack()
     {
         Ray attackRay = new Ray();

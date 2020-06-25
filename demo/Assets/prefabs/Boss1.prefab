@@ -691,14 +691,9 @@ MonoBehaviour:
   timeAttack: 5
   Hp: 0
   attack: 0
-  enemyBlood: {fileID: 2937011341056622239, guid: a0e5f9ca61e68dd48967201e8407b92c,
-    type: 3}
-  flaptext: {fileID: 0}
-  flapword: {fileID: 979976936972997218, guid: 8b006ccac2aad27418aa059162d94e9a, type: 3}
-  weaponSword: {fileID: 3060054759263014699, guid: e7c162a963631314998e2bd4e3755837,
-    type: 3}
-  flaptext: {fileID: 0}
-  flapword: {fileID: 979976936972997218, guid: 8b006ccac2aad27418aa059162d94e9a, type: 3}
+  enemyBlood: {fileID: 4216980552199973326}
+  flaptext: {fileID: 1538396101605801681}
+  flapword: {fileID: 8085921095527834354}
   weaponAex: {fileID: 7832471200335851596, guid: a4ffdb32191b8f748b3acf9fd3c1849b,
     type: 3}
   weaponHammer: {fileID: 6347780320993312644, guid: 99ecbe38dc0f136419f5330aaeea5d8b,

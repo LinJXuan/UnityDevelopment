@@ -27448,7 +27448,7 @@ MonoBehaviour:
   Hp: 0
   attack: 0
   enemyBlood: {fileID: 8318088658746588301}
-  flaptext: {fileID: 8318088658021582188}
+  flaptext: {fileID: 0}
   flapword: {fileID: 8318088658021582187}
   weaponAex: {fileID: 7832471200335851596, guid: a4ffdb32191b8f748b3acf9fd3c1849b,
     type: 3}

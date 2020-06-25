@@ -42,6 +42,15 @@ public class RpgScript : MonoBehaviour
     private float throwRange = 3;
     //圣光范围
     private float lightRange = 3;
+
+    //攻击间隔
+    public float dTime = 2;
+    private float qTime = 0;
+    private float wTime = 0;
+    private float eTime = 0;
+    private float rTime = 0;
+
+    private CheckEnemy checkEnemy;
     void Start()
     {
         switchWeapon(true,false,false);
@@ -52,12 +61,17 @@ public class RpgScript : MonoBehaviour
         anim =GetComponent<Animator>();
         enemyLayer = LayerMask.GetMask("Enemy");
         healthSlider.value=GetComponent<PlayerHealth>().playerHp;
+        checkEnemy = GetComponent<CheckEnemy>();
         //shieldSlider.value=GetComponent<PlayerHealth>().playerShield;
     }
   
     // Update is called once per frame
     void Update()
     {
+        qTime += Time.deltaTime;
+        wTime += Time.deltaTime;
+        eTime += Time.deltaTime;
+        rTime += Time.deltaTime;
         healthSlider.value=GetComponent<PlayerHealth>().playerHp;
         //shieldSlider.value=GetComponent<PlayerHealth>().playerShield;
         
@@ -108,27 +122,28 @@ public class RpgScript : MonoBehaviour
             anim.SetBool("Walk",false);
         }
        
-        if(currentState == State.skillOne)
+        if(currentState == State.skillOne&& qTime>=dTime)
         {
             anim.SetTrigger("Q Trigger");
+            qTime = 0;
         }
 
-        if(currentState ==State.skillTwo)
+        if(currentState ==State.skillTwo && wTime >= dTime)
         {
-
             anim.SetTrigger("W Trigger");
+            wTime = 0;
         }
 
-        if (currentState == State.skillThree)
+        if (currentState == State.skillThree && eTime >= dTime)
         {
-
             anim.SetTrigger("E Trigger");
+            eTime = 0;
         }
 
-        if (currentState == State.skillFour)
+        if (currentState == State.skillFour && rTime >= dTime)
         {
-
             anim.SetTrigger("R Trigger");
+            rTime = 0;
         }
 
         if (currentState != State.left && currentState != State.right)
@@ -172,9 +187,10 @@ public class RpgScript : MonoBehaviour
 
     }
     public void FootR()
-     {
 
-     } 
+    {
+
+    } 
     public void FootL()
     {
 
@@ -195,6 +211,7 @@ public class RpgScript : MonoBehaviour
             }
         }
 
+        checkEnemy.resetdTime();
         switch (i)
         {
             case -3:
@@ -282,13 +299,11 @@ public class RpgScript : MonoBehaviour
 
     void AnimatorEventFinishCallBack()
     {
-        print("finish");
         isPlaying = false;
     }
 
     void AnimatorEventBeginCallBack()
     {
-        print("begin");
         isPlaying = true;
     }
 
@@ -311,6 +326,7 @@ public class RpgScript : MonoBehaviour
     {
         spurSkill();
     }
+
     public void Hit()
     {
         Ray attackRay = new Ray();
@@ -334,11 +350,10 @@ public class RpgScript : MonoBehaviour
 
     public void spurSkill()
     {
-        print("=====突刺=====");
         Vector3 spurAttack = gameObject.transform.localPosition;
         Vector3 finalPosition = gameObject.transform.localPosition;
         spurAttack.x += transform.forward.x * spurLength / 2;
-        finalPosition.x += transform.forward.x * 50;
+        finalPosition.x += transform.forward.x * spurLength;
         Collider[] colliders = Physics.OverlapSphere(spurAttack, spurLength/2);
         if (colliders.Length == 0)
         {
@@ -359,9 +374,8 @@ public class RpgScript : MonoBehaviour
 
     public void throwSkill()
     {
-        print("=====投掷=====");
         Vector3 throwAttack = gameObject.transform.localPosition;
-        throwAttack.x += transform.forward.x * spurLength / 2;
+        throwAttack.x += transform.forward.x * throwRange / 2;
         Collider[] colliders = Physics.OverlapSphere(throwAttack, throwRange);
         if (colliders.Length == 0)
         {
@@ -381,7 +395,6 @@ public class RpgScript : MonoBehaviour
 
     public void holyLightSkill()
     {
-        print("=====圣光=====");
         Vector3 holyLightAttack = gameObject.transform.localPosition;
         Collider[] colliders = Physics.OverlapSphere(holyLightAttack, lightRange);
         if (colliders.Length == 0)
