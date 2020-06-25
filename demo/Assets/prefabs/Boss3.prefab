@@ -1979,12 +1979,14 @@ MonoBehaviour:
   timeAttack: 5
   attack: 0
   levelPoint: 0
-  enemyBlood: {fileID: 0}
+  enemyBlood: {fileID: 2937011341056622239, guid: a0e5f9ca61e68dd48967201e8407b92c,
+    type: 3}
   flaptext: {fileID: 0}
-  flapword: {fileID: 0}
-  weaponSword: {fileID: 0}
-  weaponMetal: {fileID: 0}
-  weaponSpear: {fileID: 0}
+  flapword: {fileID: 3257735880050040969}
+  weaponAex: {fileID: 7832471200335851596, guid: a4ffdb32191b8f748b3acf9fd3c1849b,
+    type: 3}
+  weaponHammer: {fileID: 6347780320993312644, guid: 99ecbe38dc0f136419f5330aaeea5d8b,
+    type: 3}
 --- !u!114 &3408355005851499703
 MonoBehaviour:
   m_ObjectHideFlags: 0

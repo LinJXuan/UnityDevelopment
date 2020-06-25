@@ -53,10 +53,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\RPG_BOX_Free\Editor\BarManagerEditor.cs" />
-     <Compile Include="Assets\RPG_BOX_Free\Editor\HoverSizeChangerEditor.cs" />
-     <Compile Include="Assets\RPG_BOX_Free\Editor\InventoryManagerEditor.cs" />
-     <Compile Include="Assets\RPG_BOX_Free\Editor\ShopManagerEditor.cs" />
+     <Compile Include="Assets\Cleaner\Editor\AssetCollector.cs" />
+     <Compile Include="Assets\Cleaner\Editor\ClassReferenceCollection.cs" />
+     <Compile Include="Assets\Cleaner\Editor\FindUnusedAssets.cs" />
+     <Compile Include="Assets\Cleaner\Editor\ShaderReferenceCollection.cs" />
  <Reference Include="Unity.DocZh.Editor">
  <HintPath>E:/UnityGit/demo/Library/ScriptAssemblies/Unity.DocZh.Editor.dll</HintPath>
  </Reference>
