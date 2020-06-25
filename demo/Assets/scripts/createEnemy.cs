@@ -60,7 +60,6 @@ public class CreateEnemy : MonoBehaviour
             
             EnemyCreateControl();
             move=true;
-            
             print("======= create enemy ======");
         }
         

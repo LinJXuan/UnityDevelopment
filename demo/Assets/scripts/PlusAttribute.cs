@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class PlusAttribute : MonoBehaviour {
     private Player p;
+    private RpgScript player;
     public int playerHp;
     public int playerDefense;
     public int playerAttack;
@@ -27,6 +28,7 @@ public class PlusAttribute : MonoBehaviour {
         playerDefense = p.getDefense ();
         playerAttack = p.getAttack ();
         playerlevelPoint = p.getlevelPoint ();
+
         GameObject.Find ("Canvas/Number1").GetComponent<Text> ().text = playerHp.ToString ();
         GameObject.Find ("Canvas/Number2").GetComponent<Text> ().text = playerDefense.ToString ();
         GameObject.Find ("Canvas/Number3").GetComponent<Text> ().text = playerAttack.ToString ();
@@ -39,6 +41,7 @@ public class PlusAttribute : MonoBehaviour {
             p.setHp (playerHp);
             string str1 = playerHp.ToString ();
             GameObject.Find ("Canvas/Number1").GetComponent<Text> ().text = str1;
+            p.setcurrentHp(playerHp);
         }
     }
     public void plusDefense () {
@@ -48,6 +51,7 @@ public class PlusAttribute : MonoBehaviour {
             p.setDefense (playerDefense);
             string str2 = playerDefense.ToString ();
             GameObject.Find ("Canvas/Number2").GetComponent<Text> ().text = str2;
+            p.setcurrentHp(playerHp);
         }
     }
     public void plusAttack () {
@@ -57,6 +61,7 @@ public class PlusAttribute : MonoBehaviour {
             p.setAttack (playerAttack);
             string str3 = playerAttack.ToString ();
             GameObject.Find ("Canvas/Number3").GetComponent<Text> ().text = str3;
+            p.setcurrentHp(playerHp);
         }
     }
     public void reducelevelPoint () {
