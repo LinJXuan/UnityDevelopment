@@ -6,7 +6,8 @@ public class CreateEnemy : MonoBehaviour
 {
     public GameObject Normal;
     public GameObject Expert;
-    public GameObject Boss;
+    public List<GameObject> BossList=new List<GameObject>();
+    private GameObject Boss;
     public GameObject enemyPosition;
     private Vector3 positionR;
     private Quaternion rotationR;
@@ -23,15 +24,26 @@ public class CreateEnemy : MonoBehaviour
     private int start;
     private bool move;
     private Csv csv;
+    private NormalEnemy normal;
+    private ExpertEnemy expert;
+    private BossEnemy boss;
+    private Player player;
     void Start()
     {
         set=GameObject.Find("RPG-Character").GetComponent<SetCreateEnemy>();
+
         //dtTime = totalTime;
         positionR = enemyPosition.transform.localPosition;
         rotationR = enemyPosition.transform.localRotation;
+
+        normal=NormalEnemy.getInstance();
+        expert=ExpertEnemy.getInstance();
+        boss=BossEnemy.getInstance();
+        player=Player.getInstance();
+
         s=Statistic.getInstance();
         Map=s.getMap();
-
+        Boss=BossList[s.getMap()-1];
         csv=Csv.getInstance();
         start=0;
         count=0;
@@ -52,12 +64,25 @@ public class CreateEnemy : MonoBehaviour
             print("======= create enemy ======");
         }
         
+
         if(move){
             int mile=0;
             mile=AmountOfEnemy[start,3];
             enemyCount[0]=AmountOfEnemy[start,4];
             enemyCount[1]=AmountOfEnemy[start,5];
             enemyCount[2]=AmountOfEnemy[start,6];
+
+            normal.setHp(130+((AmountOfEnemy[start,0]-1)*5+AmountOfEnemy[start,1])*30);
+            normal.setAttack(10*2+((AmountOfEnemy[start,0]-1)*5+AmountOfEnemy[start,1])*4);
+
+            expert.setHp(normal.getHp()*5/3);
+            expert.setAttack(normal.getAttack()*3/2);
+
+            if(enemyCount[2]>0)
+            {
+                boss.setHp(player.getHp()*10);
+                boss.setAttack(player.getAttack()*5/2);
+            }
 
             enemyPosition.transform.position=new Vector3(mile,enemyPosition.transform.position.y,enemyPosition.transform.position.z);
             set.closeTo15=true;
@@ -95,7 +120,7 @@ public class CreateEnemy : MonoBehaviour
             GameObject enemy=Instantiate(Boss, positionR, rotationR);
             print(enemy.transform.localPosition.y);
             enemy.SetActive(true);
-            
+
         }
     }
 

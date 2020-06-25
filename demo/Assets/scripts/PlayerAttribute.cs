@@ -16,7 +16,7 @@ public class PlayerAttribute
         this.currentHp = hp;
         this.energy=energy;
         this.Attack = attack;
-        this.Range = 0;
+        this.Range = 1;
         //this.Shield = shield;
         this.Defense = defense;
     }

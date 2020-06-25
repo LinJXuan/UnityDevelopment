@@ -118,8 +118,9 @@
     <Compile Include="Assets\scripts\PlusAttribute.cs" />
     <Compile Include="Assets\scripts\RpgScript.cs" />
     <Compile Include="Assets\scripts\SetCreateEnemy.cs" />
-    <Compile Include="Assets\scripts\SetLevel1.cs" />
+    <Compile Include="Assets\scripts\SetMap.cs" />
     <Compile Include="Assets\scripts\ShowBag.cs" />
+    <Compile Include="Assets\scripts\ShowMap.cs" />
     <Compile Include="Assets\scripts\ShowOff.cs" />
     <Compile Include="Assets\scripts\skillListener.cs" />
     <Compile Include="Assets\scripts\Statistic.cs" />
@@ -129,8 +130,11 @@
     <Compile Include="Assets\scripts\SwitchToMyBag.cs" />
     <Compile Include="Assets\scripts\SwitchToScene2.cs" />
     <Compile Include="Assets\scripts\ToAttribute.cs" />
-    <Compile Include="Assets\scripts\ToLevel1Only.cs" />
     <Compile Include="Assets\scripts\ToLevel2.cs" />
+    <Compile Include="Assets\scripts\ToMap1.cs" />
+    <Compile Include="Assets\scripts\ToMap2.cs" />
+    <Compile Include="Assets\scripts\ToMap3.cs" />
+    <Compile Include="Assets\scripts\ToMap4.cs" />
     <Compile Include="Assets\scripts\ToMenu.cs" />
     <Compile Include="Assets\scripts\ToMyBag.cs" />
     <Compile Include="Assets\scripts\ToNextLevel.cs" />

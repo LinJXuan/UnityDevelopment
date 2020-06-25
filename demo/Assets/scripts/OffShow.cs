@@ -21,7 +21,7 @@ public class OffShow : MonoBehaviour
     }
     void offshow()
     {
-        start.SetActive(true);
+        //start.SetActive(true);
         map.SetActive(true);
         bag.SetActive(true);
         attribute.SetActive(true);

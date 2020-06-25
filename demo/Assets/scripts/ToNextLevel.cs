@@ -16,7 +16,10 @@ public class ToNextLevel : MonoBehaviour
 
     void OnClick()
     {
-        SceneManager.LoadScene(NextScene);
+        if(s.getMap()+1<5)
+        s.setMap(s.getMap()+1);
+
+        SceneManager.LoadScene("scene2");
     }
 
 }

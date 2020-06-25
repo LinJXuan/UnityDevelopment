@@ -12,11 +12,11 @@ public class EnemyController : MonoBehaviour {
     public float speed;
     public float attackRange;
     public float timeAttack = 5f;
-    private int Hp;
+    public int Hp;
     public int attack;
     private bool isDead = false;
-    public Player p; //
-    public int levelPoint; //升级点数
+    private Player p; 
+    private int levelPoint; //升级点数
 
     private Rigidbody rbody;
     private float time;
@@ -27,16 +27,15 @@ public class EnemyController : MonoBehaviour {
     public Slider enemyBlood;
     public GameObject flaptext;
     public Text flapword;
-    public  GameObject weaponSword;
-    public  GameObject weaponMetal;
-    public  GameObject weaponSpear;
-
+    public  GameObject weaponAex;
+    public  GameObject weaponHammer;
+    private Vector3 deathPosition;
     //积分
     private Statistic s;
 
     private bool look = false;
 
-
+    private BossMove bossmove;
     void Start () {
         anim = GetComponent<Animator>();
         flaptext =GameObject.Find("FlapWord");
@@ -45,14 +44,13 @@ public class EnemyController : MonoBehaviour {
         levelPoint = p.getlevelPoint (); //获取当前升级点数
         s = Statistic.getInstance ();
         rbody = GetComponent<Rigidbody> ();
-        playerHealth = GameObject.Find ("RPG-Character").GetComponent<PlayerHealth> ();
         player = GameObject.Find ("RPG-Character");
+        playerHealth = player.GetComponent<PlayerHealth> ();
         switch (transform.name[0]) {
             case 'N':
                 normal = NormalEnemy.getInstance ();
                 attackRange = normal.getRange ();
-                //attack = normal.getAttack ();
-                attack = 30;
+                attack = normal.getAttack ();
                 Hp = normal.getHp ();
                 speed = normal.getSpeed ();
                 break;
@@ -68,6 +66,7 @@ public class EnemyController : MonoBehaviour {
                 attackRange = boss.getRange ();
                 attack = boss.getAttack ();
                 Hp = boss.getHp();
+                boss.setcurrentHp(Hp);
                 speed = boss.getSpeed ();
                 break;
         }
@@ -77,6 +76,7 @@ public class EnemyController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        Vector3 playerPosition=player.transform.position;
         Vector3 worldPos = new Vector3 (transform.position.x, transform.position.y + 3f, transform.position.z);
         Vector3 screenPos = Camera.main.WorldToScreenPoint (worldPos);
         //血条位置
@@ -84,6 +84,7 @@ public class EnemyController : MonoBehaviour {
         enemyBlood.value = Hp;
         //伤害飘字的位置
         flapword.transform.position=new Vector3(screenPos.x, screenPos.y+80f, screenPos.z);
+
     }
 
     private void FixedUpdate () {
@@ -120,6 +121,9 @@ public class EnemyController : MonoBehaviour {
         }
         anim.SetTrigger("Gethit");
         Hp -= damage;
+        if(transform.name[0]=='B'){
+            boss.setcurrentHp(Hp);
+        }
         flapword.text="-"+damage;
         if (flaptext != null)
         {
@@ -164,6 +168,8 @@ public class EnemyController : MonoBehaviour {
         }
     }
     private void Death () {
+        deathPosition=transform.position;
+        player.GetComponent<RpgScript>().enemyDeathPosition=transform.position;
         isDead = true;
         anim.SetBool("Die", true);
         AddlevelPoint ();
@@ -176,20 +182,13 @@ public class EnemyController : MonoBehaviour {
         temp *= 1000;
         int tim = (int)temp;
         int rand = tim % 100;
-        if(rand<30) //随机数小于30时掉落，即概率为30% 掉落武器1
+        if(rand<50) //随机数小于50时掉落，即概率为50% 掉落武器1
         {
-        weaponSword=GameObject.Instantiate(weaponSword,new Vector3 (transform.position.x, transform.position.y+1f, transform.position.z),Quaternion.identity) as GameObject;
+        weaponAex=GameObject.Instantiate(weaponAex,new Vector3 (transform.position.x, transform.position.y+1.5f, transform.position.z),Quaternion.identity) as GameObject;
+        player.GetComponent<RpgScript>().dropWeaponAex=true;
         }else{
-            if(rand>=30&&rand<60)//掉落武器2
-            {
-                weaponMetal=GameObject.Instantiate(weaponMetal,new Vector3 (transform.position.x, transform.position.y+1f, transform.position.z),Quaternion.identity) as GameObject;
-            }
-            else{
-                if(rand>=60){ //掉落武器3
-
-                    weaponSpear=GameObject.Instantiate(weaponSpear,new Vector3 (transform.position.x, transform.position.y+1f, transform.position.z),Quaternion.identity) as GameObject;
-                }
-            }
+        weaponHammer=GameObject.Instantiate(weaponHammer,new Vector3 (transform.position.x, transform.position.y+1.5f, transform.position.z),Quaternion.identity) as GameObject;
+        player.GetComponent<RpgScript>().dropWeaponHammer=true;
         }
     }
      //伤害飘字函数
