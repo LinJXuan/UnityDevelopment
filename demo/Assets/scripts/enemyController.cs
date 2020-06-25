@@ -6,6 +6,7 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 public class EnemyController : MonoBehaviour {
+    private Animator anim;
     //属性
     private GameObject player;
     public float speed;
@@ -24,7 +25,7 @@ public class EnemyController : MonoBehaviour {
     private ExpertEnemy expert;
     private BossEnemy boss;
     public Slider enemyBlood;
-    public static GameObject flaptext;
+    public GameObject flaptext;
     public Text flapword;
     public  GameObject weaponAex;
     public  GameObject weaponHammer;
@@ -33,11 +34,11 @@ public class EnemyController : MonoBehaviour {
     private Statistic s;
 
     private bool look = false;
-    private Vector3 position;
 
 
     void Start () {
-        flaptext=GameObject.Find("FlapWord");
+        anim = GetComponent<Animator>();
+        flaptext =GameObject.Find("FlapWord");
         flaptext.SetActive(false);
         p = Player.getInstance ();
         levelPoint = p.getlevelPoint (); //获取当前升级点数
@@ -49,7 +50,8 @@ public class EnemyController : MonoBehaviour {
             case 'N':
                 normal = NormalEnemy.getInstance ();
                 attackRange = normal.getRange ();
-                attack = normal.getAttack ();
+                //attack = normal.getAttack ();
+                attack = 30;
                 Hp = normal.getHp ();
                 speed = normal.getSpeed ();
                 break;
@@ -63,15 +65,13 @@ public class EnemyController : MonoBehaviour {
             case 'B':
                 boss = BossEnemy.getInstance ();
                 attackRange = boss.getRange ();
-                attack = p.getAttack ()*3;
-                Hp =p.getHp()*10;
+                attack = boss.getAttack ();
+                Hp = boss.getHp();
                 speed = boss.getSpeed ();
                 break;
         }
         enemyBlood.value = Hp;
         enemyBlood.maxValue = Hp;
-        transform.LookAt (player.transform);
-        position = transform.position;
     }
 
     // Update is called once per frame
@@ -88,21 +88,30 @@ public class EnemyController : MonoBehaviour {
     }
 
     private void FixedUpdate () {
+        //追踪玩家
+        if (!look)
+        {
+            transform.LookAt(player.transform);
+            print("x===>" + transform.localPosition.x + "y===>" + transform.localPosition.y);
+        }
+
         time += Time.deltaTime;
         if (player != null) {
             if (time >= timeAttack) {
-
                 float dx = Mathf.Abs (player.transform.localPosition.x - transform.localPosition.x);
                 if (dx <= attackRange) {
+                    print("dx===>" + dx);
                     look = true;
-                    Attack ();
+                    Attack();
                 }
             }
         }
     }
 
-    public void Attack () {
+    public void Attack() {
         time = 0;
+        anim.SetTrigger("Attack");
+        print("攻击====>" + attack);
         playerHealth.TakeDamage (attack);
     }
     
@@ -110,6 +119,7 @@ public class EnemyController : MonoBehaviour {
         if (isDead) {
             return;
         }
+        anim.SetTrigger("Gethit");
         Hp -= damage;
         flapword.text="-"+damage;
         if (flaptext != null)
@@ -158,6 +168,7 @@ public class EnemyController : MonoBehaviour {
         deathPosition=transform.position;
         player.GetComponent<RpgScript>().enemyDeathPosition=transform.position;
         isDead = true;
+        anim.SetBool("Die", true);
         AddlevelPoint ();
         p.setlevelPoint (levelPoint); //写入升级点数
         //设置获得积分

@@ -8,7 +8,6 @@ public class CreateEnemy : MonoBehaviour
     public GameObject Expert;
     public GameObject Boss;
     public GameObject enemyPosition;
-    private Vector3 positionL;
     private Vector3 positionR;
     private Quaternion rotationR;
     private int[] enemyCount = new int[3] {0,0,0};
@@ -51,7 +50,6 @@ public class CreateEnemy : MonoBehaviour
             move=true;
             
             print("======= create enemy ======");
-            print("positionL=======" + positionL.y);
         }
         
         if(move){
@@ -82,20 +80,20 @@ public class CreateEnemy : MonoBehaviour
 
     private void EnemyCreateControl(){
         for(int i=0;i<enemyCount[0];i++){
-            GameObject enemy=Instantiate(Normal, positionR, rotationR);
-            enemy.SetActive(true);
+            //GameObject enemy=Instantiate(Normal, positionR, rotationR);
+            //enemy.SetActive(true);
             
         }
 
-
         for(int i=0;i<enemyCount[1];i++){
-            GameObject enemy=Instantiate(Expert, positionR+new Vector3(5,0,0), rotationR);
-            enemy.SetActive(true);
+            //GameObject enemy=Instantiate(Expert, positionR+new Vector3(5,0,0), rotationR);
+            //enemy.SetActive(true);
             
         }
 
         for(int i=0;i<enemyCount[2];i++){
             GameObject enemy=Instantiate(Boss, positionR, rotationR);
+            print(enemy.transform.localPosition.y);
             enemy.SetActive(true);
             
         }
