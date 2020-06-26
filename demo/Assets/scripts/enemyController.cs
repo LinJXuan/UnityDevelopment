@@ -143,8 +143,6 @@ public class EnemyController : MonoBehaviour {
         isDead = true;
         anim.SetBool ("Die", true);
 
-        PlayerHealth.numberOfEnemy++; //怪物计数，用来计算升级点数
-
         //设置获得积分
         s.setPoint (s.getPoint () + 10);
         Destroy (gameObject);
