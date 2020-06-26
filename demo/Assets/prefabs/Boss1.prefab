@@ -626,7 +626,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909651286494024868}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 650.21136, y: 201.39821, z: -579.149}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -638,7 +638,7 @@ Transform:
   - {fileID: 4069768082894748159}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!95 &8143424506304277185
 Animator:
   serializedVersion: 3
@@ -692,7 +692,7 @@ MonoBehaviour:
   Hp: 0
   attack: 0
   enemyBlood: {fileID: 4216980552199973326}
-  flaptext: {fileID: 1538396101605801681}
+  flaptext: {fileID: 0}
   flapword: {fileID: 8085921095527834354}
   weaponAex: {fileID: 7832471200335851596, guid: a4ffdb32191b8f748b3acf9fd3c1849b,
     type: 3}

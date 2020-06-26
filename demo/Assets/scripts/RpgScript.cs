@@ -68,6 +68,8 @@ public class RpgScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //attackDamage = player.getAttack();
+
         qTime += Time.deltaTime;
         wTime += Time.deltaTime;
         eTime += Time.deltaTime;

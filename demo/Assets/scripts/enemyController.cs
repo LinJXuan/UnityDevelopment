@@ -91,7 +91,6 @@ public class EnemyController : MonoBehaviour {
         //追踪玩家
         if (!look) {
             transform.LookAt (player.transform);
-            print ("x===>" + transform.localPosition.x + "y===>" + transform.localPosition.y);
         }
 
         time += Time.deltaTime;
@@ -99,7 +98,6 @@ public class EnemyController : MonoBehaviour {
             if (time >= timeAttack) {
                 float dx = Mathf.Abs (player.transform.localPosition.x - transform.localPosition.x);
                 if (dx <= attackRange) {
-                    print ("dx===>" + dx);
                     look = true;
                     Attack ();
                 }

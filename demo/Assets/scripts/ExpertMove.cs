@@ -12,8 +12,8 @@ public class ExpertMove : MonoBehaviour
     private ExpertEnemy expert;
     private int attackRange;
     private bool move=true;
-    private bool escape=false;
-    private float time=5;
+    //private bool escape=false;
+    //private float time=5;
     void Start()
     {
         look=false;
@@ -35,10 +35,10 @@ public class ExpertMove : MonoBehaviour
             {
                 look=true;
                 move=false;
-                escape=true;
+            //    escape=true;
             }else{
                 move=true;
-                escape=false;
+            //    escape=false;
             }
             //是否追踪
             if(look)
@@ -60,13 +60,13 @@ public class ExpertMove : MonoBehaviour
 
                 position=transform.position;
             }
-            if(escape){
-                time-=Time.deltaTime;
-                if(time<=0){
-                    transform.position-=(transform.forward*5);
-                    time=5;
-                }                
-            }
+            //if(escape){
+            //    time-=Time.deltaTime;
+            //    if(time<=0){
+            //        transform.position-=(transform.forward*5);
+            //        time=5;
+            //    }                
+            //}
             //怪物动画接口
             // anim.SetBool("Die", true);     是否播放死亡动画
             // anim.SetBool("Walk", true);    是否行走，动画器在行走时攻击或者受到攻击后默认回到待定状态，Walk为false
