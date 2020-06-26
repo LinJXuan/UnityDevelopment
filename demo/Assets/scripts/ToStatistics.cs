@@ -50,6 +50,7 @@ public class ToStatistics : MonoBehaviour
             }
             if(s.getMap()<4)
             s.setSuccess(s.getMap());
+            s.setComplete(true);
         }
         if (p.getcurrentHp() == 0)
             {
@@ -64,6 +65,7 @@ public class ToStatistics : MonoBehaviour
                         text.text = "你被击败了！\n" + down + "秒后跳转到结算界面";
                     }
                 }
+                s.setComplete(false);
             }
         if (down == 0)
             {

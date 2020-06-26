@@ -1,6 +1,7 @@
 ﻿
 public class Statistic
-{
+{   
+    private bool complete=false;
     private int point = 0;
     private int map = 1;
     private string NextScene;
@@ -29,6 +30,9 @@ public class Statistic
     public void setSuccess(int n){
         this.success[n]=true;
     }
+    public void setComplete(bool c){
+        this.complete=c;
+    }
 
     public int getPoint()
     {
@@ -42,5 +46,8 @@ public class Statistic
     }
     public bool getSuccess(int n){
         return success[n];
+    }
+    public bool getComplete(){
+        return this.complete;
     }
 }

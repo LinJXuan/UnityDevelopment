@@ -47,7 +47,7 @@ public class CreateEnemy : MonoBehaviour
         csv=Csv.getInstance();
         start=0;
         count=0;
-        csv.readCsv(AmountOfEnemy,Application.dataPath+"/Resources","MapSelect.csv",Map,ref count);
+        csv.readCsv(AmountOfEnemy,Application.dataPath+"/prefabs","MapSelect.csv",Map,ref count);
 
     }
 
