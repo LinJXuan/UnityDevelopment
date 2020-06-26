@@ -7,7 +7,7 @@ public class CheckEnemy : MonoBehaviour
 
     private bool isMoving = false;
     private int direction;
-    private float totalTime = 5f;
+    private float totalTime = 2f;
     private float dtTime;
     private Player p;
     public int attackRange = 4;

@@ -44,12 +44,17 @@ public class RpgScript : MonoBehaviour
     private float lightRange = 3;
 
     //攻击间隔
-    public float dTime = 2;
-    private float qTime = 0;
-    private float wTime = 0;
-    private float eTime = 0;
-    private float rTime = 0;
+    public float wCD = 2;
+    public float eCD = 3;
+    public float rCD = 4;
+    private float wTime = 2;
+    private float eTime = 3;
+    private float rTime = 4;
 
+    //冷却图片
+    public Image wCdImg;
+    public Image eCdImg;
+    public Image rCdImg;
     private CheckEnemy checkEnemy;
     void Start()
     {
@@ -70,10 +75,14 @@ public class RpgScript : MonoBehaviour
     {
         //attackDamage = player.getAttack();
 
-        qTime += Time.deltaTime;
+        //技能CD
         wTime += Time.deltaTime;
+        wCdImg.fillAmount = 1 - wTime / wCD;
         eTime += Time.deltaTime;
+        eCdImg.fillAmount = 1 - eTime / eCD;
         rTime += Time.deltaTime;
+        rCdImg.fillAmount = 1 - rTime / rCD;
+
         healthSlider.value=GetComponent<PlayerHealth>().playerHp;
         //shieldSlider.value=GetComponent<PlayerHealth>().playerShield;
         
@@ -124,25 +133,24 @@ public class RpgScript : MonoBehaviour
             anim.SetBool("Walk",false);
         }
        
-        if(currentState == State.skillOne&& qTime>=dTime)
+        if(currentState == State.skillOne)
         {
             anim.SetTrigger("Q Trigger");
-            qTime = 0;
         }
 
-        if(currentState ==State.skillTwo && wTime >= dTime)
+        if(currentState ==State.skillTwo && wTime >= wCD)
         {
             anim.SetTrigger("W Trigger");
             wTime = 0;
         }
 
-        if (currentState == State.skillThree && eTime >= dTime)
+        if (currentState == State.skillThree && eTime >= eCD)
         {
             anim.SetTrigger("E Trigger");
             eTime = 0;
         }
 
-        if (currentState == State.skillFour && rTime >= dTime)
+        if (currentState == State.skillFour && rTime >= rCD)
         {
             anim.SetTrigger("R Trigger");
             rTime = 0;
@@ -200,17 +208,10 @@ public class RpgScript : MonoBehaviour
 
     public void setState(int i)
     {
-        if(i == -1 || i == -2)
+        if (isPlaying)
         {
-            if (isPlaying)
-            {
-                //直接返回
-                return;
-            }
-            else
-            {
-                //不做处理，让switch去设置移动
-            }
+            //直接返回
+            return;
         }
 
         checkEnemy.resetdTime();

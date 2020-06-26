@@ -659,13 +659,9 @@
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
     <Compile Include="Assets\ModularRPGHeroesPolyArt\TPController\Scripts\AnimatorMatcher.cs" />
-    <Compile Include="Assets\ModularRPGHeroesPolyArt\TPController\Scripts\BoolOperator1.cs" />
-    <Compile Include="Assets\ModularRPGHeroesPolyArt\TPController\Scripts\BoolOperator2.cs" />
     <Compile Include="Assets\ModularRPGHeroesPolyArt\TPController\Scripts\CameraManager.cs" />
     <Compile Include="Assets\ModularRPGHeroesPolyArt\TPController\Scripts\ControlManager.cs" />
-    <Compile Include="Assets\ModularRPGHeroesPolyArt\TPController\Scripts\ResetTimer.cs" />
     <Compile Include="Assets\Normal Export Boss2\Environment\Scripts\Move.cs" />
-    <Compile Include="Assets\Normal Export Boss2\Environment\Scripts\PointLight.cs" />
     <Compile Include="Assets\RPG_BOX_Free\Scripts\Managers\BarManager.cs" />
     <Compile Include="Assets\RPG_BOX_Free\Scripts\Managers\DatabaseManager.cs" />
     <Compile Include="Assets\RPG_BOX_Free\Scripts\Managers\EquipmentManager.cs" />
@@ -694,6 +690,7 @@
     <Compile Include="Assets\scripts\Enemy.cs" />
     <Compile Include="Assets\scripts\EnemyController.cs" />
     <Compile Include="Assets\scripts\EnemyHealth.cs" />
+    <Compile Include="Assets\scripts\Exit.cs" />
     <Compile Include="Assets\scripts\ExpertEnemy.cs" />
     <Compile Include="Assets\scripts\ExpertMove.cs" />
     <Compile Include="Assets\scripts\InfMap.cs" />
@@ -738,9 +735,6 @@
     <None Include="Assets\Demigiant\DOTween\Editor\DOTweenEditor.XML" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
     <None Include="Assets\ModularRPGHeroesPolyArt\Shader\PolyArtMaskTint.shader" />
-    <None Include="Assets\Normal Export Boss2\READ ME FIRST!!!\character setup guide link.txt" />
-    <None Include="Assets\Normal Export Boss2\READ ME FIRST!!!\read me.txt" />
-    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
@@ -757,7 +751,6 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Packages\com.unity.collab-proxy\Editor\Resources\Styles\CollabHistoryCommon.uss" />
     <None Include="Packages\com.unity.collab-proxy\Editor\Resources\Styles\CollabHistoryDark.uss" />
     <None Include="Packages\com.unity.collab-proxy\Editor\Resources\Styles\CollabHistoryLight.uss" />

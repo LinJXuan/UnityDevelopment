@@ -717,10 +717,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\RPG_BOX_Free\Editor\BarManagerEditor.cs" />
-    <Compile Include="Assets\RPG_BOX_Free\Editor\HoverSizeChangerEditor.cs" />
-    <Compile Include="Assets\RPG_BOX_Free\Editor\InventoryManagerEditor.cs" />
-    <Compile Include="Assets\RPG_BOX_Free\Editor\ShopManagerEditor.cs" />
+    <Compile Include="Assets\Cleaner\Editor\AssetCollector.cs" />
+    <Compile Include="Assets\Cleaner\Editor\ClassReferenceCollection.cs" />
+    <Compile Include="Assets\Cleaner\Editor\FindUnusedAssets.cs" />
+    <Compile Include="Assets\Cleaner\Editor\ShaderReferenceCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Boss1\mLD3DShaders\LD3D_Specular.shader" />
@@ -729,9 +729,6 @@
     <None Include="Assets\Demigiant\DOTween\Editor\DOTweenEditor.XML" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
     <None Include="Assets\ModularRPGHeroesPolyArt\Shader\PolyArtMaskTint.shader" />
-    <None Include="Assets\Normal Export Boss2\READ ME FIRST!!!\character setup guide link.txt" />
-    <None Include="Assets\Normal Export Boss2\READ ME FIRST!!!\read me.txt" />
-    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
@@ -748,7 +745,6 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Packages\com.unity.collab-proxy\Editor\Resources\Styles\CollabHistoryCommon.uss" />
     <None Include="Packages\com.unity.collab-proxy\Editor\Resources\Styles\CollabHistoryDark.uss" />
     <None Include="Packages\com.unity.collab-proxy\Editor\Resources\Styles\CollabHistoryLight.uss" />
