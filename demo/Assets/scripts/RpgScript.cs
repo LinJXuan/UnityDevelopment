@@ -52,6 +52,11 @@ public class RpgScript : MonoBehaviour {
     public bool dropShield2 = false;
     public bool dropShield3 = false;
     private Player player;
+     public static RpgScript Am;
+     public AudioClip swordSound; 
+     public AudioClip aexSound;
+     public AudioClip hammerSound;
+    private AudioSource source;   
     //突刺攻击有关
     private ArrayList enemys = new ArrayList ();
     private float spurLength = 5;
@@ -76,8 +81,10 @@ public class RpgScript : MonoBehaviour {
     public Image rCdImg;
     private CheckEnemy checkEnemy;
     void Start () {
+        Am=this;
          player = Player.getInstance ();
-        anim = GetComponent<Animator> ();
+         anim = GetComponent<Animator> ();
+         source = GetComponent<AudioSource>();
         consume1.image.sprite = Resources.Load<Sprite> ("sword");
         switchWeapon (true, false, false);
         switchShield (false, false, false);
@@ -141,31 +148,75 @@ public class RpgScript : MonoBehaviour {
         }
 
         if(currentState == State.stop)
-        {
-             
+        {  
             anim.SetBool("Walk",false);
         }
        
         if(currentState == State.skillOne)
         {
             anim.SetTrigger("Q Trigger");
+            switch(weaponState)
+            {case 0:
+            source.PlayOneShot(swordSound, 1F);
+            break;
+            case 1:
+            source.PlayOneShot(aexSound, 1F);
+            break;
+            case 2:
+            source.PlayOneShot(hammerSound, 1F);
+            break;
+            }
+            
         }
 
         if(currentState ==State.skillTwo && wTime >= wCD)
         {
             anim.SetTrigger("W Trigger");
+             switch(weaponState)
+            {case 0:
+            source.PlayOneShot(swordSound, 1F);
+            break;
+            case 1:
+            source.PlayOneShot(aexSound, 1F);
+            break;
+            case 2:
+            source.PlayOneShot(hammerSound, 1F);
+            break;
+            }
             wTime = 0;
         }
 
         if (currentState == State.skillThree && eTime >= eCD)
         {
             anim.SetTrigger("E Trigger");
+             switch(weaponState)
+            {case 0:
+            source.PlayOneShot(swordSound, 1F);
+            break;
+            case 1:
+            source.PlayOneShot(aexSound, 1F);
+            break;
+            case 2:
+            source.PlayOneShot(hammerSound, 1F);
+            break;
+            }
             eTime = 0;
         }
 
         if (currentState == State.skillFour && rTime >= rCD)
         {
             anim.SetTrigger("R Trigger");
+             switch(weaponState)
+            {case 0:
+            source.PlayOneShot(swordSound, 1F);
+            break;
+            case 1:
+            source.PlayOneShot(aexSound, 1F);
+            break;
+            case 2:
+            source.PlayOneShot(hammerSound, 1F);
+            break;
+            }
             rTime = 0;
         }
 

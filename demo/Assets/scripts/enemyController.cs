@@ -39,7 +39,19 @@ public class EnemyController : MonoBehaviour {
     private bool look = false;
 
     private BossMove bossmove;
+    public AudioClip normalSound;
+    public AudioClip expertSound;
+    public AudioClip boss1Sound;
+
+    public AudioClip boss2Sound;
+
+   public AudioClip boss3Sound;
+
+   public AudioClip boss4Sound;
+
+    private AudioSource source;  
     void Start () {
+        source = GetComponent<AudioSource>();
         anim = GetComponent<Animator> ();
         flaptext = GameObject.Find ("FlapWord");
         flaptext.SetActive (false);
@@ -113,6 +125,28 @@ public class EnemyController : MonoBehaviour {
         anim.SetTrigger ("Attack");
         print ("攻击====>" + attack);
         playerHealth.TakeDamage (attack);
+        switch (transform.name[4]) {
+            case 'a':
+                 source.PlayOneShot(normalSound, 1F);
+                break;
+            case 'r':
+                source.PlayOneShot(expertSound, 1F);
+                break;
+            case '1':
+                 source.PlayOneShot(boss1Sound, 1F);
+            break;
+             case '2':
+                 source.PlayOneShot(boss2Sound, 1F);
+            break;
+             case '3':
+                 source.PlayOneShot(boss3Sound, 1F);
+            break;
+             case '4':
+                 source.PlayOneShot(boss4Sound, 1F);
+            break;
+
+        }
+       
     }
 
     public void TakeDamage (int damage) {
