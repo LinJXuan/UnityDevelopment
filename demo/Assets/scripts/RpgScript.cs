@@ -22,16 +22,25 @@ public class RpgScript : MonoBehaviour
 
     private float barUpLength = 3f;
     public Slider healthSlider ; 
-    public Slider shieldSlider;
     public GameObject weaponAex;
     public GameObject weaponSword;
     public GameObject weaponHammer;
+    public GameObject Shield1;
+    public GameObject Shield2;
+    public GameObject Shield3;
+
     private GameObject btnSWeapon;
+    private GameObject btnSShield;
     private  int[] weapon = new int[3] {1,0,0};
+    private int[] shield = new int[3] {0,0,0};
     private int weaponState=0;
+    private int shieldState=0;
     public Vector3 enemyDeathPosition;
     public bool dropWeaponAex=false;
     public bool dropWeaponHammer=false;
+    public bool dropShield1=false;
+    public bool dropShield2=false;
+    public bool dropShield3=false;
     private Player player;
     //突刺攻击有关
     private ArrayList enemys = new ArrayList();
@@ -59,8 +68,11 @@ public class RpgScript : MonoBehaviour
     void Start()
     {
         switchWeapon(true,false,false);
+        switchShield(false,false,false);
         btnSWeapon=GameObject.Find("switchWeapon");
+        btnSShield=GameObject.Find("switchShield");
         btnSWeapon.GetComponent<Button>().onClick.AddListener(clickSWeapon);
+        btnSShield.GetComponent<Button>().onClick.AddListener(clickSShield);
         player=Player.getInstance();
         attackDamage=player.getAttack();
         anim =GetComponent<Animator>();
@@ -163,9 +175,7 @@ public class RpgScript : MonoBehaviour
         Vector3 worldPos = new Vector3(transform.position.x, transform.position.y + barUpLength , transform.position.z);
         Vector3 screenPos = Camera.main.WorldToScreenPoint(worldPos);
         //血条位置
-        healthSlider.transform.position = new Vector3(screenPos.x, screenPos.y, screenPos.z);
-        //护盾位置
-        shieldSlider.transform.position = new Vector3(screenPos.x, screenPos.y-9.7693f, screenPos.z);
+        healthSlider.transform.position = new Vector3(screenPos.x, screenPos.y-20f, screenPos.z);
         //拾取并切换武器
         if((int)transform.position.x==(int)enemyDeathPosition.x)
         { 
@@ -181,8 +191,26 @@ public class RpgScript : MonoBehaviour
         if(dropWeaponHammer)  
         {   weapon[1]=1;
             switchWeapon(false,true,false); //切换成大锤
-            dropWeaponHammer=false;
+            dropShield1=false;
             weaponState=1;
+        }
+        if(dropShield1)  
+        {   shield[0]=1;
+            switchShield(true,false,false); //切换成盾牌1
+            dropShield1=false;
+            shieldState=1;
+        }
+        if(dropShield2)  
+        {   shield[1]=1;
+            switchShield(false,true,false); //切换成盾牌2
+            dropShield2=false;
+            shieldState=2;
+        }
+        if(dropShield1)  
+        {   shield[2]=1;
+            switchShield(true,false,false); //切换成盾牌3
+            dropShield3=false;
+            shieldState=3;
         }
 
         }
@@ -194,6 +222,14 @@ public class RpgScript : MonoBehaviour
        weaponAex.SetActive(Aex);
        weaponHammer.SetActive(Hammer);
        weaponSword.SetActive(Sword);
+
+    }
+    public void switchShield(bool shieldone,bool shieldtwo,bool shieldthree)
+    {
+        print("切换盾牌");
+       Shield1.SetActive(shieldone);
+       Shield2.SetActive(shieldtwo);
+       Shield3.SetActive(shieldthree);
 
     }
     public void FootR()
@@ -292,6 +328,62 @@ public class RpgScript : MonoBehaviour
 
       }
 
+
+    }
+    void clickSShield(){
+    if(shield[0]==1&&shield[1]==1&&shield[2]==0)
+    { switch(shieldState)
+    {case 1:
+      switchShield(false,true,false);
+      break;
+    case 2:
+      switchShield(true,false,false);
+      break;
+    }
+    }
+    if(shield[0]==1&&shield[1]==0&&shield[2]==1)
+    { switch(shieldState)
+    {case 1:
+      switchShield(false,false,true);
+      break;
+    case 3:
+      switchShield(true,false,false);
+      break;
+    }
+    }
+    if(shield[0]==0&&shield[1]==1&&shield[2]==1)
+    { switch(shieldState)
+    {case 2:
+      switchShield(false,false,true);
+      break;
+    case 3:
+      switchShield(false,true,false);
+      break;
+    }
+    }
+     if(shield[0]==0&&shield[1]==1&&shield[2]==1)
+    { switch(shieldState)
+    {case 2:
+      switchShield(false,false,true);
+      break;
+    case 3:
+      switchShield(false,true,false);
+      break;
+    }
+    }
+    if(shield[0]==1&&shield[1]==1&&shield[2]==1)
+    { switch(shieldState)
+    {  case 1:
+      switchShield(false,true,false);
+      break;
+       case 2:
+      switchShield(false,false,true);
+      break;
+      case 3:
+      switchShield(true,false,false);
+      break;
+    }
+    }
 
     }
 

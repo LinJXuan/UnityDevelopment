@@ -62,7 +62,7 @@ public class BossMove : MonoBehaviour
         Vector3 worldPos = new Vector3 (transform.position.x, transform.position.y + 3f, transform.position.z);
         Vector3 screenPos = Camera.main.WorldToScreenPoint (worldPos);
         //怒气条位置
-        angerValue.transform.position = new Vector3 (screenPos.x, screenPos.y-5f, screenPos.z);
+        angerValue.transform.position = new Vector3 (screenPos.x, screenPos.y-10f, screenPos.z);
         angerValue.value=(float)power;
         float dx = Mathf.Abs(player.transform.localPosition.x - transform.localPosition.x);
             if (dx <= attackRange)
@@ -81,7 +81,51 @@ public class BossMove : MonoBehaviour
             //是否移动
             if(move)
             {
-            transform.position += transform.forward * speed * Time.deltaTime;  
+            transform.position += transform.forward * speed * Time.deltaTime; 
+            switch (transform.name[4])
+                {
+                    case '1':
+                        Boos1Anim.SetBool("Walk",true);
+                        break;
+                    case '2':
+                        Boos2Anim.SetBool("Walk",true);
+
+                        break;
+                    case '3':
+                        Boos3Anim.SetBool("Walk",true);
+                        
+                        break;
+                    case '4':
+                        Boos4Anim.SetBool("Walk",true);
+                       
+                        break;
+
+                } 
+            }else{
+                switch (transform.name[4])
+                {
+                    case '1':
+                        Boos1Anim.SetBool("Walk",false);
+                        break;
+                    case '2':
+                        Boos2Anim.SetBool("Walk",false);
+
+                        break;
+                    case '3':
+                        Boos3Anim.SetBool("Walk",false);
+                        
+                        break;
+                    case '4':
+                        Boos4Anim.SetBool("Walk",false);
+                       
+                        break;
+
+                } 
+
+
+
+
+
             }
             //巡逻
             if(Mathf.Abs(transform.position.x-position.x)>=20){

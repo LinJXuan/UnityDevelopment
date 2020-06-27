@@ -49,6 +49,11 @@ public class ExpertMove : MonoBehaviour
             if(move)
             {
             transform.position += transform.forward * speed * Time.deltaTime;  
+            anim.SetBool("Walk",true);
+            }else
+            {
+             anim.SetBool("Walk",false);
+
             }
             //巡逻
             if(Mathf.Abs(transform.position.x-position.x)>=20){

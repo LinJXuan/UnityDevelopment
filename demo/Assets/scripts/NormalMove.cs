@@ -9,10 +9,12 @@ public class NormalMove : MonoBehaviour
     public GameObject player;
     private int speed;
     private NormalEnemy normal;
+    private Animator anim;
     private int attackRange;
     private bool move=true;
     void Start()
     {
+        anim =GetComponent<Animator>();
         player = GameObject.Find("RPG-Character");
         normal=NormalEnemy.getInstance();
         transform.LookAt(player.transform);
@@ -41,7 +43,12 @@ public class NormalMove : MonoBehaviour
             //是否移动
             if(move)
             {
-            transform.position += transform.forward * speed * Time.deltaTime;  
+            transform.position += transform.forward * speed * Time.deltaTime; 
+            anim.SetBool("Walk",true);
+            }
+            else{
+            anim.SetBool("Walk",false);
+
             }
             //巡逻
             if(Mathf.Abs(transform.position.x-position.x)>=20){

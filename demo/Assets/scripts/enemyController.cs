@@ -29,6 +29,9 @@ public class EnemyController : MonoBehaviour {
     public Text flapword;
     public GameObject weaponAex;
     public GameObject weaponHammer;
+    public GameObject shield1;
+    public GameObject shield2;
+    public GameObject shield3;
     private Vector3 deathPosition;
     //积分
     private Statistic s;
@@ -151,13 +154,29 @@ public class EnemyController : MonoBehaviour {
         temp *= 1000;
         int tim = (int) temp;
         int rand = tim % 100;
-        if (rand < 50) //随机数小于50时掉落，即概率为50% 掉落武器1
+        if (rand < 10) //10%概率掉落武器斧头
         {
             weaponAex = GameObject.Instantiate (weaponAex, new Vector3 (transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity) as GameObject;
             player.GetComponent<RpgScript> ().dropWeaponAex = true;
-        } else {
+        }
+        if(rand >= 10&&rand<15){ //5%概率掉落武器斧头
             weaponHammer = GameObject.Instantiate (weaponHammer, new Vector3 (transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity) as GameObject;
             player.GetComponent<RpgScript> ().dropWeaponHammer = true;
+        }
+        if (rand>=15&&rand<30)  //15%概率掉落武器斧头
+        {
+            shield1 = GameObject.Instantiate (shield1, new Vector3 (transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity) as GameObject;
+            player.GetComponent<RpgScript> ().dropShield1 = true;
+        }
+        if (rand >=30&&rand<40)  //10%概率掉落武器斧头
+        {
+            shield2 = GameObject.Instantiate (shield2, new Vector3 (transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity) as GameObject;
+            player.GetComponent<RpgScript> ().dropShield2 = true;
+        }
+        if (rand >= 40&&rand<45) //5%概率掉落武器斧头
+        {
+            shield3 = GameObject.Instantiate (shield3, new Vector3 (transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity) as GameObject;
+            player.GetComponent<RpgScript> ().dropShield3 = true;
         }
     }
     //伤害飘字函数
