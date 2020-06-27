@@ -31,7 +31,7 @@ public class ShowOff : MonoBehaviour
         bgD.SetActive(true);
         reStart.SetActive(true);
         }
-        s.setSuccess(s.getMap());//解锁地图
+        //s.setSuccess(s.getMap());//解锁地图
     }
 
 }

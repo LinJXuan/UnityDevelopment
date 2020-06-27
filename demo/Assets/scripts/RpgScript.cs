@@ -77,16 +77,14 @@ public class RpgScript : MonoBehaviour {
     private CheckEnemy checkEnemy;
     void Start () {
         
+        anim = GetComponent<Animator> ();
         consume1.image.sprite = Resources.Load<Sprite> ("sword");
         switchWeapon (true, false, false);
         switchShield (false, false, false);
         btnSWeapon = GameObject.Find ("switchWeapon");
-        btnSShield = GameObject.Find ("switchShield");
         btnSWeapon.GetComponent<Button> ().onClick.AddListener (clickSWeapon);
-        btnSShield.GetComponent<Button> ().onClick.AddListener (clickSShield);
         player = Player.getInstance ();
         attackDamage = player.getAttack ();
-        anim = GetComponent<Animator> ();
         enemyLayer = LayerMask.GetMask ("Enemy");
         healthSlider.value = GetComponent<PlayerHealth> ().playerHp;
         checkEnemy = GetComponent<CheckEnemy> ();
@@ -288,16 +286,19 @@ public class RpgScript : MonoBehaviour {
             consume1.GetComponent<Image> ().color = UnityEngine.Color.yellow;
             consume2.GetComponent<Image> ().color = UnityEngine.Color.white;
             consume3.GetComponent<Image> ().color = UnityEngine.Color.white;
+            anim.speed=2;
         }
-        if (Hammer) {
+        if (Hammer) {//大锤
             consume1.GetComponent<Image> ().color = UnityEngine.Color.white;
             consume2.GetComponent<Image> ().color = UnityEngine.Color.yellow;
             consume3.GetComponent<Image> ().color = UnityEngine.Color.white;
+            anim.speed=0.5f;
         }
-        if (Aex) {
+        if (Aex) {//斧头
             consume1.GetComponent<Image> ().color = UnityEngine.Color.white;
             consume2.GetComponent<Image> ().color = UnityEngine.Color.white;
             consume3.GetComponent<Image> ().color = UnityEngine.Color.yellow;
+            anim.speed=1;
         }
 
     }
