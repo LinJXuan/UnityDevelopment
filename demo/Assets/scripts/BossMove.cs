@@ -77,7 +77,7 @@ public class BossMove : MonoBehaviour
             if(look && !isAttacking)
             {
                 transform.LookAt(player.transform);
-                burnSkill();
+                //burnSkill();
             }
             //是否移动
             if(move)

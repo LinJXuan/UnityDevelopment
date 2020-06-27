@@ -103,7 +103,7 @@ public class RpgScript : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-        print(currentState);
+        //print(currentState);
         attackDamage = player.getAttack();
         //技能CD
         wTime += Time.deltaTime;
@@ -256,7 +256,7 @@ public class RpgScript : MonoBehaviour {
                 switchShield (true, false, false); //切换成盾牌1
                 dropShield1 = false;
                 isGetShield1 = true;
-                consume4.image.sprite = Resources.Load<Sprite> ("shieldOne1");
+                consume4.image.sprite = Resources.Load<Sprite> ("shieldone1");
                 shieldState = 1;
             }
             if (dropShield2) {
@@ -264,15 +264,15 @@ public class RpgScript : MonoBehaviour {
                 switchShield (false, true, false); //切换成盾牌2
                 dropShield2 = false;
                 isGetShield2 = true;
-                consume5.image.sprite = Resources.Load<Sprite> ("shieldOne2");
+                consume5.image.sprite = Resources.Load<Sprite> ("shieldone2");
                 shieldState = 2;
             }
             if (dropShield3) {
                 shield[2] = 1;
-                switchShield (true, false, false); //切换成盾牌3
+                switchShield (false, false, true); //切换成盾牌3
                 dropShield3 = false;
                 isGetShield3 = true;
-                consume6.image.sprite = Resources.Load<Sprite> ("shieldOne3");
+                consume6.image.sprite = Resources.Load<Sprite> ("shieldone3");
                 shieldState = 3;
             }
 

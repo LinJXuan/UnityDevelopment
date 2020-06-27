@@ -7,12 +7,12 @@ public class MoveLeft : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
 {
     private RpgScript playerState;
     private CheckEnemy checkEnemy;
-     public AudioClip walkSound; 
-    private AudioSource source;
+     //public AudioClip walkSound; 
+    //private AudioSource source;
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        source.PlayOneShot(walkSound, 1F);
+        //source.PlayOneShot(walkSound, 1F);
         checkEnemy.IsMoving(true,-1);
         playerState.setState(-1);
     }
@@ -26,7 +26,7 @@ public class MoveLeft : MonoBehaviour, IPointerUpHandler, IPointerDownHandler
     // Start is called before the first frame update
     void Start()
     {
-         source = GetComponent<AudioSource>();
+         //source = GetComponent<AudioSource>();
         playerState = GameObject.Find("RPG-Character").GetComponent<RpgScript>();
         checkEnemy = GameObject.Find("RPG-Character").GetComponent<CheckEnemy>();
     }
