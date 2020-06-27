@@ -159,21 +159,21 @@ public class EnemyController : MonoBehaviour {
             weaponAex = GameObject.Instantiate (weaponAex, new Vector3 (transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity) as GameObject;
             player.GetComponent<RpgScript> ().dropWeaponAex = true;
         }
-        if(rand >= 10&&rand<15){ //5%概率掉落武器斧头
+        if(rand >= 10&&rand<20){ //10%概率掉落武器大锤
             weaponHammer = GameObject.Instantiate (weaponHammer, new Vector3 (transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity) as GameObject;
             player.GetComponent<RpgScript> ().dropWeaponHammer = true;
         }
-        if (rand>=15&&rand<30)  //15%概率掉落武器斧头
+        if (rand>=20&&rand<30)  //10%概率掉落武器盾1
         {
             shield1 = GameObject.Instantiate (shield1, new Vector3 (transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity) as GameObject;
             player.GetComponent<RpgScript> ().dropShield1 = true;
         }
-        if (rand >=30&&rand<40)  //10%概率掉落武器斧头
+        if (rand >=30&&rand<40)  //10%概率掉落武器盾2
         {
             shield2 = GameObject.Instantiate (shield2, new Vector3 (transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity) as GameObject;
             player.GetComponent<RpgScript> ().dropShield2 = true;
         }
-        if (rand >= 40&&rand<45) //5%概率掉落武器斧头
+        if (rand >= 40&&rand<50) //10%概率掉落武器盾3
         {
             shield3 = GameObject.Instantiate (shield3, new Vector3 (transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity) as GameObject;
             player.GetComponent<RpgScript> ().dropShield3 = true;
