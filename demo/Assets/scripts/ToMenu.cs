@@ -12,6 +12,7 @@ public class ToMenu : MonoBehaviour
     }
     void OnClick()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("scene1");
     }
 
