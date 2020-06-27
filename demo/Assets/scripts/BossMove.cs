@@ -39,6 +39,7 @@ public class BossMove : MonoBehaviour
     public Animator Boos3Anim;
     public Animator Boos4Anim;
 
+    private bool isAttacking = false;
     void Start()
     {
         player = GameObject.Find("RPG-Character");
@@ -73,7 +74,7 @@ public class BossMove : MonoBehaviour
                 move=true;
             }
             //是否追踪
-            if(look)
+            if(look && !isAttacking)
             {
                 transform.LookAt(player.transform);
                 burnSkill();
@@ -234,5 +235,10 @@ public class BossMove : MonoBehaviour
                 playerHealth.TakeDamage(damage);
             }
         }
+    }
+
+    public void setIsAttacking(bool isAttacking)
+    {
+        this.isAttacking = isAttacking;
     }
 }

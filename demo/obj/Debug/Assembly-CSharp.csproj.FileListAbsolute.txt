@@ -500,3 +500,5 @@ D:\UnityEditer\UnityDevelopment\demo\obj\Debug\Assembly-CSharp.csproj.CoreCompil
 D:\UnityEditer\UnityDevelopment\demo\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\UnityEditer\UnityDevelopment\demo\obj\Debug\Assembly-CSharp.dll
 D:\UnityEditer\UnityDevelopment\demo\obj\Debug\Assembly-CSharp.pdb
+D:\UnityEditer\project\UnityDevelopment\demo\Temp\bin\Debug\DOTween.dll
+D:\UnityEditer\project\UnityDevelopment\demo\Temp\bin\Debug\DOTween.xml

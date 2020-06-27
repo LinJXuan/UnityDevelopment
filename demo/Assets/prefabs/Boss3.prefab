@@ -6098,7 +6098,7 @@ MonoBehaviour:
   Hp: 0
   attack: 0
   enemyBlood: {fileID: 8936116824599530672}
-  flaptext: {fileID: 8936116826268604900}
+  flaptext: {fileID: 0}
   flapword: {fileID: 8936116826268604898}
   weaponAex: {fileID: 7832471200335851596, guid: a4ffdb32191b8f748b3acf9fd3c1849b,
     type: 3}
@@ -6121,12 +6121,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 8990480140786897373, guid: 0d0ded4cbb4440b4397681138c8dcdf8, type: 3}
   angerValue: {fileID: 8936116825591064204}
-  Boos1Anim: {fileID: 6075090258273413993, guid: 4dd0b2c10f671ee40aaa9a0c46ac04b4,
+  Boos1Anim: {fileID: 7603314418812631749, guid: 4dd0b2c10f671ee40aaa9a0c46ac04b4,
     type: 3}
-  Boos2Anim: {fileID: 7745941583672590531, guid: 6c0088b9c2d57904797731fa6424f1db,
+  Boos2Anim: {fileID: 306125560890264688, guid: 6c0088b9c2d57904797731fa6424f1db,
     type: 3}
   Boos3Anim: {fileID: 8936116826512607539}
-  Boos4Anim: {fileID: 7387371257663558876, guid: 0047f30bdc4e31142a797e98bba7b3df,
+  Boos4Anim: {fileID: 2992918479838224926, guid: 0047f30bdc4e31142a797e98bba7b3df,
     type: 3}
 --- !u!136 &8936116826512607540
 CapsuleCollider:

@@ -96,6 +96,8 @@ public class RpgScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+
+        print(currentState);
         attackDamage = player.getAttack();
 
         //技能CD
@@ -128,7 +130,8 @@ public class RpgScript : MonoBehaviour {
                 print ("转向====> " + transform.rotation);
             }
             anim.SetBool("Walk",true);
-            transform.Translate( new Vector3(0,0,1) * speed * Time.deltaTime); 
+            transform.Translate( new Vector3(0,0,1) * speed * Time.deltaTime);
+            print(transform.localPosition);
         }
 
         if (currentState == State.right) {
