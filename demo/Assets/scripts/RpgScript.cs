@@ -76,6 +76,7 @@ public class RpgScript : MonoBehaviour
         player=Player.getInstance();
         attackDamage=player.getAttack();
         anim =GetComponent<Animator>();
+        anim.speed=2;
         enemyLayer = LayerMask.GetMask("Enemy");
         healthSlider.value=GetComponent<PlayerHealth>().playerHp;
         checkEnemy = GetComponent<CheckEnemy>();
