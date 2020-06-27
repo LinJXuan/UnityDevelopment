@@ -47,10 +47,11 @@ public class ToStatistics : MonoBehaviour
                         text.text = "恭喜你通关了！\n" + down + "秒后跳转到结算界面";
                     }
                 }
-            }
+                
             if(s.getMap()<4)
             s.setSuccess(s.getMap());
             s.setComplete(true);
+            }
         }
         if (p.getcurrentHp() == 0)
             {
