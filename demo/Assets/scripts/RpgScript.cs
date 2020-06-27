@@ -79,6 +79,8 @@ public class RpgScript : MonoBehaviour {
     public Image wCdImg;
     public Image eCdImg;
     public Image rCdImg;
+    //不同武器不同伤害倍率
+    private int damageTimes =1;
     private CheckEnemy checkEnemy;
     void Start () {
         Am=this;
@@ -100,6 +102,8 @@ public class RpgScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+
+        print(currentState);
         attackDamage = player.getAttack();
         //技能CD
         wTime += Time.deltaTime;
@@ -131,7 +135,8 @@ public class RpgScript : MonoBehaviour {
                 print ("转向====> " + transform.rotation);
             }
             anim.SetBool("Walk",true);
-            transform.Translate( new Vector3(0,0,1) * speed * Time.deltaTime); 
+            transform.Translate( new Vector3(0,0,1) * speed * Time.deltaTime);
+            print(transform.localPosition);
         }
 
         if (currentState == State.right) {
@@ -332,25 +337,25 @@ public class RpgScript : MonoBehaviour {
         weaponHammer.SetActive (Hammer);
         weaponSword.SetActive (Sword);
         if (Sword) { //设置高亮
+            damageTimes = 1;
             consume1.GetComponent<Image> ().color = UnityEngine.Color.yellow;
             consume2.GetComponent<Image> ().color = UnityEngine.Color.white;
             consume3.GetComponent<Image> ().color = UnityEngine.Color.white;
-            anim.speed=2;
-             player.setAttack(30);
+            anim.speed=1.3f;
         }
         if (Hammer) {//大锤
+            damageTimes = 3;
             consume1.GetComponent<Image> ().color = UnityEngine.Color.white;
             consume2.GetComponent<Image> ().color = UnityEngine.Color.yellow;
             consume3.GetComponent<Image> ().color = UnityEngine.Color.white;
-            anim.speed=0.5f;
-             player.setAttack(160);
+            anim.speed=0.7f;
         }
         if (Aex) {//斧头
+            damageTimes = 2;
             consume1.GetComponent<Image> ().color = UnityEngine.Color.white;
             consume2.GetComponent<Image> ().color = UnityEngine.Color.white;
             consume3.GetComponent<Image> ().color = UnityEngine.Color.yellow;
             anim.speed=1;
-             player.setAttack(60);
         }
 
     }
@@ -569,7 +574,7 @@ public class RpgScript : MonoBehaviour {
         attackRay.direction = transform.forward;
         if (Physics.Raycast (attackRay, out RaycastHit attackHit, attackRange, enemyLayer)) {
             EnemyController EnemyController = attackHit.collider.gameObject.GetComponent<EnemyController> ();
-            EnemyController.TakeDamage (attackDamage);
+            EnemyController.TakeDamage (attackDamage * damageTimes);
         }
     }
     void DeadFinshCallBack () {
@@ -594,7 +599,7 @@ public class RpgScript : MonoBehaviour {
             EnemyController controller = colliders[i].gameObject.GetComponent<EnemyController> ();
             if (controller != null) {
                 //攻击伤害为150%
-                controller.TakeDamage (attackDamage + attackDamage / 2);
+                controller.TakeDamage (attackDamage * damageTimes + attackDamage * damageTimes / 2);
             }
         }
         gameObject.transform.localPosition = finalPosition;
@@ -612,7 +617,7 @@ public class RpgScript : MonoBehaviour {
             EnemyController controller = colliders[i].gameObject.GetComponent<EnemyController> ();
             if (controller != null) {
                 //攻击伤害为2000%
-                controller.TakeDamage (attackDamage * 2);
+                controller.TakeDamage (attackDamage * damageTimes * 2);
             }
         }
     }

@@ -38,6 +38,8 @@ public class EnemyController : MonoBehaviour {
 
     private bool look = false;
 
+    //是否在攻击
+    private bool isAttacking = false;
     private BossMove bossmove;
     public AudioClip normalSound;
     public AudioClip expertSound;
@@ -50,8 +52,16 @@ public class EnemyController : MonoBehaviour {
    public AudioClip boss4Sound;
 
     private AudioSource source;  
+     private NormalMove normalMove;
+    private ExpertMove expertMove;
+    private BossMove bossMove;
     void Start () {
         source = GetComponent<AudioSource>();
+
+        //初始化怪物移动脚本
+        normalMove = gameObject.GetComponent<NormalMove>();
+        expertMove = gameObject.GetComponent<ExpertMove>();
+        bossMove = gameObject.GetComponent<BossMove>();
         anim = GetComponent<Animator> ();
         flaptext = GameObject.Find ("FlapWord");
         flaptext.SetActive (false);
@@ -59,7 +69,7 @@ public class EnemyController : MonoBehaviour {
         s = Statistic.getInstance ();
         rbody = GetComponent<Rigidbody> ();
         player = GameObject.Find ("RPG-Character");
-        playerHealth = player.GetComponent<PlayerHealth> ();
+        
         switch (transform.name[0]) {
             case 'N':
                 normal = NormalEnemy.getInstance ();
@@ -103,10 +113,6 @@ public class EnemyController : MonoBehaviour {
     }
 
     private void FixedUpdate () {
-        //追踪玩家
-        if (!look) {
-            transform.LookAt (player.transform);
-        }
 
         time += Time.deltaTime;
         if (player != null) {
@@ -114,16 +120,17 @@ public class EnemyController : MonoBehaviour {
                 float dx = Mathf.Abs (player.transform.localPosition.x - transform.localPosition.x);
                 if (dx <= attackRange) {
                     look = true;
-                    Attack ();
+                    Attack();
+                    time = 0;
                 }
             }
         }
     }
 
     public void Attack () {
-        time = 0;
         anim.SetTrigger ("Attack");
         print ("攻击====>" + attack);
+        playerHealth=player.GetComponent<PlayerHealth>();
         playerHealth.TakeDamage (attack);
         switch (transform.name[4]) {
             case 'a':
@@ -147,8 +154,54 @@ public class EnemyController : MonoBehaviour {
 
         }
        
+        if (normalMove != null)
+        {
+            normalMove.setIsAttacking(true);
+        }
+        if (expertMove != null)
+        {
+            expertMove.setIsAttacking(true);
+        }
+        if (bossMove != null)
+        {
+            bossMove.setIsAttacking(true);
+        }
+
+        Invoke("isHavePlayer", 0.8f);
     }
 
+    public void isHavePlayer()
+    {
+        Ray attackRay = new Ray();
+        attackRay.origin = transform.position;
+        attackRay.direction = transform.forward;
+        if (Physics.Raycast(attackRay, out RaycastHit attackHit, attackRange))
+        {
+            GameObject player = attackHit.collider.gameObject;
+            if(player.name== "RPG-Character")
+            {
+                playerHealth = player.GetComponent<PlayerHealth>();
+                playerHealth.TakeDamage(attack);
+            }
+        }
+        Invoke("setAttackingFalse", 1.2f);
+    }
+
+    public void setAttackingFalse()
+    {
+        if (normalMove != null)
+        {
+            normalMove.setIsAttacking(false);
+        }
+        if (expertMove != null)
+        {
+            expertMove.setIsAttacking(false);
+        }
+        if (bossMove != null)
+        {
+            bossMove.setIsAttacking(false);
+        }
+    }
     public void TakeDamage (int damage) {
         if (isDead) {
             return;
