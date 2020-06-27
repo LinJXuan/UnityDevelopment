@@ -5378,7 +5378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763e8450f3514314e9becde176dff602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 8990480140786897373, guid: 0d0ded4cbb4440b4397681138c8dcdf8, type: 3}
   angerValue: {fileID: 7603314420125819127}
   Boos1Anim: {fileID: 7603314418812631749}
   Boos2Anim: {fileID: 306125560890264688, guid: 6c0088b9c2d57904797731fa6424f1db,

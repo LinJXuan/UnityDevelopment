@@ -147,6 +147,11 @@ public class EnemyController : MonoBehaviour {
                 playerHealth.TakeDamage(attack);
             }
         }
+        Invoke("setAttackingFalse", 1.2f);
+    }
+
+    public void setAttackingFalse()
+    {
         if (normalMove != null)
         {
             normalMove.setIsAttacking(false);
