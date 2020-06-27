@@ -12,6 +12,9 @@ public class ExpertMove : MonoBehaviour
     private ExpertEnemy expert;
     private int attackRange;
     private bool move=true;
+
+    private bool isAttacking = false;
+
     //private bool escape=false;
     //private float time=5;
     void Start()
@@ -41,7 +44,7 @@ public class ExpertMove : MonoBehaviour
             //    escape=false;
             }
             //是否追踪
-            if(look)
+            if(look && !isAttacking)
             {
                 transform.LookAt(player.transform);
             }
@@ -78,5 +81,10 @@ public class ExpertMove : MonoBehaviour
             // anim.SetTrigger("Attack");     发起一次攻击
             // anim.SetTrigger("Gethit");     受到一次攻击
 
+    }
+
+    public void setIsAttacking(bool isAttacking)
+    {
+        this.isAttacking = isAttacking;
     }
 }

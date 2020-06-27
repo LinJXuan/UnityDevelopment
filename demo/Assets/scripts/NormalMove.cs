@@ -12,6 +12,7 @@ public class NormalMove : MonoBehaviour
     private Animator anim;
     private int attackRange;
     private bool move=true;
+    private bool isAttacking = false;
     void Start()
     {
         anim =GetComponent<Animator>();
@@ -36,7 +37,7 @@ public class NormalMove : MonoBehaviour
                 move=true;
             }
             //是否追踪
-            if(look)
+            if(look&&!isAttacking)
             {
                 transform.LookAt(player.transform);
             }
@@ -59,8 +60,11 @@ public class NormalMove : MonoBehaviour
                 transform.rotation = playerRotation;
 
                 position=transform.position;
-            }
-            
+            }  
+    }
 
+    public void setIsAttacking(bool isAttacking)
+    {
+        this.isAttacking = isAttacking;
     }
 }

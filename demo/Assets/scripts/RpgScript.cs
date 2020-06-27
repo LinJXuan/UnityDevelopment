@@ -76,14 +76,13 @@ public class RpgScript : MonoBehaviour {
     public Image rCdImg;
     private CheckEnemy checkEnemy;
     void Start () {
-        
+         player = Player.getInstance ();
         anim = GetComponent<Animator> ();
         consume1.image.sprite = Resources.Load<Sprite> ("sword");
         switchWeapon (true, false, false);
         switchShield (false, false, false);
         btnSWeapon = GameObject.Find ("switchWeapon");
         btnSWeapon.GetComponent<Button> ().onClick.AddListener (clickSWeapon);
-        player = Player.getInstance ();
         attackDamage = player.getAttack ();
         enemyLayer = LayerMask.GetMask ("Enemy");
         healthSlider.value = GetComponent<PlayerHealth> ().playerHp;
@@ -94,8 +93,9 @@ public class RpgScript : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        attackDamage = player.getAttack();
 
+        print(currentState);
+        attackDamage = player.getAttack();
         //技能CD
         wTime += Time.deltaTime;
         wCdImg.fillAmount = 1 - wTime / wCD;
@@ -126,7 +126,8 @@ public class RpgScript : MonoBehaviour {
                 print ("转向====> " + transform.rotation);
             }
             anim.SetBool("Walk",true);
-            transform.Translate( new Vector3(0,0,1) * speed * Time.deltaTime); 
+            transform.Translate( new Vector3(0,0,1) * speed * Time.deltaTime);
+            print(transform.localPosition);
         }
 
         if (currentState == State.right) {
@@ -287,18 +288,21 @@ public class RpgScript : MonoBehaviour {
             consume2.GetComponent<Image> ().color = UnityEngine.Color.white;
             consume3.GetComponent<Image> ().color = UnityEngine.Color.white;
             anim.speed=2;
+             player.setAttack(30);
         }
         if (Hammer) {//大锤
             consume1.GetComponent<Image> ().color = UnityEngine.Color.white;
             consume2.GetComponent<Image> ().color = UnityEngine.Color.yellow;
             consume3.GetComponent<Image> ().color = UnityEngine.Color.white;
             anim.speed=0.5f;
+             player.setAttack(160);
         }
         if (Aex) {//斧头
             consume1.GetComponent<Image> ().color = UnityEngine.Color.white;
             consume2.GetComponent<Image> ().color = UnityEngine.Color.white;
             consume3.GetComponent<Image> ().color = UnityEngine.Color.yellow;
             anim.speed=1;
+             player.setAttack(60);
         }
 
     }

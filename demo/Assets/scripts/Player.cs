@@ -4,7 +4,7 @@ public class Player : PlayerAttribute
 {
     private int levelPoint;
 
-    private static Player instance = new Player(200,100,10,10,0);
+    private static Player instance = new Player(200,100,30,10,0);
 
     public Player(int hp, int energy,int attack, int defense,int levelPoint) : base(hp,energy,attack, defense)
     {

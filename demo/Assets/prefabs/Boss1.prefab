@@ -5357,7 +5357,7 @@ MonoBehaviour:
   Hp: 0
   attack: 0
   enemyBlood: {fileID: 7603314418686950821}
-  flaptext: {fileID: 7603314418739651547}
+  flaptext: {fileID: 0}
   flapword: {fileID: 7603314418739651545}
   weaponAex: {fileID: 7832471200335851596, guid: a4ffdb32191b8f748b3acf9fd3c1849b,
     type: 3}
@@ -5381,11 +5381,11 @@ MonoBehaviour:
   player: {fileID: 0}
   angerValue: {fileID: 7603314420125819127}
   Boos1Anim: {fileID: 7603314418812631749}
-  Boos2Anim: {fileID: 7745941583672590531, guid: 6c0088b9c2d57904797731fa6424f1db,
+  Boos2Anim: {fileID: 306125560890264688, guid: 6c0088b9c2d57904797731fa6424f1db,
     type: 3}
-  Boos3Anim: {fileID: 1951489434646348974, guid: 1e63575c506a1ca49bce283cf0348051,
+  Boos3Anim: {fileID: 8936116826512607539, guid: 1e63575c506a1ca49bce283cf0348051,
     type: 3}
-  Boos4Anim: {fileID: 7387371257663558876, guid: 0047f30bdc4e31142a797e98bba7b3df,
+  Boos4Anim: {fileID: 2992918479838224926, guid: 0047f30bdc4e31142a797e98bba7b3df,
     type: 3}
 --- !u!95 &7603314418812631749
 Animator:
