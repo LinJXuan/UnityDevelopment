@@ -71,6 +71,10 @@ public class ToStatistics : MonoBehaviour
                         text.text = "你被击败了！\n" + down + "秒后跳转到结算界面";
                     }
                 }
+                p.setHp(200);
+                p.setcurrentHp(200);
+                p.setAttack(30);
+                p.setDefense(10);
                 s.setComplete(false);
             }
         if (down == 0)
