@@ -55,6 +55,7 @@ public class EnemyController : MonoBehaviour {
      private NormalMove normalMove;
     private ExpertMove expertMove;
     private BossMove bossMove;
+    public int turn;
     void Start () {
         source = GetComponent<AudioSource>();
 
@@ -69,6 +70,7 @@ public class EnemyController : MonoBehaviour {
         s = Statistic.getInstance ();
         rbody = GetComponent<Rigidbody> ();
         player = GameObject.Find ("RPG-Character");
+        turn = 0;
         
         switch (transform.name[0]) {
             case 'N':
@@ -92,6 +94,7 @@ public class EnemyController : MonoBehaviour {
                 Hp = boss.getHp ();
                 boss.setcurrentHp (Hp);
                 speed = boss.getSpeed ();
+                turn = 1;
                 break;
         }
         //enemyBlood=this.gameObject;
@@ -232,6 +235,10 @@ public class EnemyController : MonoBehaviour {
         player.GetComponent<RpgScript> ().enemyDeathPosition = transform.position;
         isDead = true;
         anim.SetBool ("Die", true);
+        if(turn == 1){
+            ToStatistics.isGo = 1;
+            turn = 0;
+        }
 
         //设置获得积分
         s.setPoint (s.getPoint () + 10);

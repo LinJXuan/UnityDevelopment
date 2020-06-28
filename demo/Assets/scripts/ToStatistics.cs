@@ -14,7 +14,11 @@ public class ToStatistics : MonoBehaviour
     public GameObject countDown;
     public Text text;
     private Player p;
+    public static int isGo;
     // Start is called before the first frame update
+    void Awake(){
+        isGo = 0;
+    }
     void Start()
     {
         s = Statistic.getInstance();
@@ -31,9 +35,10 @@ public class ToStatistics : MonoBehaviour
         //搜索当前敌人数量
         GameObject[] gos = GameObject.FindGameObjectsWithTag("Boss");
         count = gos.Length;
-        if (count > 0) { State = true; }
+        if (isGo == 1) { State = true; }
         if (State)
         {
+            isGo = 0;
             if (count == 0)
             {
                 countDown.SetActive(true);

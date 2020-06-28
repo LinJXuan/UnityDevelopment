@@ -246,7 +246,7 @@ public class RpgScript : MonoBehaviour {
             if (dropWeaponHammer) {
                 weapon[1] = 1;
                 switchWeapon (false, true, false); //切换成大锤
-                dropShield1 = false;
+                dropWeaponHammer = false;
                 isGetWeapon2 = true;
                 consume2.image.sprite = Resources.Load<Sprite> ("hammer");
                 weaponState = 1;

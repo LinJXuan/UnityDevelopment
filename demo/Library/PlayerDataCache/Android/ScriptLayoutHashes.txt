@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/Users/47802/Desktop/达拉崩吧.apk
+D:/Study/实训-三七互娱/达拉崩吧加强版.apk
 SceneListBegin?
 Assets/Scenes/Scene1.unity
 Assets/Scenes/Scene2.unity
@@ -68,8 +68,6 @@ abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.Tou
 d3c76b14a25eebd3a3323dd43297919c Unity.TextMeshPro.dll:TMPro.TMP_InputField
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.SwitchScene2
 7a8f96252ccf61fb992335394bba10d5 Unity.UIWidgets.dll:Unity.UIWidgets.engine.raycast.UIWidgetsRaycastablePanel
-71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
-71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 cf9f5cf2c3145a37ac07f00e50e460f9 UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
 507174d46dacbc5fe45e28485db5dd1e UnityEngine.UI.dll:UnityEngine.UI.Button
@@ -164,7 +162,7 @@ c277514f7b22ac651b853e50aeee6df4 Assembly-CSharp.dll:.Dialogue
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.OffShow
 704dcd31abc789439bc3f3cd10b58c2b DOTween.dll:DG.Tweening.Core.DOTweenComponent
 3043290b08d2ce331b80366f9694a5c5 DOTween.dll:DG.Tweening.Core.DOTweenSettings
-d6cfaea35940e8c00fc8f08344532921 Assembly-CSharp.dll:.EnemyController
+6607cff0e58d48755bd8b6e94b2df79f Assembly-CSharp.dll:.EnemyController
 7a8f96252ccf61fb992335394bba10d5 Unity.UIWidgets.dll:Unity.UIWidgets.engine.UIWidgetsPanel
 36714c2a9ff9551c72dfd72cbcda58d9 Assembly-CSharp.dll:.ToStatistics
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
@@ -184,6 +182,7 @@ e0ee4b3d4e27318934cc940a969d3d96 UnityEngine.Networking.dll:UnityEngine.Networki
 ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 9b895dcabbc1faf095c000c32d471fd0 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 5887ef1bc706b22b773d253fd443ceef UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
+4282543c9e26bb3eafd5823dee686978 Assembly-CSharp.dll:.Cheat
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ToMenu
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ToSameLevel
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.ToMyBag
