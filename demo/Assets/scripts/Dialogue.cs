@@ -195,12 +195,12 @@ public class Dialogue : MonoBehaviour {
                 count++;
                 break;
             case 2:
-                titleText.text = "新手村";
+                titleText.text = "打败恶龙";
                 mainText.text = "终于打败了恶龙，救回了美丽的公主";
                 count++;
                 break;
             case 3:
-                titleText.text = "新手村";
+                titleText.text = "打败恶龙";
                 mainText.text = "我们的游戏到这里就结束了，感谢你的游玩";
                 count++;
                 break;

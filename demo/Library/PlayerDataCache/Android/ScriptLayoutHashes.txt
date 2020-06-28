@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/Users/47802/Desktop/达拉崩吧.apk
+C:/Users/47802/Desktop/达拉崩吧V1.0.apk
 SceneListBegin?
 Assets/Scenes/Scene1.unity
 Assets/Scenes/Scene2.unity
